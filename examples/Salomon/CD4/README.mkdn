@@ -1,0 +1,29 @@
+This is a series of example plots and tables from a combined
+RNA-seq/ChIP-seq study on differences between naive and memory T-cell
+activation.
+
+- [p-value distributions.pdf](p-value distributions.pdf) is a series
+  of p-value histograms for each of the contrasts tested. A contrast
+  with no significant differential expression would exhibit a uniform
+  distribution, while differential expression would be reflected by an
+  excess of small p-values.
+- [FPKM by Peak Status H3K4.pdf](FPKM by Peak Status H3K4.pdf) shows
+  the variation in gene expression based on the presence or absence of
+  two histone marks in the gene promoters.
+- [promoter-edger-topgenes3-ql.xlsx](promoter-edger-topgenes3-ql.xlsx)
+  is a spreadsheet of all promoters with differential histone
+  modification in their promoters based on the ChIP-seq read counts.
+- [Promoter Peak Distance Profile.pdf](Promoter Peak Distance Profile.pdf)
+  shows the distribution of distances from transcription
+  start sites to the nearest peak for the three histone modifications
+  studied. This was used to determine the "promoter radius" for read
+  counting. Notably, the three histone marks do not all have the same
+  promoter radius.
+- [rnaseq-edgeR-vs-limma.pdf](rnaseq-edgeR-vs-limma.pdf) and
+  [rnaseq-limma-weighted-vs-uw.pdf](rnaseq-limma-weighted-vs-uw.pdf)
+  show comparisons of p-values for all genes in each contrast of the
+  RNA-seq data, comparing edgeR and limma-voom with/without sample
+  quality weights. The final choice of method was limma-voom with
+  sample quality weights.
+- [rnaseq-maplots-limma-sampleweights.pdf](rnaseq-maplots-limma-sampleweights.pdf)
+  shows the MA plot for each contrast of the RNA-seq data

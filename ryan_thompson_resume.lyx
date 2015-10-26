@@ -1,0 +1,916 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass xetexCV
+\options unicode=true
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman Minion Pro
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict true
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Flex CV Image
+status open
+
+\begin_layout Plain Layout
+headshot-crop.jpg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout CV Name
+Ryan C.
+ Thompson
+\end_layout
+
+\begin_layout Contact Address
+8656 Via Mallorca G
+\begin_inset Newline newline
+\end_inset
+
+La Jolla, CA 92037
+\end_layout
+
+\begin_layout Phone Number
+(908) 922-7470
+\end_layout
+
+\begin_layout Email
+rct@thompsonclan.org
+\end_layout
+
+\begin_layout Website
+https://github.com/DarwinAwardWinner
+\end_layout
+
+\begin_layout Section
+Summary
+\end_layout
+
+\begin_layout Itemize
+Well-rounded computational biologist with deep knowledge of biology, mathematics
+, and programming
+\end_layout
+
+\begin_layout Itemize
+8 years of bioinformatics experience answering a wide range of complex biologica
+l questions through analysis of large NGS and other data sets with a strong
+ focus on sound statistical analysis and effective data visualization and
+ presentation
+\end_layout
+
+\begin_layout Itemize
+Supportive team member with a strong ability to foster cross-disciplinary
+ literacy by explaining concepts at the right level of abstraction
+\end_layout
+
+\begin_layout Itemize
+Focus on packaging successful analysis methods into re-usable tools to improve
+ team efficiency over time
+\end_layout
+
+\begin_layout Section
+Education
+\end_layout
+
+\begin_layout Description
+The
+\begin_inset space \space{}
+\end_inset
+
+Scripps
+\begin_inset space \space{}
+\end_inset
+
+Research
+\begin_inset space \space{}
+\end_inset
+
+Institute 
+\begin_inset space \hfill{}
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Ph.
+ D.
+ in Bioinformatics, expected Spring 2016
+\end_layout
+
+\begin_layout Description
+University
+\begin_inset space \space{}
+\end_inset
+
+of
+\begin_inset space \space{}
+\end_inset
+
+Virginia 
+\begin_inset space \hfill{}
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+B.S.
+ in Biology, B.A.
+ in Mathematics, 2009 
+\end_layout
+
+\begin_layout Section
+Research Experience
+\end_layout
+
+\begin_layout Subsection
+Salomon Lab, The Scripps Research Institute 
+\begin_inset space \hfill{}
+\end_inset
+
+ La Jolla, CA
+\begin_inset space \qquad{}
+\end_inset
+
+ 2012 - 2015
+\end_layout
+
+\begin_layout Itemize
+Significantly improved machine learning classifier performance in cross-validati
+on and independent validation by developing appropriate single-sample microarray
+ normalization procedures
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kurian2014molecular"
+
+\end_inset
+
+, including training a custom set of frozen RMA normalization vectors.
+ Classifier is currently being developed into a clinical test for transplant
+ dysfunction.
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "fRMA example code & plots"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/fRMA/"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Classifier Method Write-up"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Classifier%20Math%20Write-up.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Implemented a systems biology tool to analyze and efficiently present and
+ summarize differential expression for multiple gene set & pathway methods
+ run on multiple pathway databases, as well as differential expression of
+ individual genes within each pathway.
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Presentation"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Pathways/Pathway%20Presentation.pdf"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example Results"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Pathways/Pathway%20Analysis%20Example.html"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Summary"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Pathways/Cyno%20Pathway%20Summary.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Performed comparative analysis of multiple differential expression statistical
+ models to define best practice for optimal sensitivity while maintaining
+ false positive control.
+ Presented on theoretical and practical similarities and differences between
+ methods.
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Presentation"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/DGE%20Presentation.pdf"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example plot "
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/pval-comparisons.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Analyzed large multi-omics next-gen sequencing dataset of 220 RNA-seq and
+ ChIP-seq samples to reveal interactions between differential histone methylatio
+n and differential gene expression during T-cell activation, as well as
+ key differences in activation between naïve and memory cells.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results and visualizations"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Evaluated and optimized cost and performance of custom protocol for RNA-seq
+ of human and primate blood samples while minimizing nuisance globin reads.
+ Increased yield of useful reads from 20% to 75%.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Investigated effects of life-span-extending drug on worm gene expression
+ over time.
+ Discovered that the drug retards all age-related gene expression changes,
+ showing clear preservation of youth phenotype at the molecular level.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "PCoA Plot"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim.pdf"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Contributing developer for several Bioconductor packages and active member
+ of the Bioconductor community 
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "BiocParallel"
+target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "ChIPPeakAnno"
+target "http://bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "MyGene"
+target "http://bioconductor.org/packages/release/bioc/html/mygene.html"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Support Profile"
+target "https://support.bioconductor.org/u/5618/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reference: Dr.
+ Daniel Salomon, 
+\begin_inset CommandInset href
+LatexCommand href
+name "dsalomon@scripps.edu"
+target "dsalomon@scripps.edu"
+type "mailto:"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Summer Internship, Informatics IT, Merck & Co.
+ 
+\begin_inset space \hfill{}
+\end_inset
+
+Boston, MA
+\begin_inset space \qquad{}
+\end_inset
+
+ 2011
+\end_layout
+
+\begin_layout Itemize
+Built a transcriptome assembly and quantification pipeline using Cufflinks,
+ including fully-automated cluster job control for high-throughput reproducible
+ analysis and presented a conceptual overview of Cufflinks' assembly and
+ quantification algorithms to help the team understand Cufflinks.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Presentation Slides"
+target "http://mneme.homenet.org/~ryan/resume/examples/cufflinks-presentation.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Assisted in a molecular genetics study to evaluate peformance of two variant
+ calling algorithms in detecting causal mutations in antibiotic-resistant
+ bacterial genomes.
+ 
+\end_layout
+
+\begin_layout Itemize
+Reference: Adnan Derti, 
+\begin_inset CommandInset href
+LatexCommand href
+name "adnan.derti@gmail.com"
+target "adnan.derti@gmail.com"
+type "mailto:"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Gaasterland Lab, UCSD Bioinformatcs 
+\begin_inset space \hfill{}
+\end_inset
+
+La Jolla, CA
+\begin_inset space \qquad{}
+\end_inset
+
+ 2010 - 2012
+\end_layout
+
+\begin_layout Itemize
+Designed and implemented Deloxer, a critical software step in a new Illumina
+ mate-pair sequencing protocol using Cre recombination.
+ Deloxer is published
+\begin_inset CommandInset citation
+LatexCommand cite
+key "van2011illumina"
+
+\end_inset
+
+ and now in use in several labs around the world.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Documentation"
+target "http://genomes.sdsc.edu/downloads/deloxer/index.html"
+
+\end_inset
+
+; 
+\begin_inset CommandInset href
+LatexCommand href
+name "Code"
+target "http://genomes.sdsc.edu/downloads/deloxer/delox.R"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Performed a molecular genetics study to find potential causal mutations
+ for 
+\begin_inset CommandInset href
+LatexCommand href
+name "fatal iron overload disease"
+target "https://en.wikipedia.org/wiki/Black_rhinoceros#Threats"
+
+\end_inset
+
+ in critically endangered black rhinoceros by 
+\emph on
+de novo
+\emph default
+ assembly of black rhino transcriptomes and comparison with closely-related
+ white rhino transcriptomes using Trinity.
+ Developed a custom pipeline to match up ortholog gene pairs and discover
+ and functionally annotate single-nucleotide differences between them, and
+ delivered a list of potential variants to collaborators for follow-up.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/ipi-results-small.txt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Helped design & implement a large-scale high-throughput exome sequencing
+ pipeline for SNP discovery and functional annotation, including QC and
+ validation of on-target coverage depth and reproducibility of coverage.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example 1"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/neartarget.pdf"
+
+\end_inset
+
+; 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example 2"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/on-off-coverage.pdf"
+
+\end_inset
+
+; 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example 3"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/depth-consistency.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Created a fully-automated pipeline to produce quality-control metrics and
+ plots for Illumina high-throughput sequencing data for early identification
+ of failed runs or samples.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/illumina-qc.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Investigated the binding motif specificity of ZASC1 transcription factor
+ in mouse T-cells using Affymetrix expression microarrays in ZASC1 siRNA
+ knockdown experiment.
+\end_layout
+
+\begin_layout Itemize
+Analyzed miRNA target predictions using GO & KEGG grouping to identify target
+ pathways of autophagy-related miRNAs for biological validation.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/mirna-results.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Reference: Terry Gaasterland, 
+\begin_inset CommandInset href
+LatexCommand href
+name "gaasterland@ucsd.edu"
+target "gaasterland@ucsd.edu"
+type "mailto:"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Timko Lab, U.
+ of Virginia Biology
+\begin_inset space \hfill{}
+\end_inset
+
+Charlottesville, VA
+\begin_inset space \qquad{}
+\end_inset
+
+ 2007 - 2009
+\end_layout
+
+\begin_layout Itemize
+Undergraduate thesis: Designed and implemented Contig Farmer, an algorithm
+ for efficient selective contig assembly starting from “seed” sequences
+ of interest, and used Contig Farmer to accelerate transcription factor
+ gene discovery in cowpea and tobacco shotgun genomic sequence data
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cfarmer"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Investigated transcription factors mediating plant stress response using
+ expression microarray time-course, and refined the custom microarray design
+ using data from previous runs to identify and eliminate uninformative probes,
+ yielding an improved design for future studies.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Code"
+target "http://mneme.homenet.org/~ryan/resume/examples/UVa/probe-selection.R"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Acted as interpreter to explain complex biological concepts to programmers
+ and explain complex computational problems to biologists.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Presentation Slides"
+target "http://mneme.homenet.org/~ryan/resume/examples/UVa/blast-slides.pdf"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Reference: Paul J.
+ Rushton, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Paul.Rushton@sdstate.edu"
+target "Paul.Rushton@sdstate.edu"
+type "mailto:"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Skills
+\end_layout
+
+\begin_layout Description
+Computing
+\begin_inset space ~
+\end_inset
+
+Skills R/BioConductor, Python, Perl, Lisp, Java, C#, C++, Makefiles; Git
+ version control; Remote UNIX system administration & software compilation,
+ computing cluster job management & parallel computation
+\begin_inset Newline newline
+\end_inset
+
+Public code: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/DarwinAwardWinner"
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+StackOverflow Profile: 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://stackoverflow.com/users/125921"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Description
+Statistics
+\begin_inset space ~
+\end_inset
+
+&
+\begin_inset space ~
+\end_inset
+
+Data
+\begin_inset space ~
+\end_inset
+
+Analysis Multi-omics NGS & microarray analysis, multi-factor linear and
+ generalized linear regression, experimental design and parametrization,
+ empirical Bayesian methods, predictive modeling of clinical outcomes, machine
+ learning classifier training & validation, survival analysis, data visualizatio
+n & presentation, reproducible research practices
+\end_layout
+
+\begin_layout Description
+Wet
+\begin_inset space ~
+\end_inset
+
+Lab: PCR, molecular cloning, recombinant protein purification, epitope mapping,
+ site-directed mutagenesis, 2D gels, real-time PCR, and associated data
+ analysis 
+\end_layout
+
+\begin_layout Description
+Languages: English: native; German: written and spoken
+\end_layout
+
+\begin_layout Section
+Other Work Experience
+\end_layout
+
+\begin_layout Subsection
+Computing Advisor & Help Desk, U.
+\begin_inset space \thinspace{}
+\end_inset
+
+Va.
+ IT Dept.
+ 
+\begin_inset space \hfill{}
+\end_inset
+
+Charlottesville, VA
+\begin_inset space \qquad{}
+\end_inset
+
+ 2005 - 2007 
+\end_layout
+
+\begin_layout Itemize
+Provided support via phone and in person for students, faculty, and staff
+ having problems with computers, phone system, network, viruses, hardware
+ setup, and web services
+\end_layout
+
+\begin_layout Itemize
+Tasks included support for university-provided software, virus removal,
+ iPod recovery, printer setup and repair, diagnosis of hardware malfunctions,
+ and data recovery 
+\end_layout
+
+\begin_layout Subsection
+Summer Sailing Instructor, Raritan Yacht Club
+\begin_inset space \hfill{}
+\end_inset
+
+ Perth Amboy, NJ
+\begin_inset space \qquad{}
+\end_inset
+
+ 2006 - 2009 
+\end_layout
+
+\begin_layout Itemize
+Instructed children ages 8-18 in sailing skills, safety, seamanship, knots,
+ rigging & de-rigging boats, navigation, and racing strategy and technique
+ 
+\end_layout
+
+\begin_layout Itemize
+Performed repair and maintenance on boats to keep them in working order
+ and ensure safety
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+refname}{
+\backslash
+hspace{-116pt}Writings and Publications}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "citations"
+options "plainyr-rev"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following spacing hackery puts the URL right-justified on the bottom
+ of the last page.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hspace{}
+\length -116pt
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+Online version (with links): 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://mneme.homenet.org/~ryan/resume/ryan_thompson_resume.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
