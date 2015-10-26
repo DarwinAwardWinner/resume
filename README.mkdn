@@ -1,0 +1,7 @@
+This is my résumé, built using Rob Oakes'
+[xetexCV class](http://www.oak-tree.us/blog/index.php/2009/11/25/latex-cv-part1)
+for [LaTeX](https://www.latex-project.org/) using
+[LyX](http://www.lyx.org/), along with a series of examples of my work
+that are linked to from the résumé itself. I use the
+[doit](http://pydoit.org/) build tool to build and deploy my résumé
+and supporting files to my web server.
