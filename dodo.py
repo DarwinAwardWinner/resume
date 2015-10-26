@@ -15,6 +15,11 @@ DOIT_CONFIG = {
     'default_tasks': ['publish_to_mneme'],
 }
 
+def find_mac_app(name):
+    return check_output(
+        ["mdfind",
+         "kMDItemDisplayName==%s&&kMDItemKind==Application" % (name,) ]).strip()
+
 def glob_recursive(pattern, top=".", include_hidden=False, *args, **kwargs):
     """Combination of glob.glob and os.walk.
 
@@ -29,7 +34,8 @@ os.walk."""
             if fnmatch(f, pattern):
                 yield os.path.normpath(os.path.join(path, f))
 
-LYXPATH = find_executable("lyx") or "/Applications/LyX.app/Contents/MacOS/lyx"
+LYXPATH = find_executable("lyx") or \
+    os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx")
 
 def task_lyx2pdf():
     yield {
