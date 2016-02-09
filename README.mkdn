@@ -17,5 +17,5 @@ to install a few fonts (or else switch to fonts that you have/prefer):
 3. Fontin Sans: http://www.exljbris.com/fontinsans.html
 
 Additionally, my résumé uses a slightly modified version of Rob Oakes'
-xetexCV LyX layout, which is included in this repository
+xetexCV LyX layout, which is included in this repository:
 [`xetexCV.layout`](./xetexCV.layout).
