@@ -1,7 +1,14 @@
-This is my résumé, built using Rob Oakes'
+This is my résumé, built using Rob Oakes' excellent
 [xetexCV class](http://www.oak-tree.us/blog/index.php/2009/11/25/latex-cv-part1)
 for [LaTeX](https://www.latex-project.org/) using
 [LyX](http://www.lyx.org/), along with a series of examples of my work
 that are linked to from the résumé itself. I use the
-[doit](http://pydoit.org/) build tool to build and deploy my résumé
-and supporting files to my web server.
+[doit](http://pydoit.org/) build tool to build my résumé and
+supporting files and deploy them to my web server.
+
+If you want to use this as a template for your own résumé, you'll need
+to install a few fonts (or else switch to fonts that you have/prefer):
+
+1. Minion Pro: https://typekit.com/fonts/minion-pro
+2. Fontin: http://www.exljbris.com/fontin.html
+3. Fontin Sans: http://www.exljbris.com/fontinsans.html
