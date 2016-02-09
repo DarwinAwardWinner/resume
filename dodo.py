@@ -1,11 +1,16 @@
 #!/usr/bin/env doit -f
+# -*- coding: utf-8; -*-
 
-import regex
-from fnmatch import fnmatch
-import os.path
-from subprocess import check_output
-from doit import create_after
+from collections import Iterable, Mapping  # in Python 3 use from collections.abc
 from distutils.spawn import find_executable
+from doit import create_after
+from fnmatch import fnmatch
+from kwonly import kwonly
+from subprocess import check_output
+from types import StringTypes
+import os.path
+import regex
+
 try:
     from os import scandir, walk
 except ImportError:
@@ -14,6 +19,39 @@ except ImportError:
 DOIT_CONFIG = {
     'default_tasks': ['publish_to_mneme'],
 }
+
+def unnest(*args):
+    """Un-nest list- and tuple-like elements in arguments.
+
+"List-like" means anything with a len() and whose elments can be
+accessed with numeric indexing, except for string-like elements. It
+must also be an instance of the collections.Iterable abstract class.
+Dict-like elements and iterators/generators are not affected.
+
+This function always returns a list, even if it is passed a single
+scalar argument.
+
+    """
+    result = []
+    for arg in args:
+        if isinstance(arg, StringTypes):
+            # String
+            result.append(arg)
+        elif isinstance(arg, Mapping):
+            # Dict-like
+            result.append(arg)
+        elif isinstance(arg, Iterable):
+            try:
+                # Duck-typing test for list-ness (a stricter condition
+                # that just "iterable")
+                for i in xrange(len(arg)):
+                    result.append(arg[i])
+            except TypeError:
+                # Not list-like
+                result.append(arg)
+        else:
+            result.append(arg)
+    return result
 
 def find_mac_app(name):
     return check_output(
@@ -37,6 +75,28 @@ os.walk."""
 LYXPATH = find_executable("lyx") or \
     os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx")
 
+@kwonly(0)
+def rsync_list_files(extra_rsync_args=(), include_dirs=False, *paths):
+    """Iterate over the files in path that rsync would copy.
+
+By default, only files are listed, not directories, since doit doesn't
+like dependencies on directories because it can't hash them.
+
+This uses "rsync --list-only" to make rsync directly indicate which
+files it would copy, so any exclusion/inclusion rules are taken into
+account.
+
+    """
+    rsync_list_cmd = [ 'rsync', '-r', "--list-only" ] + unnest(extra_rsync_args) + unnest(paths) + [ "." ]
+    rsync_out = check_output(rsync_list_cmd).splitlines()
+    for line in rsync_out:
+        s = regex.search("^(-|d)(?:\S+\s+){4}(.*)", line)
+        if s is not None:
+            if include_dirs or s.group(1) == '-':
+                yield s.group(2)
+
+rsync_common_args = ["-rL", "--size-only", "--delete", "--exclude", ".DS_Store", "--delete-excluded",]
+
 def task_lyx2pdf():
     yield {
         'name': None,
@@ -57,7 +117,7 @@ def task_lyx2pdf():
 def task_readme2index():
     yield {
         'name': None,
-        'doc': "Convert README.mkdn file to index.html."
+        'doc': "Convert README.mkdn files to index.html."
     }
     for mkdnfile in glob_recursive("README.mkdn", top="examples"):
         htmlfile = os.path.join(os.path.dirname(mkdnfile), "index.html")
@@ -69,27 +129,50 @@ def task_readme2index():
             'clean': True,
         }
 
-@create_after(executed='readme2index')
 def task_publish_to_mneme():
-    rsync_common_args = [
-        "rsync", "-vrL", "--size-only", "--delete",
-        "--exclude", ".DS_Store", "--delete-excluded",
-    ]
-    rsync_srcs = ["ryan_thompson_resume.pdf", "examples"]
+    yield {
+        'name': None,
+        'doc': "Sync résumé and supporting files to mneme."
+    }
+    # Resume PDF file
+    rsync_src = "ryan_thompson_resume.pdf"
     rsync_dest = "mneme:public_html/resume/"
-    # Compute file dependencies by running "rsync --list-only" and
-    # parsing the output.
-    rsync_list_cmd = rsync_common_args + rsync_srcs + [".", "--list-only"]
-    rsync_out = check_output(rsync_list_cmd).splitlines()
-    file_deps = []
-    for line in rsync_out:
-        s = regex.search("^-(?:\S+\s+){4}(.*)", line)
-        if s is not None:
-            file_deps.append(s.group(1))
-    rsync_xfer_cmd = rsync_common_args + rsync_srcs + [rsync_dest]
-    return {
+    file_deps = [rsync_src]
+    rsync_xfer_cmd = ["rsync"] + rsync_common_args + [ rsync_src, rsync_dest ]
+    yield {
+        'name': rsync_src,
         'actions': [rsync_xfer_cmd],
         'file_dep': file_deps,
-        'doc': "Sync resume and supporting files to mneme.",
+        'task_dep': [ 'lyx2pdf' ],
+        'doc': "rsync résumé PDF file to mneme.",
         'verbosity': 2,
+    }
+    # Examples directory
+    rsync_src = "examples"
+    rsync_dest = "mneme:public_html/resume/"
+    file_deps = list(rsync_list_files(rsync_src, extra_rsync_args=rsync_common_args))
+    # Ensure the generated html files are in file_deps
+    for f in file_deps:
+        if os.path.basename(f) == "README.mkdn":
+            htmlfile = os.path.join(os.path.dirname(f), "index.html")
+            if htmlfile not in file_deps:
+                file_deps.append(htmlfile)
+    file_deps = sorted(file_deps)
+    print(file_deps)
+    rsync_xfer_cmd = ["rsync"] + rsync_common_args + [ rsync_src, rsync_dest ]
+    yield {
+        'name': rsync_src,
+        'actions': [rsync_xfer_cmd],
+        'file_dep': file_deps,
+        'task_dep': [ 'readme2index' ],
+        'doc': "rsync examples directory to mneme.",
+        'verbosity': 2,
+    }
+
+# Dummy target if you just want to build everything but not publish
+def task_build():
+    return {
+        'doc': 'Build résumé and supporting files.',
+        'task_dep': [ 'lyx2pdf', 'readme2index' ],
+        'actions': [],
     }
