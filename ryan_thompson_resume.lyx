@@ -312,7 +312,14 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/pval-compa
 Analyzed large multi-omics next-gen sequencing dataset of 220 RNA-seq and
  ChIP-seq samples to reveal interactions between differential histone methylatio
 n and differential gene expression during T-cell activation, as well as
- key differences in activation between naïve and memory cells.
+ key differences in activation between naïve and memory cells 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lamere2016"
+
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
