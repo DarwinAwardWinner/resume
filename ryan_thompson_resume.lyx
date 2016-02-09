@@ -22,7 +22,7 @@
 \font_tt_scale 100
 \graphics default
 \default_output_format pdf4
-\output_sync 0
+\output_sync 1
 \bibtex_command bibtex
 \index_command default
 \paperfontsize default
@@ -118,7 +118,7 @@ Well-rounded computational biologist with deep knowledge of biology, mathematics
 \end_layout
 
 \begin_layout Itemize
-8 years of bioinformatics experience answering a wide range of complex biologica
+9 years of bioinformatics experience answering a wide range of complex biologica
 l questions through analysis of large NGS and other data sets with a strong
  focus on sound statistical analysis and effective data visualization and
  presentation
@@ -130,8 +130,8 @@ Supportive team member with a strong ability to foster cross-disciplinary
 \end_layout
 
 \begin_layout Itemize
-Focus on packaging successful analysis methods into re-usable tools to improve
- team efficiency over time
+Focus on packaging expert knowledge and successful analysis methods into
+ re-usable tools to improve team efficiency over time
 \end_layout
 
 \begin_layout Section
@@ -161,7 +161,7 @@ Institute
 
 Ph.
  D.
- in Bioinformatics, expected Spring 2016
+ in Bioinformatics, expected Fall 2016
 \end_layout
 
 \begin_layout Description
@@ -284,8 +284,16 @@ Performed comparative analysis of multiple differential expression statistical
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
-name "Presentation"
+name "RNA-seq Presentation"
 target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/DGE%20Presentation.pdf"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Advanced RNA-seq Presentation"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Advanced%20RNA-seq%20Analysis.pdf"
 
 \end_inset
 
@@ -340,8 +348,22 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/"
 \begin_layout Itemize
 Investigated effects of life-span-extending drug on worm gene expression
  over time.
- Discovered that the drug retards all age-related gene expression changes,
- showing clear preservation of youth phenotype at the molecular level.
+ Discovered that the drug retards age-related 
+\begin_inset Quotes eld
+\end_inset
+
+transcriptional drift
+\begin_inset Quotes erd
+\end_inset
+
+, preserving youthful phenotype at the molecular level.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rangarajue08833"
+
+\end_inset
+
  
 \begin_inset Newline newline
 \end_inset
@@ -355,6 +377,19 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim
 \end_inset
 
  
+\end_layout
+
+\begin_layout Itemize
+Collaborated on development of an open-source toolkit for design and RASL-seq
+ experiments.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Scott036061"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
