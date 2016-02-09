@@ -1,0 +1,241 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[xetexCV]{curriculum vitae (xetexCV)}
+# Author: Rob Oakes <LyX-Devel@oak-tree.us>
+
+# General textclass parameters
+Format 19
+Columns			1
+Sides			1
+SecNumDepth		-1
+TocDepth		-1
+
+TitleLatexName 		makecvtitle
+
+# Standard style definition
+Style Standard
+	Margin			Static
+	LatexType		Paragraph
+	LatexName		dummy
+	ParIndent		MM
+	ParSkip			0.4
+	Align			Block
+	LabelType		No_Label
+End
+
+Input stdcounters.inc
+Input stdinsets.inc
+Input stdlists.inc
+
+Style CV_Name
+	Margin                Static
+	LatexType             Command
+	Category              FrontMatter
+	InTitle               1
+	LatexName             cvname
+	ParSkip               0.4
+	ItemSep               0
+	TopSep                0
+	BottomSep             1
+	ParSep                1
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Size                Largest
+	EndFont
+End
+
+Style Institution
+	LatexName             institution
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Institution:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Contact_Address
+	LatexName             contactaddress
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Contact Address:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Phone_Number
+	LatexName             phonenumber
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Phone:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Fax_Number
+	LatexName             faxnumber
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Fax:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Email
+	LatexName             email
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Email:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Website
+	LatexName             website
+	Category              FrontMatter
+	LatexType             Command
+	InTitle               1
+	Font
+	  Size                Regular
+	EndFont
+	Margin                Dynamic
+	LeftMargin            MMN
+	RightMargin           MMN
+	Align                 Block
+	AlignPossible         Block, Left, Right, Center
+	Labeltype             Static
+	LabelString           "Website:"
+	Labelsep              M
+	LabelFont
+	  Series              Bold
+	  Size                Regular
+	EndFont
+End
+
+Style Section
+	Category              Section
+	Margin                Dynamic
+	LabelType	            Counter
+	TocLevel              1
+	LatexType             Command
+	LatexName             cvsection
+	NeedProtect           1
+	NextNoIndent          1
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                1.3
+	BottomSep             0.7
+	ParSep                0.7
+	Align                 Block
+	OptionalArgs          1
+	Font
+	  Family              Sans
+	  Size                Large
+	  Series              Bold
+	EndFont
+	TocLevel 1
+End
+
+Style Subsection
+	CopyStyle             Section
+	TocLevel              2
+	LatexName             cvsubsection
+	TopSep                0.9
+	BottomSep             0.5
+	ParSep                0.5
+	Font
+	  Family              Sans
+	  Size                Small
+	EndFont
+End
+
+InsetLayout Custom:Years
+	LyXType					custom
+	Labelstring				years
+	Decoration				classic
+	LabelFont
+		Color				collapsable
+		Size				Small
+	EndFont
+	MultiPar				false
+	LatexName				years
+	LatexType				command
+End
+
+InsetLayout Custom:CV_Image
+	LyXType					custom
+	Labelstring				cvimage
+	Align					left
+	Decoration				classic
+	LabelFont
+		Color				collapsable
+		Size				Small
+	EndFont
+	MultiPar				false
+	LatexName				cvimage
+	LatexType				command
+End
