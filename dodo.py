@@ -158,7 +158,6 @@ def task_publish_to_mneme():
             if htmlfile not in file_deps:
                 file_deps.append(htmlfile)
     file_deps = sorted(file_deps)
-    print(file_deps)
     rsync_xfer_cmd = ["rsync"] + rsync_common_args + [ rsync_src, rsync_dest ]
     yield {
         'name': rsync_src,
