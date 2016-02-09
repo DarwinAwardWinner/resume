@@ -3,7 +3,6 @@
 
 from collections import Iterable, Mapping  # in Python 3 use from collections.abc
 from distutils.spawn import find_executable
-from doit import create_after
 from fnmatch import fnmatch
 from kwonly import kwonly
 from subprocess import check_output
