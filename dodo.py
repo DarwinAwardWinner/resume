@@ -132,7 +132,7 @@ def task_readme2index():
 def task_publish_to_mneme():
     yield {
         'name': None,
-        'doc': "Sync résumé and supporting files to mneme."
+        'doc': "Sync resume and supporting files to mneme."
     }
     # Resume PDF file
     rsync_src = "ryan_thompson_resume.pdf"
@@ -144,7 +144,7 @@ def task_publish_to_mneme():
         'actions': [rsync_xfer_cmd],
         'file_dep': file_deps,
         'task_dep': [ 'lyx2pdf' ],
-        'doc': "rsync résumé PDF file to mneme.",
+        'doc': "rsync resume PDF file to mneme.",
         'verbosity': 2,
     }
     # Examples directory
@@ -172,7 +172,7 @@ def task_publish_to_mneme():
 # Dummy target if you just want to build everything but not publish
 def task_build():
     return {
-        'doc': 'Build résumé and supporting files.',
+        'doc': 'Build resume and supporting files.',
         'task_dep': [ 'lyx2pdf', 'readme2index' ],
         'actions': [],
     }
