@@ -51,6 +51,7 @@ def task_lyx2pdf():
             'file_dep': [lyxfile],
             'targets': [pdffile],
             'verbosity': 0,
+            'clean': True,
         }
 
 def task_readme2index():
@@ -65,6 +66,7 @@ def task_readme2index():
             'actions': [["pandoc", "-t", "html", "-o", htmlfile, mkdnfile]],
             'file_dep': [mkdnfile],
             'targets': [htmlfile],
+            'clean': True,
         }
 
 @create_after(executed='readme2index')
