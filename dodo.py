@@ -48,7 +48,7 @@ def task_lyx2pdf():
         yield {
             'name': lyxfile,
             'actions': [lyx_cmd],
-            'file_dep': [lyxfile],
+            'file_dep': [lyxfile] + list(glob_recursive('*.bib')),
             'targets': [pdffile],
             'verbosity': 0,
             'clean': True,
