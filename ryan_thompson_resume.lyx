@@ -119,9 +119,9 @@ Well-rounded computational biologist with deep knowledge of biology, mathematics
 
 \begin_layout Itemize
 9 years of bioinformatics experience answering a wide range of complex biologica
-l questions through analysis of large NGS and other data sets with a strong
- focus on sound statistical analysis and effective data visualization and
- presentation
+l questions through analysis of large NGS- and microarray-based whole transcript
+ome and epigenetic data sets with a strong focus on sound statistical analysis
+ and effective data visualization and presentation
 \end_layout
 
 \begin_layout Itemize
@@ -131,7 +131,8 @@ Supportive team member with a strong ability to foster cross-disciplinary
 
 \begin_layout Itemize
 Focus on packaging expert knowledge and successful analysis methods into
- re-usable tools to improve team efficiency over time
+ re-usable software tools to share best practices and improve team efficiency
+ over time
 \end_layout
 
 \begin_layout Section
@@ -183,7 +184,11 @@ Virginia
 
 B.S.
  in Biology, B.A.
- in Mathematics, 2009 
+ in Mathematics, 2009
+\begin_inset Newline newline
+\end_inset
+
+Echols Scholar
 \end_layout
 
 \begin_layout Section
@@ -277,7 +282,8 @@ Performed comparative analysis of multiple differential expression statistical
  models to define best practice for optimal sensitivity while maintaining
  false positive control.
  Presented on theoretical and practical similarities and differences between
- methods.
+ methods in lab meeting and in seminars at Merck and BMS bioinformatics
+ departments.
 \begin_inset Newline newline
 \end_inset
 
@@ -354,8 +360,7 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/"
 
 \begin_layout Itemize
 Investigated effects of life-span-extending drug on worm gene expression
- over time.
- Discovered that the drug retards age-related 
+ over time revealing that the drug retards age-related 
 \begin_inset Quotes eld
 \end_inset
 
@@ -387,12 +392,33 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim
 \end_layout
 
 \begin_layout Itemize
-Collaborated on development of an open-source toolkit for design and RASL-seq
+Identified normalization methods from other problem domains that improved
+ performance of an open-source toolkit for design and analysis of RASL-seq
  experiments.
  
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scott036061"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Performed a comprehensive comparitive evaluation of over 20 subtly different
+ statistical models for differential methylation in Illumina 450k arrays,
+ settling on a model that best explained the observed sources and trends
+ of variation in the data, including cross-domain application of a method
+ originally designed for RNA-seq data.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example diagnostic plots"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/450k/"
 
 \end_inset
 
@@ -840,7 +866,7 @@ Va.
 \begin_inset space \hfill{}
 \end_inset
 
-Charlottesville, VA
+ Charlottesville, VA 
 \begin_inset space \qquad{}
 \end_inset
 
@@ -849,22 +875,22 @@ Charlottesville, VA
 
 \begin_layout Itemize
 Provided support via phone and in person for students, faculty, and staff
- having problems with computers, phone system, network, viruses, hardware
- setup, and web services
+ having problems with computers, phone system, network access, malware,
+ hardware setup, and university web services
 \end_layout
 
 \begin_layout Itemize
 Tasks included support for university-provided software, virus removal,
  iPod recovery, printer setup and repair, diagnosis of hardware malfunctions,
- and data recovery 
+ and data recovery from failing hard disks
 \end_layout
 
 \begin_layout Subsection
-Summer Sailing Instructor, Raritan Yacht Club
+Summer Sailing Instructor, Raritan Yacht Club 
 \begin_inset space \hfill{}
 \end_inset
 
- Perth Amboy, NJ
+ Perth Amboy, NJ 
 \begin_inset space \qquad{}
 \end_inset
 
@@ -873,13 +899,33 @@ Summer Sailing Instructor, Raritan Yacht Club
 
 \begin_layout Itemize
 Instructed children ages 8-18 in sailing skills, safety, seamanship, knots,
- rigging & de-rigging boats, navigation, and racing strategy and technique
- 
+ rigging & de-rigging boats, navigation, and racing strategy and technique,
+ with an emphasis on building character and self-reliance
 \end_layout
 
 \begin_layout Itemize
-Performed repair and maintenance on boats to keep them in working order
- and ensure safety
+Ensured safety of students and staff by maintaining boats and equipment
+ in good repair, being vigilant to traffic and hazards on a busy waterway,
+ and communicating and coordinating efficiently with other staff
+\end_layout
+
+\begin_layout Itemize
+Helped organize, run, and referee several regattas per season for students
+ from RYC and neighboring yacht clubs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+The following command changes the title of the bibliography and also un-does
+ the indentation of it
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
