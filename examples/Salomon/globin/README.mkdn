@@ -3,11 +3,11 @@
 This is a pair of spreadsheets summarizing the globin-reducing
 properties of an experimental RNA-seq protocol.
 
-- [method-select.xlsx](method-select.xlsx) shows the results for
+- [`method-select.xlsx`](method-select.xlsx) shows the results for
   several different methods of globin reduction. The most important
   column is "Non-HB", which represents the fraction of total reads
   that map to non-globin genes.
-- [concentration-select.xlsx](concentration-select.xlsx) shows the
+- [`concentration-select.xlsx`](concentration-select.xlsx) shows the
   results of selecting the best globin blocking method and optimizing
   the concentration of blockers as well as the number of
   hybridizations.
@@ -17,17 +17,17 @@ properties of an experimental RNA-seq protocol.
 This is a series of example plots for evaluation of a similar globin
 reduction protocol that was designed for cynomolgus monkeys.
 
-- [BCVplots.pdf](BCVplots.pdf) and [corrplot.pdf](corrplot.pdf) show,
-  respectively, that the biological coefficient of variation is not
-  increased, and the sample-to-sample correlation is not decreased, by
-  the globin reduction protocol.
-- [cyno-vs-hg19.pdf](cyno-vs-hg19.pdf) shows excellent correlation
+- [`BCVplots.pdf`](BCVplots.pdf) and [`corrplot.pdf`](corrplot.pdf)
+  show, respectively, that the biological coefficient of variation is
+  not increased, and the sample-to-sample correlation is not
+  decreased, by the globin reduction protocol.
+- [`cyno-vs-hg19.pdf`](cyno-vs-hg19.pdf) shows excellent correlation
   between total read counts on the cyno and human genomes, indicating
   that the cyno annotation is reasonably complete.
-- [maplot.pdf](maplot.pdf) shows an MA plot of the effects of globin
+- [`maplot.pdf`](maplot.pdf) shows an MA plot of the effects of globin
   reduction. Notably, there are real and significant effects on
   non-globin genes, but they are consistent and predictable.
-- [pval-comparisons.pdf](pval-comparisons.pdf) shows the comparison
+- [`pval-comparisons.pdf`](pval-comparisons.pdf) shows the comparison
   between p-values from edgeR, limma-voom, and DESeq2 on the exact
   same differential expression test. Surprisingly, despite the
   significant algorithmic differences, edgeR and limma are in quite
