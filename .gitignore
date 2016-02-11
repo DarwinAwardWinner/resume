@@ -1,3 +1,6 @@
+# Build status cache file
 .doit*
+
+# Auto-generated files
 index.html
 /ryan_thompson_resume.pdf
