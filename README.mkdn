@@ -16,6 +16,9 @@ to install a few fonts (or else switch to fonts that you have/prefer):
 2. Fontin: http://www.exljbris.com/fontin.html
 3. Fontin Sans: http://www.exljbris.com/fontinsans.html
 
-Additionally, my résumé uses a slightly modified version of Rob Oakes'
-xetexCV LyX layout, which is included in this repository:
-[`xetexCV.layout`](./xetexCV.layout).
+Additionally, my résumé uses slightly modified versions of the xetexCV
+document class ([`xetexCV.cls`](./xetexCV.cls)) and LyX layout
+([`xetexCV.layout`](./xetexCV.layout)), which are included in this
+repository as. You may need to install these files to the appropriate
+locations for LaTeX and LyX, respectively in order for the resume pdf
+to build properly.
