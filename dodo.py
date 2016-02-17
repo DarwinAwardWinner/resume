@@ -53,9 +53,12 @@ scalar argument.
     return result
 
 def find_mac_app(name):
-    return check_output(
-        ["mdfind",
-         "kMDItemDisplayName==%s&&kMDItemKind==Application" % (name,) ]).strip()
+    try:
+        return check_output(
+            ["mdfind",
+             "kMDItemDisplayName==%s&&kMDItemKind==Application" % (name,) ]).strip()
+    except Exception:
+        return None
 
 def glob_recursive(pattern, top=".", include_hidden=False, *args, **kwargs):
     """Combination of glob.glob and os.walk.
@@ -72,7 +75,8 @@ os.walk."""
                 yield os.path.normpath(os.path.join(path, f))
 
 LYXPATH = find_executable("lyx") or \
-    os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx")
+    os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx") or \
+    '/bin/false'
 
 @kwonly(0)
 def rsync_list_files(extra_rsync_args=(), include_dirs=False, *paths):
@@ -107,6 +111,8 @@ def task_lyx2pdf():
         yield {
             'name': lyxfile,
             'actions': [lyx_cmd],
+            # Assume every bib file is a dependency of any LaTeX
+            # operation
             'file_dep': [lyxfile] + list(glob_recursive('*.bib')),
             'targets': [pdffile],
             'verbosity': 0,
