@@ -89,7 +89,11 @@ Ryan C.
 \end_layout
 
 \begin_layout Contact Address
-8656 Via Mallorca G
+8656 Via Mallorca
+\begin_inset Newline newline
+\end_inset
+
+Unit G
 \begin_inset Newline newline
 \end_inset
 
@@ -120,8 +124,12 @@ Well-rounded computational biologist with deep knowledge of biology, mathematics
 \begin_layout Itemize
 9 years of bioinformatics experience answering a wide range of complex biologica
 l questions through analysis of large NGS- and microarray-based whole transcript
-ome and epigenetic data sets with a strong focus on sound statistical analysis
- and effective data visualization and presentation
+ome and epigenetic data sets 
+\end_layout
+
+\begin_layout Itemize
+Strong focus on sound statistical analysis and effective data visualization
+ and presentation
 \end_layout
 
 \begin_layout Itemize
