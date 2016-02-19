@@ -16,7 +16,7 @@ except ImportError:
     from scandir import scandir, walk
 
 DOIT_CONFIG = {
-    'default_tasks': ['publish_to_mneme'],
+    'default_tasks': ['publish'],
 }
 
 def unnest(*args):
@@ -134,10 +134,10 @@ def task_readme2index():
             'clean': True,
         }
 
-def task_publish_to_mneme():
+def task_publish():
     yield {
         'name': None,
-        'doc': "Sync resume and supporting files to mneme."
+        'doc': "Sync resume and supporting files to my web server."
     }
     # Resume PDF file
     rsync_src = "ryan_thompson_resume.pdf"
@@ -149,7 +149,7 @@ def task_publish_to_mneme():
         'actions': [rsync_xfer_cmd],
         'file_dep': file_deps,
         'task_dep': [ 'lyx2pdf' ],
-        'doc': "rsync resume PDF file to mneme.",
+        'doc': "rsync resume PDF file to my web server.",
         'verbosity': 2,
     }
     # Examples directory
@@ -169,7 +169,7 @@ def task_publish_to_mneme():
         'actions': [rsync_xfer_cmd],
         'file_dep': file_deps,
         'task_dep': [ 'readme2index' ],
-        'doc': "rsync examples directory to mneme.",
+        'doc': "rsync examples directory to my web server.",
         'verbosity': 2,
     }
 
