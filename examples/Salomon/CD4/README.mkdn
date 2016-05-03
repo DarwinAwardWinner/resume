@@ -1,6 +1,9 @@
 This is a series of example plots and tables from a combined
 RNA-seq/ChIP-seq study on differences between naive and memory T-cell
-activation.
+activation. You can view the (old and messy) code for these plots
+[here][1].
+
+[1]: https://github.com/DarwinAwardWinner/cd4-histone-paper-code
 
 - [`p-value distributions.pdf`](p-value distributions.pdf) is a series
   of p-value histograms for each of the contrasts tested. A contrast
@@ -19,6 +22,11 @@ activation.
   studied. This was used to determine the "promoter radius" for read
   counting. Notably, the three histone marks do not all have the same
   promoter radius.
+- [`rnaseq-MDSPlots.pdf`](rnaseq-MDSPlots.pdf) shows a series of MDS
+  plots (similar to PCA plots) before and after correction of a known
+  batch effect. Note the implausible zigzag-shaped progression over
+  time before correction, compared to the more plausible cyclic time
+  progression after.
 - [`rnaseq-edgeR-vs-limma.pdf`](rnaseq-edgeR-vs-limma.pdf) and
   [`rnaseq-limma-weighted-vs-uw.pdf`](rnaseq-limma-weighted-vs-uw.pdf)
   show comparisons of p-values for all genes in each contrast of the
@@ -27,3 +35,31 @@ activation.
   sample quality weights.
 - [`rnaseq-maplots-limma-sampleweights.pdf`](rnaseq-maplots-limma-sampleweights.pdf)
   shows the MA plot for each contrast of the RNA-seq data
+
+
+There are also some plots from an in-progress analysis of the same
+data based on sliding windows, rather than just analyzing promoter
+regions. You can view the code for generating these plots [here][2].
+
+[2]: https://github.com/DarwinAwardWinner/CD4-csaw
+
+- [`CCF-plots.pdf`](CCF-plots.pdf) shows the cross-correlation
+  functions of several different histone marks, at several different
+  levels of smoothing. This plot is used to determine the fragment
+  size.
+- [`site-profile-plots.pdf`](site-profile-plots.pdf) shows plots of
+  the relative coverage depth profiles around local coverage maxima.
+  This plot is used to determine the footprint size of the protein
+  being imunoprecipitated. Since this is histone mark data, the
+  footprint size should match the size of a nucleosome, about 147 bp.
+- [`H3K4me3-window-abundance-vs-peaks.pdf`](H3K4me3-window-abundance-vs-peaks.pdf)
+  shows the association between peak overlap status and abundance for
+  all windows in the genome. As expected, windows that overlap a
+  called peak tend to have a higher abundance than other windows.
+- [`H3K4me3 Selected Sample 10KB Bin MA Plots.pdf`](H3K4me3 Selected
+  Sample 10KB Bin MA Plots.pdf) shows selected MA plots between
+  samples demonstrating the effects of several different potential
+  normalization methods.
+- [`H3K4me3-normfactors.pdf`](H3K4me3-normfactors.pdf) shows the
+  associations between normalization factor and experimental variables
+  for several different normalization methods.
