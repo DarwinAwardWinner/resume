@@ -36,17 +36,21 @@ activation. You can view the (old and messy) code for these plots
 - [`rnaseq-maplots-limma-sampleweights.pdf`](rnaseq-maplots-limma-sampleweights.pdf)
   shows the MA plot for each contrast of the RNA-seq data
 
-
 There are also some plots from an in-progress analysis of the same
 data based on sliding windows, rather than just analyzing promoter
-regions. You can view the code for generating these plots [here][2].
+regions. You can view the code for generating these plots [here][2],
+and you can view some presentation slides based on this analysis
+[here][3].
 
 [2]: https://github.com/DarwinAwardWinner/CD4-csaw
+[3]:
 
 - [`CCF-plots.pdf`](CCF-plots.pdf) shows the cross-correlation
   functions of several different histone marks, at several different
   levels of smoothing. This plot is used to determine the fragment
-  size.
+  size. You can also observe from the periodic wave-like pattern that
+  multiple adjacent histones tend to share the same histone
+  modification.
 - [`site-profile-plots.pdf`](site-profile-plots.pdf) shows plots of
   the relative coverage depth profiles around local coverage maxima.
   This plot is used to determine the footprint size of the protein

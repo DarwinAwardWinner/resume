@@ -362,7 +362,15 @@ key "lamere2016"
 \begin_inset Newline newline
 \end_inset
 
-Link: 
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Slides"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/ChIP-Seq%20presentation.pdf"
+
+\end_inset
+
+, 
 \begin_inset CommandInset href
 LatexCommand href
 name "Example results and visualizations"
