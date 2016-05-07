@@ -98,7 +98,8 @@ account.
             if include_dirs or s.group(1) == '-':
                 yield s.group(2)
 
-rsync_common_args = ["-rL", "--size-only", "--delete", "--exclude", ".DS_Store", "--delete-excluded",]
+rsync_common_args = ["-rL", "--size-only", "--delete", "--delete-excluded",
+                     "--exclude", ".DS_Store", "--exclude", ".#*" ]
 
 def task_lyx2pdf():
     yield {
