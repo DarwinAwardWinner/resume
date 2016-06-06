@@ -331,8 +331,8 @@ Taught basic RNA-seq theory and practical analysis for the graduate-level
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
-name "Slides"
-target "http://mneme.homenet.org/~ryan/ABCB_Lab/presentation.pdf"
+name "Lecture Slides"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Teaching/RNA-Seq Lecture.pdf"
 
 \end_inset
 
@@ -340,7 +340,7 @@ target "http://mneme.homenet.org/~ryan/ABCB_Lab/presentation.pdf"
 \begin_inset CommandInset href
 LatexCommand href
 name "Hands-on lab section"
-target "http://mneme.homenet.org/~ryan/ABCB_Lab/RNA-Seq.html"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Teaching/RNA-Seq Lab.html"
 
 \end_inset
 
