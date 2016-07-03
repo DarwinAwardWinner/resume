@@ -42,13 +42,14 @@ scalar argument.
         elif isinstance(arg, Iterable):
             try:
                 # Duck-typing test for list-ness (a stricter condition
-                # that just "iterable")
+                # than just "iterable")
                 for i in xrange(len(arg)):
                     result.append(arg[i])
             except TypeError:
-                # Not list-like
+                # Iterable but not list-like
                 result.append(arg)
         else:
+            # Not iterable
             result.append(arg)
     return result
 
