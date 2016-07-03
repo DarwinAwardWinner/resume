@@ -1,5 +1,7 @@
 # Build status cache file
 .doit*
+# Snakemake cache
+.snakemake
 
 # Auto-generated files
 index.html
