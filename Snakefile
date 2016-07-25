@@ -1,22 +1,20 @@
 # -*- coding: utf-8; -*-
 
+import locale
+import os.path
+import regex
+
 from collections import Iterable, Mapping  # in Python 3 use from collections.abc
 from distutils.spawn import find_executable
 from fnmatch import fnmatch
 from kwonly import kwonly
 from subprocess import check_output, check_call
-import os.path
-import regex
-import locale
+from tempfile import NamedTemporaryFile
 
 try:
     from os import scandir, walk
 except ImportError:
     from scandir import scandir, walk
-
-DOIT_CONFIG = {
-    'default_tasks': ['publish'],
-}
 
 def unnest(*args):
     """Un-nest list- and tuple-like elements in arguments.
@@ -53,13 +51,14 @@ scalar argument.
     return result
 
 def check_output_decode(*args, encoding=locale.getpreferredencoding(), **kwargs):
+    """Shortcut for check.output + str.decode"""
     return check_output(*args, **kwargs).decode(encoding)
 
 def find_mac_app(name):
     try:
         return check_output_decode(
             ["mdfind",
-             "kMDItemDisplayName==%s&&kMDItemKind==Application" % (name,) ]).strip()
+             "kMDItemDisplayName=={name}&&kMDItemKind==Application".format(name=name)]).split("\n")[0]
     except Exception:
         return None
 

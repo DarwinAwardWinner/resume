@@ -57,7 +57,7 @@ def find_mac_app(name):
     try:
         return check_output(
             ["mdfind",
-             "kMDItemDisplayName==%s&&kMDItemKind==Application" % (name,) ]).strip()
+             "kMDItemDisplayName=={name}&&kMDItemKind==Application".format(name=name)]).split("\n")[0]
     except Exception:
         return None
 
