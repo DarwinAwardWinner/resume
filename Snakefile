@@ -122,22 +122,33 @@ rsync_dest = "mneme:public_html/resume/"
 rule build_all:
     input: "ryan_thompson_resume.pdf", index_files
 
-rule create_resume:
+rule create_resume_pdf:
     input: lyxfile="ryan_thompson_resume.lyx", bibfile="citations.bib", headshot="headshot-crop.jpg"
     output: pdf="ryan_thompson_resume.pdf"
+    shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
+
+rule create_resume_html:
+    input: lyxfile="ryan_thompson_resume.lyx", bibfile="citations.bib", headshot="headshot-crop.jpg"
+    output: html="ryan_thompson_resume.html"
     run:
-        lyx_cmd = [LYXPATH, "--export-to", "pdf4" , output.pdf, input.lyxfile]
-        check_call(lyx_cmd)
+        with NamedTemporaryFile() as tempf:
+            shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
+            shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
+
+rule link_resume_to_index_html:
+    input: 'ryan_thompson_resume.html'
+    output: 'index.html'
+    shell: 'ln -s {input:q} {output:q}'
 
 rule readme_to_index_html:
     input: "{dirname}/README.mkdn"
     output: "{dirname}/index.html"
-    run:
-        check_call(["pandoc", "-t", "html", "-o", output[0], input[0]])
-
+    shell: 'pandoc -t html -o {output[0]:q} {input[0]:q}'
 
 rule publish:
-    input: pdf='ryan_thompson_resume.pdf', examples=all_example_files
-    run:
-        cmd = unnest("rsync", "--info=progress2", rsync_common_args, 'ryan_thompson_resume.pdf', 'examples', rsync_dest)
-        check_call(cmd)
+    input: roots=('ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', 'index.html', 'examples', 'headshot-crop.jpg'),
+           others=all_example_files
+    shell: '''
+    rsync --info=progress2 {rsync_common_args:q} \
+      {input.roots:q} {rsync_dest:q}
+    '''
