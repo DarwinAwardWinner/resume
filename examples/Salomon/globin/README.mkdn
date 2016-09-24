@@ -24,9 +24,6 @@ reduction protocol that was designed for cynomolgus monkeys.
 - [`cyno-vs-hg19.pdf`](cyno-vs-hg19.pdf) shows excellent correlation
   between total read counts on the cyno and human genomes, indicating
   that the cyno annotation is reasonably complete.
-- [`maplot.pdf`](maplot.pdf) shows an MA plot of the effects of globin
-  reduction. Notably, there are real and significant effects on
-  non-globin genes, but they are consistent and predictable.
 - [`pval-comparisons.pdf`](pval-comparisons.pdf) shows the comparison
   between p-values from edgeR, limma-voom, and DESeq2 on the exact
   same differential expression test. Surprisingly, despite the
@@ -34,3 +31,19 @@ reduction protocol that was designed for cynomolgus monkeys.
   close agreement. DESeq2 id overly liberal because it does not
   account for the negative estimation bias in negative-binomial
   dispersions.
+
+# Publication plots
+
+These are the figures from an upcoming publication on the developed
+globin blocking method.
+
+- [Figure 1](figure1 - globin-fractions.pdf): Globin blocking (GB)
+  substantially increases yield and consistency of non-globin reads.
+- [Figure 2](figure2 - aveLogCPM-colored.pdf): GB lowers the noise
+  floor and increases the distance between noise floor and signal.
+- [Figrue 3](figure3 - detection.pdf): GB allows detection of more
+  genes at any abundance threshold.
+- [Figure 4](figure4 - maplot-colored.pdf): GB has small but
+  systematic effects on other genes' measured expression levels.
+- [Figure 5](figure5 - corrplot.pdf): GB Significantly increases
+  correlation between libraries.
