@@ -218,6 +218,82 @@ Salomon Lab, The Scripps Research Institute
 \end_layout
 
 \begin_layout Itemize
+Created a reproducible workflow to analyze a large multi-omics next-gen
+ sequencing dataset of 220 RNA-seq and ChIP-seq samples to reveal interactions
+ between differential histone methylation and differential gene expression
+ during T-cell activation, as well as key differences in activation between
+ naïve and memory cells 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lamere2016"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Reproducible workflow"
+target "https://github.com/DarwinAwardWinner/CD4-csaw#re-analysis-of-a-combined-chip-seq--rna-seq-data-set"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Slides"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/ChIP-Seq%20presentation.pdf"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results and visualizations"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Investigated effects of life-span-extending drug on worm gene expression
+ over time revealing that the drug retards age-related 
+\begin_inset Quotes eld
+\end_inset
+
+transcriptional drift
+\begin_inset Quotes erd
+\end_inset
+
+, preserving a youthful phenotype at the molecular level.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rangarajue08833"
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "PCoA Plot"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim.pdf"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
 Significantly improved machine learning classifier performance in cross-validati
 on and independent validation by developing appropriate single-sample microarray
  normalization procedures
@@ -246,6 +322,33 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/fRMA/"
 LatexCommand href
 name "Classifier Method Write-up"
 target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Classifier%20Math%20Write-up.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Developed custom animated visualizations to reveal difficult-to-detect patterns
+ that were not visible in static plots for a time course of 250 RNA-seq
+ samples following 33 cynomolgus monkeys receiving kidney grafts and an
+ experimental anti-rejection treatment.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Animated PCA plot"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/cyno/PCoA_Animated_Spline_Interp_DaysPreNecropsy.mp4"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Static PCA plot"
+target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/cyno/PCoA_Static.pdf"
 
 \end_inset
 
@@ -292,8 +395,7 @@ Performed comparative analysis of multiple differential expression statistical
  models to define best practice for optimal sensitivity while maintaining
  false positive control.
  Presented on theoretical and practical similarities and differences between
- methods in lab meeting and in seminars at Merck and BMS bioinformatics
- departments.
+ methods.
 \begin_inset Newline newline
 \end_inset
 
@@ -350,40 +452,6 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Teaching/RNA-Seq 
 \end_layout
 
 \begin_layout Itemize
-Analyzed large multi-omics next-gen sequencing dataset of 220 RNA-seq and
- ChIP-seq samples to reveal interactions between differential histone methylatio
-n and differential gene expression during T-cell activation, as well as
- key differences in activation between naïve and memory cells 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lamere2016"
-
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-Links: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Slides"
-target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/ChIP-Seq%20presentation.pdf"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "Example results and visualizations"
-target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/CD4/"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 Evaluated and optimized cost and performance of custom protocol for RNA-seq
  of human and primate blood samples while minimizing nuisance globin reads.
  Increased yield of useful reads nearly 2-fold.
@@ -410,41 +478,8 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/"
 \end_layout
 
 \begin_layout Itemize
-Investigated effects of life-span-extending drug on worm gene expression
- over time revealing that the drug retards age-related 
-\begin_inset Quotes eld
-\end_inset
-
-transcriptional drift
-\begin_inset Quotes erd
-\end_inset
-
-, preserving youthful phenotype at the molecular level.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rangarajue08833"
-
-\end_inset
-
- 
-\begin_inset Newline newline
-\end_inset
-
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "PCoA Plot"
-target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim.pdf"
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Identified normalization methods from other problem domains that improved
- performance in analysis of RASL-seq experiments.
+Adapted normalization methods from other RNA-seq to improve performance
+ in analysis of RASL-seq experiments.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -546,7 +581,7 @@ Boston, MA
 \begin_layout Itemize
 Built a transcriptome assembly and quantification pipeline using Cufflinks,
  including fully-automated cluster job control for high-throughput reproducible
- analysis and presented a conceptual overview of Cufflinks' assembly and
+ analysis, and presented a conceptual overview of Cufflinks' assembly and
  quantification algorithms to help the team understand Cufflinks.
 \begin_inset Newline newline
 \end_inset
@@ -564,9 +599,8 @@ target "http://mneme.homenet.org/~ryan/resume/examples/cufflinks-presentation.pd
 
 \begin_layout Itemize
 Assisted in a molecular genetics study to evaluate peformance of two variant
- calling algorithms in detecting causal mutations in antibiotic-resistant
+ calling algorithms in detection of causal mutations in antibiotic-resistant
  bacterial genomes.
- 
 \end_layout
 
 \begin_layout Itemize
@@ -840,9 +874,9 @@ Computing
 \begin_inset space ~
 \end_inset
 
-Skills R/BioConductor, Python, Perl, Lisp, Java, C#, C++, Makefiles; Git
- version control; Remote UNIX system administration & software compilation,
- computing cluster job management & parallel computation
+Skills R/BioConductor, Python, Perl, Lisp, Java, C#, C++; Git version control;
+ Remote UNIX system administration & software compilation, computing cluster
+ job management & parallel computation
 \begin_inset Newline newline
 \end_inset
 
