@@ -43,14 +43,14 @@ and you can view some presentation slides based on this analysis
 [here][3].
 
 [2]: https://github.com/DarwinAwardWinner/CD4-csaw
-[3]:
+[3]: ./ChIP-Seq presentation.pdf
 
 - [`CCF-plots.pdf`](CCF-plots.pdf) shows the cross-correlation
   functions of several different histone marks, at several different
   levels of smoothing. This plot is used to determine the fragment
-  size. You can also observe from the periodic wave-like pattern that
-  multiple adjacent histones tend to share the same histone
-  modification.
+  size. You can also observe from the periodic wave-like pattern,
+  indicating that multiple adjacent histones tend to share the same
+  histone modification.
 - [`site-profile-plots.pdf`](site-profile-plots.pdf) shows plots of
   the relative coverage depth profiles around local coverage maxima.
   This plot is used to determine the footprint size of the protein
