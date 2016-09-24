@@ -7,7 +7,6 @@ import regex
 from collections import Iterable, Mapping  # in Python 3 use from collections.abc
 from distutils.spawn import find_executable
 from fnmatch import fnmatch
-from kwonly import kwonly
 from subprocess import check_output, check_call
 from tempfile import NamedTemporaryFile
 
@@ -80,8 +79,7 @@ LYXPATH = find_executable("lyx") or \
     os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx") or \
     '/bin/false'
 
-@kwonly(0)
-def rsync_list_files(extra_rsync_args=(), include_dirs=False, *paths):
+def rsync_list_files(*paths, extra_rsync_args=(), include_dirs=False):
     """Iterate over the files in path that rsync would copy.
 
 By default, only files are listed, not directories, since doit doesn't
