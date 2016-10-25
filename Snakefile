@@ -118,7 +118,7 @@ all_example_files = all_example_files.union(index_files)
 rsync_dest = "mneme:public_html/resume/"
 
 rule build_all:
-    input: "ryan_thompson_resume.pdf", index_files
+    input: "ryan_thompson_resume.pdf", "ryan_thompson_resume.html", index_files
 
 rule create_resume_pdf:
     input: lyxfile="ryan_thompson_resume.lyx", bibfile="citations.bib", headshot="headshot-crop.jpg"
