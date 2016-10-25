@@ -51,6 +51,12 @@ and you can view some presentation slides based on this analysis
   size. You can also observe from the periodic wave-like pattern,
   indicating that multiple adjacent histones tend to share the same
   histone modification.
+- [`CCF-plots-noBL.pdf`](CCF-plots-noBL.pdf) show the same plots, but
+  without removing reads in so-called "blacklist" regions that
+  typically contain high-coverage artifact signals. The result is a
+  much messier plot, with many samples having a peak at the read
+  length (dotted line) rather than the actual width of a histone
+  (solid line).
 - [`site-profile-plots.pdf`](site-profile-plots.pdf) shows plots of
   the relative coverage depth profiles around local coverage maxima.
   This plot is used to determine the footprint size of the protein
