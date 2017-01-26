@@ -172,7 +172,7 @@ Institute
 
 Ph.
  D.
- in Bioinformatics, expected Fall 2016
+ in Bioinformatics, expected June 2017
 \end_layout
 
 \begin_layout Description
@@ -214,7 +214,21 @@ Salomon Lab, The Scripps Research Institute
 \begin_inset space \qquad{}
 \end_inset
 
- 2012 - 2016
+ 2012 - 2017
+\end_layout
+
+\begin_layout Description
+Contact: Dr.
+ Andrew Su, 
+\begin_inset CommandInset href
+LatexCommand href
+name "asu@scripps.edu"
+target "asu@scripps.edu"
+type "mailto:"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -294,8 +308,8 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/mdsplots-multidim
 \end_layout
 
 \begin_layout Itemize
-Significantly improved machine learning classifier performance in cross-validati
-on and independent validation by developing appropriate single-sample microarray
+Significantly improved performce of machine learning classifier for identifying
+ transplant rejection by developing appropriate single-sample microarray
  normalization procedures
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -322,33 +336,6 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/fRMA/"
 LatexCommand href
 name "Classifier Method Write-up"
 target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/Classifier%20Math%20Write-up.pdf"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Developed custom animated visualizations to reveal difficult-to-detect patterns
- that were not visible in static plots for a time course of 250 RNA-seq
- samples following 33 cynomolgus monkeys receiving kidney grafts and an
- experimental anti-rejection treatment.
-\begin_inset Newline newline
-\end_inset
-
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Animated PCA plot"
-target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/cyno/PCoA_Animated_Spline_Interp_DaysPreNecropsy.mp4"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "Static PCA plot"
-target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/cyno/PCoA_Static.pdf"
 
 \end_inset
 
@@ -478,7 +465,7 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/globin/"
 \end_layout
 
 \begin_layout Itemize
-Adapted normalization methods from other RNA-seq to improve performance
+Adapted common normalization methods from RNA-seq to improve performance
  in analysis of RASL-seq experiments.
  
 \begin_inset CommandInset citation
@@ -491,7 +478,7 @@ key "Scott036061"
 \end_layout
 
 \begin_layout Itemize
-Performed a comprehensive comparitive evaluation of over 20 subtly different
+Performed a comprehensive comparative evaluation of over 20 subtly different
  statistical models for differential methylation in Illumina 450k arrays,
  selecting a model that best explained the observed sources and trends of
  variation in the data, including cross-domain application of a method originall
@@ -511,8 +498,9 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Salomon/450k/"
 \end_layout
 
 \begin_layout Itemize
-Contributing developer for several Bioconductor packages and active member
- of the Bioconductor community 
+Active member of the Bioconductor community and contributing developer for
+ several Bioconductor packages.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -552,17 +540,7 @@ target "https://support.bioconductor.org/u/5618/"
 \end_layout
 
 \begin_layout Itemize
-Reference: Dr.
- Daniel Salomon, 
-\begin_inset CommandInset href
-LatexCommand href
-name "dsalomon@scripps.edu"
-target "dsalomon@scripps.edu"
-type "mailto:"
-
-\end_inset
-
-
+Mentored 2 coworkers in learning bioinformatics.
 \end_layout
 
 \begin_layout Subsection
@@ -576,6 +554,19 @@ Boston, MA
 \end_inset
 
  2011
+\end_layout
+
+\begin_layout Description
+Contact: Adnan Derti, 
+\begin_inset CommandInset href
+LatexCommand href
+name "adnan.derti@gmail.com"
+target "adnan.derti@gmail.com"
+type "mailto:"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -603,19 +594,6 @@ Assisted in a molecular genetics study to evaluate peformance of two variant
  bacterial genomes.
 \end_layout
 
-\begin_layout Itemize
-Reference: Adnan Derti, 
-\begin_inset CommandInset href
-LatexCommand href
-name "adnan.derti@gmail.com"
-target "adnan.derti@gmail.com"
-type "mailto:"
-
-\end_inset
-
- 
-\end_layout
-
 \begin_layout Subsection
 Gaasterland Lab, UCSD Bioinformatcs 
 \begin_inset space \hfill{}
@@ -626,6 +604,19 @@ La Jolla, CA
 \end_inset
 
  2010 - 2012
+\end_layout
+
+\begin_layout Description
+Contact: Terry Gaasterland, 
+\begin_inset CommandInset href
+LatexCommand href
+name "gaasterland@ucsd.edu"
+target "gaasterland@ucsd.edu"
+type "mailto:"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -676,11 +667,12 @@ target "https://en.wikipedia.org/wiki/Black_rhinoceros#Threats"
 \emph on
 de novo
 \emph default
- assembly of black rhino transcriptomes and comparison with closely-related
- white rhino transcriptomes using Trinity.
- Developed a custom pipeline to match up ortholog gene pairs and discover
- and functionally annotate single-nucleotide differences between them, and
- delivered a list of potential variants to collaborators for follow-up.
+ assembly of black rhino transcriptome using Trinity and comparison to closely-r
+elated white rhino transcriptome.
+ Developed a custom pipeline to match up ortholog gene pairs, discover single-nu
+cleotide differences between them, and functionally annotate these differences,
+ and delivered a list of potential causal variants to collaborators for
+ follow-up.
  
 \begin_inset Newline newline
 \end_inset
@@ -774,19 +766,6 @@ target "http://mneme.homenet.org/~ryan/resume/examples/Gaasterland/mirna-results
 
 \end_layout
 
-\begin_layout Itemize
-Reference: Terry Gaasterland, 
-\begin_inset CommandInset href
-LatexCommand href
-name "gaasterland@ucsd.edu"
-target "gaasterland@ucsd.edu"
-type "mailto:"
-
-\end_inset
-
- 
-\end_layout
-
 \begin_layout Subsection
 Timko Lab, U.
  of Virginia Biology
@@ -798,6 +777,20 @@ Charlottesville, VA
 \end_inset
 
  2007 - 2009
+\end_layout
+
+\begin_layout Description
+Contact: Paul J.
+ Rushton, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Paul.Rushton@sdstate.edu"
+target "Paul.Rushton@sdstate.edu"
+type "mailto:"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -849,20 +842,6 @@ target "http://mneme.homenet.org/~ryan/resume/examples/UVa/blast-slides.pdf"
 \end_inset
 
  
-\end_layout
-
-\begin_layout Itemize
-Reference: Paul J.
- Rushton, 
-\begin_inset CommandInset href
-LatexCommand href
-name "Paul.Rushton@sdstate.edu"
-target "Paul.Rushton@sdstate.edu"
-type "mailto:"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
