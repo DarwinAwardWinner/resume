@@ -115,7 +115,7 @@ rsync_common_args = ["-rL", "--size-only", "--delete", "--exclude", ".DS_Store",
 all_example_files = set(rsync_list_files('examples', extra_rsync_args=rsync_common_args))
 all_example_files = all_example_files.union(index_files)
 
-rsync_dest = "mneme:public_html/resume/"
+rsync_dest = "apollo:public_html/resume/"
 
 rule build_all:
     input: "ryan_thompson_resume.pdf", "ryan_thompson_resume.html", index_files
