@@ -46,30 +46,54 @@ and you can view some presentation slides based on this analysis
 [3]: ./ChIP-Seq presentation.pdf
 
 - [`CCF-plots.pdf`](CCF-plots.pdf) shows the cross-correlation
-  functions of several different histone marks, at several different
-  levels of smoothing. This plot is used to determine the fragment
-  size. You can also observe from the periodic wave-like pattern,
-  indicating that multiple adjacent histones tend to share the same
-  histone modification.
-- [`CCF-plots-noBL.pdf`](CCF-plots-noBL.pdf) show the same plots, but
-  without removing reads in so-called "blacklist" regions that
-  typically contain high-coverage artifact signals. The result is a
-  much messier plot, with many samples having a peak at the read
-  length (dotted line) rather than the actual width of a histone
-  (solid line).
+  functions of the ChIP-Seq data for 3 different histone marks, at
+  several different levels of smoothing. This plot is used to
+  determine the fragment size. You can also observe from the periodic
+  wave-like pattern, indicating that multiple adjacent histones tend
+  to share the same histone modification.
+- [`CCF-plots-noBL.pdf`](CCF-plots-noBL.pdf) shows the same plots as
+  above, but without removing reads in so-called "blacklist" regions
+  that typically contain high-coverage artifact signals. The result is
+  a much messier plot, with many samples having an artifactual peak at
+  the read length (dotted line) rather than the actual width of a
+  histone (solid line).
 - [`site-profile-plots.pdf`](site-profile-plots.pdf) shows plots of
-  the relative coverage depth profiles around local coverage maxima.
-  This plot is used to determine the footprint size of the protein
-  being imunoprecipitated. Since this is histone mark data, the
-  footprint size should match the size of a nucleosome, about 147 bp.
-- [`H3K4me3-window-abundance-vs-peaks.pdf`](H3K4me3-window-abundance-vs-peaks.pdf)
-  shows the association between peak overlap status and abundance for
-  all windows in the genome. As expected, windows that overlap a
-  called peak tend to have a higher abundance than other windows.
-- [`H3K4me3 Selected Sample 10KB Bin MA Plots.pdf`](H3K4me3 Selected
-  Sample 10KB Bin MA Plots.pdf) shows selected MA plots between
-  samples demonstrating the effects of several different potential
-  normalization methods.
-- [`H3K4me3-normfactors.pdf`](H3K4me3-normfactors.pdf) shows the
-  associations between normalization factor and experimental variables
-  for several different normalization methods.
+  the relative coverage depth profiles around local coverage maxima in
+  the ChIP-Seq data. This plot is used to determine the footprint size
+  of the protein being imunoprecipitated. Since this is histone mark
+  data, the footprint size should match the size of a nucleosome,
+  about 147 bp.
+- [`D4659vsD5053_idrplots.pdf`](D4659vsD5053_idrplots.pdf) shows an
+  example plot from
+  the
+  [Irreproducible Discovery Rate](https://sites.google.com/site/anshulkundaje/projects/idr) analysis
+  used to identify biologically reproducible peaks in the ChIP-Seq
+  data. The plot shows the degree of consistency in the scores for
+  overlapping peaks in two biological replicates. Peaks with
+  consistently high-ranking scores in both replicates are considered
+  reproducible.
+- The following reports show QC and exploratory analysis for 3 histone
+  marks and
+  RNA-seq:
+  [H3K4me3](reports/ChIP-seq/H3K4me3-exploration.html),
+  [H3K4me2](reports/ChIP-seq/H3K4me2-exploration.html),
+  [H3K27me3](reports/ChIP-seq/H3K27me3-exploration.html),
+  [RNA-seq](reports/RNA-seq/salmon_hg38.analysisSet_ensembl.85-exploration.html).
+  The purpose of these reports is to ensure that the modelling
+  assumptions and strategies are appropriate for the data. Sometimes
+  several strategies are tested against each other, and the best
+  performer is chosen for the subsequent differential
+  expression/modification analysis.
+- The following reports show the differential expression/modification
+  analyses and p-value histograms for the 3 histone marks and
+  RNA-seq:
+  [H3K4me3](reports/ChIP-seq/H3K4me3-diffmod.html),
+  [H3K4me2](reports/ChIP-seq/H3K4me2-diffmod.html),
+  [H3K27me3](reports/ChIP-seq/H3K27me3-diffmod.html),
+  [RNA-seq](reports/RNA-seq/salmon_hg38.analysisSet_ensembl.85-diffexp.html)
+- The RNA-seq data were processed using 10 different combinations of
+  quantification pipeline and transcriptome
+  reference.
+  [`rnaseq-compare.html`](reports/RNA-seq/rnaseq-compare.html) shows a
+  series of comparisons designed to investigate the differences
+  between these pipelines and references.
