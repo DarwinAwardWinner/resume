@@ -103,7 +103,11 @@ La Jolla, CA 92037
 \end_layout
 
 \begin_layout Phone Number
-(908) 922-7470
+(908)
+\begin_inset space \thinspace{}
+\end_inset
+
+922-7470
 \end_layout
 
 \begin_layout Email
@@ -968,8 +972,8 @@ Instructed children ages 8-18 in sailing skills, safety, seamanship, knots,
 
 \begin_layout Itemize
 Ensured safety of students and staff by maintaining boats and equipment
- in good repair, being vigilant to traffic and hazards on a busy waterway,
- and communicating and coordinating efficiently with other staff
+ in good repair, by being vigilant to traffic and hazards on a busy waterway,
+ and by communicating and coordinating efficiently with other staff
 \end_layout
 
 \begin_layout Itemize
