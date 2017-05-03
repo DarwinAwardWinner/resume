@@ -1,0 +1,22 @@
+<h1 id="human-globin-protocol-stats">Human globin protocol stats</h1>
+<p>This is a pair of spreadsheets summarizing the globin-reducing properties of an experimental RNA-seq protocol.</p>
+<ul>
+<li><a href="method-select.xlsx"><code>method-select.xlsx</code></a> shows the results for several different methods of globin reduction. The most important column is &quot;Non-HB&quot;, which represents the fraction of total reads that map to non-globin genes.</li>
+<li><a href="concentration-select.xlsx"><code>concentration-select.xlsx</code></a> shows the results of selecting the best globin blocking method and optimizing the concentration of blockers as well as the number of hybridizations.</li>
+</ul>
+<h1 id="cyno-globin-plots">Cyno globin plots</h1>
+<p>This is a series of example plots for evaluation of a similar globin reduction protocol that was designed for cynomolgus monkeys.</p>
+<ul>
+<li><a href="BCVplots.pdf"><code>BCVplots.pdf</code></a> and <a href="corrplot.pdf"><code>corrplot.pdf</code></a> show, respectively, that the biological coefficient of variation is not increased, and the sample-to-sample correlation is not decreased, by the globin reduction protocol.</li>
+<li><a href="cyno-vs-hg19.pdf"><code>cyno-vs-hg19.pdf</code></a> shows excellent correlation between total read counts on the cyno and human genomes, indicating that the cyno annotation is reasonably complete.</li>
+<li><a href="pval-comparisons.pdf"><code>pval-comparisons.pdf</code></a> shows the comparison between p-values from edgeR, limma-voom, and DESeq2 on the exact same differential expression test. Surprisingly, despite the significant algorithmic differences, edgeR and limma are in quite close agreement. DESeq2 id overly liberal because it does not account for the negative estimation bias in negative-binomial dispersions.</li>
+</ul>
+<h1 id="publication-plots">Publication plots</h1>
+<p>These are the figures from an upcoming publication on the developed globin blocking method.</p>
+<ul>
+<li><a href="figure1%20-%20globin-fractions.pdf">Figure 1</a>: Globin blocking (GB) substantially increases yield and consistency of non-globin reads.</li>
+<li><a href="figure2%20-%20aveLogCPM-colored.pdf">Figure 2</a>: GB lowers the noise floor and increases the distance between noise floor and signal.</li>
+<li><a href="figure3%20-%20detection.pdf">Figrue 3</a>: GB allows detection of more genes at any abundance threshold.</li>
+<li><a href="figure4%20-%20maplot-colored.pdf">Figure 4</a>: GB has small but systematic effects on other genes' measured expression levels.</li>
+<li><a href="figure5%20-%20corrplot.pdf">Figure 5</a>: GB Significantly increases correlation between libraries.</li>
+</ul>
