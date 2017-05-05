@@ -139,7 +139,7 @@ all_example_files = all_example_files.union(index_files)
 all_example_files = all_example_files.union(r_html_files)
 
 rule build_all:
-    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', index_files, r_html_files
+    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', 'index.html', index_files, r_html_files
 
 rule create_resume_pdf:
     input: lyxfile='ryan_thompson_resume.lyx',
@@ -165,9 +165,9 @@ rule link_resume_to_index_html:
     output: 'index.html'
     shell: 'ln -s {input:q} {output:q}'
 
-rule readme_to_index_html:
-    input: '{dirname}/README.mkdn'
-    output: '{dirname}/index.html'
+rule examples_readme_to_index_html:
+    input: '{dirname}README.mkdn'
+    output: '{dirname,examples(/.*)?/}index.html'
     shell: 'pandoc -t html -o {output[0]:q} {input[0]:q}'
 
 rule R_to_html:
