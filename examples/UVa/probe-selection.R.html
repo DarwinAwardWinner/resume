@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="c1"># We will use base 2 logarithms for now</span>
+log.base <span class="o">=</span> <span class="m">2</span>
+
+<span class="c1"># Read the data in from the file</span>
+filename.data <span class="o">=</span> <span class="s">&quot;Processed_Data_Files/Normalized_Pair_Files/All_norm_pair.txt&quot;</span>
+<span class="c1">#filename.data = &quot;Raw_Data_Files/Pair_Files/All_pair.txt&quot;</span>
+intensity.lin <span class="o">&lt;-</span> read.table<span class="p">(</span>file<span class="o">=</span>filename.data<span class="p">,</span> header<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>row.names<span class="o">=</span><span class="s">&quot;PROBE_ID&quot;</span><span class="p">)</span>
+
+<span class="c1"># Column names and numbers used to categorize the data</span>
+intensity.maincols <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;GENE_EXPR_OPTION&quot;</span><span class="p">,</span> <span class="s">&quot;SEQ_ID&quot;</span><span class="p">,</span> <span class="s">&quot;POSITION&quot;</span><span class="p">)</span>
+intensity.maincolnums <span class="o">=</span> <span class="kp">which</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>intensity.lin<span class="p">)</span> <span class="o">%in%</span> intensity.maincols<span class="p">)</span>
+<span class="c1"># Column names and numbers containing intensity data</span>
+intensity.datacolnums <span class="o">=</span> <span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>intensity.lin<span class="p">)[</span><span class="m">2</span><span class="p">])[</span><span class="o">-</span>intensity.maincolnums<span class="p">]</span> <span class="c1"># i.e. &quot;the rest&quot;</span>
+intensity.datacols <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>intensity.lin<span class="p">)[</span>intensity.datacolnums<span class="p">]</span>
+
+<span class="c1"># Take the logarithm of the data</span>
+intensity.log <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>intensity.lin<span class="p">[</span>intensity.maincols<span class="p">],</span><span class="kp">log</span><span class="p">(</span>intensity.lin<span class="p">[</span>intensity.datacols<span class="p">],</span> base <span class="o">=</span> log.base<span class="p">))</span>
+
+<span class="c1"># Separate into random (i.e. background) and data probes</span>
+<span class="c1"># Split into &quot;intensity$rand&quot; and &quot;intensity$data&quot;</span>
+intensity <span class="o">&lt;-</span> <span class="kp">split</span><span class="p">(</span>x <span class="o">=</span> intensity.log<span class="p">,</span> f <span class="o">=</span> <span class="p">(</span><span class="kp">ifelse</span><span class="p">(</span>intensity.log<span class="o">$</span>GENE_EXPR_OPTION <span class="o">==</span> <span class="s">&quot;RANDOM&quot;</span><span class="p">,</span><span class="s">&quot;rand&quot;</span><span class="p">,</span><span class="s">&quot;data&quot;</span><span class="p">)))</span>
+<span class="kp">rm</span><span class="p">(</span>intensity.lin<span class="p">,</span> intensity.log<span class="p">)</span> <span class="c1"># Discard unused stuff to free memory</span>
+
+<span class="c1"># This gives a QQ plot of the data against the noise. I used it to select my cutoffs.</span>
+<span class="c1">#qqplot( y=as.vector(as.matrix(intensity$data[sample(1:dim(intensity$data)[1],5000),intensity.datacols])), x=as.vector(as.matrix(intensity$rand[intensity.datacols])), ylab=&quot;Data&quot;, xlab=&quot;Random Control&quot;,main = &quot;Log10 QQ plot of Specific Probe Intensities vs. Random Controls&quot;)</span>
+
+<span class="c1"># Detection (low) threshold is 2 sd above mean random background</span>
+intensity.rand.vector <span class="o">=</span> <span class="kp">as.vector</span><span class="p">(</span><span class="kp">as.matrix</span><span class="p">(</span>intensity<span class="o">$</span>rand<span class="p">[</span>intensity.datacols<span class="p">]))</span>
+threshold.low <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>intensity.rand.vector<span class="p">)</span> <span class="o">+</span> <span class="m">2</span><span class="o">*</span>sd<span class="p">(</span>intensity.rand.vector<span class="p">)</span>
+<span class="kp">rm</span><span class="p">(</span>intensity.rand.vector<span class="p">)</span>
+<span class="c1"># Saturation (high) threshold is 2-fold down from max possible</span>
+threshold.high <span class="o">=</span> <span class="kp">log</span><span class="p">(</span><span class="m">65535</span><span class="o">/</span><span class="m">2</span><span class="p">,</span> base<span class="o">=</span>log.base<span class="p">)</span>
+<span class="kr">if</span> <span class="p">(</span>threshold.high <span class="o">&lt;=</span> threshold.low<span class="p">)</span> <span class="kp">print</span><span class="p">(</span><span class="s">&quot;Error: low threshold is too high&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute needed row statistics</span>
+intensity<span class="o">$</span>data<span class="o">$</span>MAX <span class="o">&lt;-</span> <span class="kp">apply</span><span class="p">(</span>intensity<span class="o">$</span>data<span class="p">[</span>intensity.datacols<span class="p">],</span><span class="m">1</span><span class="p">,</span><span class="kp">max</span><span class="p">)</span>
+<span class="c1"># Actually, we only need the max, it seems. Uncomment these if needed.</span>
+<span class="c1">#intensity$data$MIN &lt;- apply(intensity$data[intensity.datacols],1,min)</span>
+<span class="c1">#intensity$data$MEAN &lt;- rowMeans(intensity$data[intensity.datacols]) # Don&#39;t need that one</span>
+<span class="c1">#intensity$data$SD &lt;- apply(intensity$data[intensity.datacols],1,sd) # Don&#39;t need that one</span>
+
+<span class="c1"># Sort probes into three bins: absent, present, and saturated</span>
+<span class="c1"># The integer value of BIN also serves as a rank:</span>
+<span class="c1"># present &lt; saturated &lt; absent; lower is better</span>
+intensity<span class="o">$</span>data<span class="o">$</span>BIN <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="p">(</span>intensity<span class="o">$</span>data<span class="o">$</span>MAX <span class="o">&gt;</span> threshold.high<span class="p">)</span> <span class="o">+</span> <span class="p">(</span>intensity<span class="o">$</span>data<span class="o">$</span>MAX <span class="o">&lt;</span> threshold.low<span class="p">)</span> <span class="o">*</span> <span class="m">2</span><span class="p">,</span> labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;present&quot;</span><span class="p">,</span> <span class="s">&quot;saturated&quot;</span><span class="p">,</span> <span class="s">&quot;absent&quot;</span><span class="p">))</span>
+
+<span class="c1"># Count how many probes from each probeset (SEQ_ID) went into each bin</span>
+<span class="c1"># Also count total probes per set</span>
+<span class="c1"># Counting is done by measuring length of data aggregated by SEQ_ID</span>
+num.probes <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>total<span class="o">=</span>intensity<span class="o">$</span>data<span class="p">),</span><span class="kp">split</span><span class="p">(</span>x <span class="o">=</span> intensity<span class="o">$</span>data<span class="p">,</span> f <span class="o">=</span> intensity<span class="o">$</span>data<span class="o">$</span>BIN<span class="p">)),</span> FUN <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span>y<span class="p">)</span> aggregate<span class="p">(</span>x<span class="o">=</span><span class="kp">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="kp">dim</span><span class="p">(</span>y<span class="p">)[</span><span class="m">1</span><span class="p">]),</span>by<span class="o">=</span><span class="kt">list</span><span class="p">(</span>SEQ_ID<span class="o">=</span>y<span class="o">$</span>SEQ_ID<span class="p">),</span>FUN<span class="o">=</span><span class="kp">length</span><span class="p">))</span>
+<span class="kr">if</span><span class="p">(</span><span class="kp">mean</span><span class="p">(</span>num.probes<span class="o">$</span>present<span class="o">$</span>x<span class="p">)</span> <span class="o">&lt;</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span> <span class="kp">print</span><span class="p">(</span><span class="s">&quot;Error: Not enough present probes.&quot;</span><span class="p">)</span> <span class="p">}</span>
+
+
+<span class="c1"># Something below this needs updating</span>
+
+
+
+<span class="c1"># 2 rankings: Nimblegen&#39;s and distance from probeset mean</span>
+<span class="c1"># Nimblegen&#39;s rank is read from the design file</span>
+<span class="c1"># Probeinfo file</span>
+<span class="c1"># This is information parsed from the design file.</span>
+<span class="c1"># The design file can&#39;t be used directly because info on probe</span>
+<span class="c1"># selection is not in separate columns.</span>
+filename.probeinfo <span class="o">=</span> <span class="s">&quot;Design_Files/071031_U_Va_Tobacco_Expr.probeinfo&quot;</span>
+probeinfo <span class="o">&lt;-</span> read.table<span class="p">(</span>filename.probeinfo<span class="p">,</span>header<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>row.names<span class="o">=</span><span class="s">&quot;PROBE_ID&quot;</span><span class="p">,</span>as.is<span class="o">=</span><span class="s">&quot;SEQ&quot;</span><span class="p">)</span>
+<span class="c1"># Use probe names as row names for indexing</span>
+<span class="c1">#row.names(probeinfo) &lt;- as.character(probeinfo$PROBE_ID)</span>
+
+<span class="c1"># Add Nimblegen rank to the main data frame</span>
+intensity<span class="o">$</span>data<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;RANK&quot;</span><span class="p">,</span><span class="s">&quot;SEQ&quot;</span><span class="p">)]</span> <span class="o">&lt;-</span> probeinfo<span class="p">[</span><span class="kp">row.names</span><span class="p">(</span>intensity<span class="o">$</span>data<span class="p">),</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;RANK&quot;</span><span class="p">,</span><span class="s">&quot;SEQ&quot;</span><span class="p">)]</span>
+
+
+<span class="c1"># For present probes, rank is based on correlation to probeset mean</span>
+
+<span class="c1"># Read probeset means from calls file</span>
+filename.calls <span class="o">=</span> <span class="s">&quot;Processed_Data_Files/Normalized_Calls_Files/All_norm_calls.txt&quot;</span>
+calls.lin <span class="o">&lt;-</span> read.table<span class="p">(</span>filename.calls<span class="p">,</span>header<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>row.names<span class="o">=</span><span class="s">&quot;SEQ_ID&quot;</span><span class="p">)</span>
+<span class="c1"># This line simultaneously logs the data and gives the same column order as the intensity table</span>
+probeset.means <span class="o">=</span> <span class="kp">log</span><span class="p">(</span>calls.lin<span class="p">[</span>intensity.datacols<span class="p">],</span> base<span class="o">=</span>log.base<span class="p">)</span>
+<span class="kp">rm</span><span class="p">(</span>calls.lin<span class="p">)</span>
+
+<span class="c1"># Collect the relevant data into matrices for efficiency</span>
+probes.present.data <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>intensity<span class="o">$</span>data<span class="p">[</span>intensity<span class="o">$</span>data<span class="o">$</span>BIN <span class="o">==</span> <span class="s">&quot;present&quot;</span><span class="p">,</span>intensity.datacols<span class="p">])</span>
+probeset.means.data <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>probeset.means<span class="p">[</span>intensity<span class="o">$</span>data<span class="o">$</span>SEQ_ID<span class="p">[</span>intensity<span class="o">$</span>data<span class="o">$</span>BIN <span class="o">==</span> <span class="s">&quot;present&quot;</span><span class="p">],])</span>
+
+<span class="c1"># We invert the correlation so that lower is better</span>
+intensity<span class="o">$</span>data<span class="o">$</span>RANK<span class="p">[</span>intensity<span class="o">$</span>data<span class="o">$</span>BIN <span class="o">==</span> <span class="s">&quot;present&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>probes.present.data<span class="p">)[</span><span class="m">2</span><span class="p">],</span><span class="kr">function</span> <span class="p">(</span>x<span class="p">)</span> <span class="p">{</span> <span class="o">-</span>cor<span class="p">(</span>probes.present.data<span class="p">[,</span>x<span class="p">],</span>probeset.means.data<span class="p">[,</span>x<span class="p">])</span> <span class="p">})</span>
+
+<span class="c1"># Done with these</span>
+<span class="kp">rm</span><span class="p">(</span><span class="s">&quot;probes.present.data&quot;</span><span class="p">,</span><span class="s">&quot;probeset.means.data&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sort by bin, then rank</span>
+intensity<span class="o">$</span>data.ranked <span class="o">=</span> intensity<span class="o">$</span>data<span class="p">[</span><span class="kp">order</span><span class="p">(</span>intensity<span class="o">$</span>data<span class="o">$</span>BIN<span class="p">,</span>intensity<span class="o">$</span>data<span class="o">$</span>RANK<span class="p">),]</span>
+
+<span class="c1"># Split by SEQ_ID</span>
+probes.ranked <span class="o">&lt;-</span> <span class="kp">split</span><span class="p">(</span>x<span class="o">=</span><span class="kp">row.names</span><span class="p">(</span>intensity<span class="o">$</span>data.ranked<span class="p">),</span>
+                       f<span class="o">=</span>intensity<span class="o">$</span>data.ranked<span class="o">$</span>SEQ_ID<span class="p">,</span>
+                       drop<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="c1"># Set the desired number of probes per sequence</span>
+num.probes.desired <span class="o">&lt;-</span> <span class="m">3</span>
+
+<span class="c1"># A function to make any vector have length n, by truncating longer ones and padding shorter ones with NA</span>
+firstN <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>v<span class="p">,</span>n<span class="p">)</span> <span class="kt">c</span><span class="p">(</span>v<span class="p">,</span><span class="kp">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span>n<span class="p">))[</span><span class="m">1</span><span class="o">:</span>n<span class="p">]</span>
+<span class="c1"># A function to take a string and append P1, P2, P3, etc. up to PN.</span>
+probenamesN <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>s<span class="p">,</span>n<span class="p">)</span> <span class="p">(</span><span class="kp">paste</span><span class="p">(</span>s<span class="p">,</span><span class="s">&quot;P&quot;</span><span class="p">,</span><span class="m">1</span><span class="o">:</span>n<span class="p">,</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span>n<span class="p">]</span>
+
+probes.selected <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">sapply</span><span class="p">(</span>probes.ranked<span class="p">,</span>firstN<span class="p">,</span>num.probes.desired<span class="p">))</span>
+<span class="kp">names</span><span class="p">(</span>probes.selected<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">sapply</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>probes.ranked<span class="p">),</span>probenamesN<span class="p">,</span>num.probes.desired<span class="p">))</span>
+<span class="c1"># Filter NA</span>
+probes.selected <span class="o">&lt;-</span> probes.selected<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>probes.selected<span class="p">)]</span>
+
+probes.selected.fasta <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;&gt;&quot;</span><span class="p">,</span><span class="kp">names</span><span class="p">(</span>probes.selected<span class="p">),</span><span class="s">&quot;\n&quot;</span><span class="p">,</span>intensity<span class="o">$</span>data<span class="p">[</span>probes.selected<span class="p">,</span><span class="s">&quot;SEQ&quot;</span><span class="p">])</span>
+
+<span class="kp">cat</span><span class="p">(</span>sep<span class="o">=</span><span class="s">&quot;\n&quot;</span><span class="p">,</span>probes.selected.fasta<span class="p">,</span>file<span class="o">=</span><span class="s">&quot;selected_probes.fasta&quot;</span><span class="p">)</span>
+
+<span class="kp">save.image</span><span class="p">(</span>file<span class="o">=</span><span class="s">&quot;probesel.rda&quot;</span><span class="p">)</span>
+</pre></div>
+</body>
+</html>

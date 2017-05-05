@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="c1">#!/usr/bin/env Rscript</span>
+
+default.align.opts <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>match<span class="o">=</span><span class="m">1</span><span class="p">,</span> mismatch<span class="o">=</span><span class="m">3</span><span class="p">,</span>
+                           gapOpening<span class="o">=</span><span class="m">5</span><span class="p">,</span> gapExtension<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+
+parse_arguments <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kp">suppressMessages</span><span class="p">({</span>
+        <span class="kn">library</span><span class="p">(</span>optparse<span class="p">)</span>
+        <span class="kn">library</span><span class="p">(</span>parallel<span class="p">)</span>
+    <span class="p">})</span>
+    option_list <span class="o">&lt;-</span>
+        <span class="kt">list</span><span class="p">(</span>make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-c&quot;</span><span class="p">,</span> <span class="s">&quot;--min-call&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="m">10</span><span class="p">,</span> metavar<span class="o">=</span><span class="s">&quot;10&quot;</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Minimum perfect overlap required to call the presence of the subject (paired only). Imperfect overlap will need to be longer, based on specified mismatch and gap penalties.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-l&quot;</span><span class="p">,</span> <span class="s">&quot;--min-length&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;integer&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="m">36</span><span class="p">,</span> metavar<span class="o">=</span><span class="s">&quot;36&quot;</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Minimum length allowed after trimming a read. Any reads shorter than this after trimming will be discarded.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-i&quot;</span><span class="p">,</span> <span class="s">&quot;--interleaved&quot;</span><span class="p">),</span> action<span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Specify this option if you have paired-end sequences interleaved in a single FASTQ file. The default is to read paired-end sequences from a matched pair of files, and this option is ignored if two fastq files are provided. When you use this option, skip the \&quot;READ2.fastq\&quot; argument.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-o&quot;</span><span class="p">,</span> <span class="s">&quot;--read1-orientation&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="s">&quot;in&quot;</span><span class="p">,</span> metavar<span class="o">=</span><span class="s">&quot;in/out&quot;</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Orientation of read1. Can be either \&quot;in\&quot; or \&quot;out\&quot; (paired only). Note that Illumina reads are \&quot;in\&quot;.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-q&quot;</span><span class="p">,</span> <span class="s">&quot;--read2-orientation&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="s">&quot;in&quot;</span><span class="p">,</span> metavar<span class="o">=</span><span class="s">&quot;in/out&quot;</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Orientation of read2. Can be either \&quot;in\&quot; or \&quot;out\&quot; (paired only)&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-j&quot;</span><span class="p">,</span> <span class="s">&quot;--jobs&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;integer&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span>parallel<span class="o">:::</span>detectCores<span class="p">(),</span>
+                         metavar<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>parallel<span class="o">:::</span>detectCores<span class="p">()),</span>
+                         help<span class="o">=</span><span class="s">&quot;Number of jobs to run in parallel for alignment. This should be autodetected by default.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-y&quot;</span><span class="p">,</span> <span class="s">&quot;--yield-size&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;integer&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span><span class="m">100000</span><span class="p">,</span>
+                         metavar<span class="o">=</span><span class="s">&quot;100000&quot;</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Number of reads to process at a time. Setting this higher will read more data into memory at once and result in faster runtime. Setting this lower will require less memory.&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-m&quot;</span><span class="p">,</span> <span class="s">&quot;--match-bonus&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;double&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span>default.align.opts<span class="o">$</span><span class="kp">match</span><span class="p">,</span>
+                         metavar<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>default.align.opts<span class="o">$</span><span class="kp">match</span><span class="p">),</span>
+                         help<span class="o">=</span><span class="s">&quot;Score bonus for a matching nucleotide&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-p&quot;</span><span class="p">,</span> <span class="s">&quot;--mismatch-penalty&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;double&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span>default.align.opts<span class="o">$</span>mismatch<span class="p">,</span>
+                         metavar<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>default.align.opts<span class="o">$</span>mismatch<span class="p">),</span>
+                         help<span class="o">=</span><span class="s">&quot;Score penalty for a mismatched nucleotide (specify as a positive number)&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-g&quot;</span><span class="p">,</span> <span class="s">&quot;--gap-open-penalty&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;double&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span>default.align.opts<span class="o">$</span>gapOpening<span class="p">,</span>
+                         metavar<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>default.align.opts<span class="o">$</span>gapOpening<span class="p">),</span>
+                         help<span class="o">=</span><span class="s">&quot;Score penalty for opening a gap in the alignment (specifiy as a positive number)&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-e&quot;</span><span class="p">,</span> <span class="s">&quot;--gap-extension-penalty&quot;</span><span class="p">),</span> type<span class="o">=</span><span class="s">&quot;double&quot;</span><span class="p">,</span>
+                         default<span class="o">=</span>default.align.opts<span class="o">$</span><span class="kp">match</span><span class="p">,</span>
+                         metavar<span class="o">=</span><span class="kp">as.character</span><span class="p">(</span>default.align.opts<span class="o">$</span>gapExtension<span class="p">),</span>
+                         help<span class="o">=</span><span class="s">&quot;Score penalty for extending an alignment gap by two nucleotides (specify as a positive number)&quot;</span><span class="p">),</span>
+             make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-s&quot;</span><span class="p">,</span> <span class="s">&quot;--single-read-mode&quot;</span><span class="p">),</span> action<span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>
+                         help<span class="o">=</span><span class="s">&quot;Tell DeLoxer to run in single-end mode instead of paired-end mode. In this mode, the only a single input fastq file is provided, and only a single output file is created. No classification is performed, only trimming.  When you use this option, skip the \&quot;READ2.fastq\&quot; argument, and specify the full file name for OUTPUT_NAME instead of just the base name.&quot;</span><span class="p">))</span>
+    option_parser <span class="o">&lt;-</span> OptionParser<span class="p">(</span>option_list<span class="o">=</span>option_list<span class="p">,</span>
+                                  usage<span class="o">=</span><span class="s">&quot;%prog [options] adapter.fasta READ1.fastq READ2.fastq OUTPUT_NAME&quot;</span><span class="p">)</span>
+    opt <span class="o">&lt;-</span> parse_args<span class="p">(</span>option_parser<span class="p">,</span> positional_arguments<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+    <span class="kr">return</span><span class="p">(</span>opt<span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## Call this here to handle --help quickly, before we waste 10 seconds</span>
+<span class="c1">## loading all the libraries</span>
+<span class="kp">invisible</span><span class="p">(</span>parse_arguments<span class="p">())</span>
+
+print.option.list <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>opt<span class="o">=</span>parse_arguments<span class="p">())</span> <span class="p">{</span>
+    args <span class="o">&lt;-</span> opt<span class="o">$</span><span class="kp">args</span>
+    opts <span class="o">&lt;-</span> opt<span class="o">$</span><span class="kp">options</span>
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Options:&quot;</span><span class="p">)</span>
+    foreach <span class="p">(</span>o<span class="o">=</span>opts<span class="p">,</span> n<span class="o">=</span><span class="kp">names</span><span class="p">(</span>opts<span class="p">))</span> <span class="o">%do%</span> <span class="p">{</span>
+        <span class="kr">if</span> <span class="p">(</span>n <span class="o">!=</span> <span class="s">&quot;help&quot;</span><span class="p">)</span>
+            <span class="kp">message</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> n<span class="p">,</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> o<span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Args: &quot;</span><span class="p">,</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&quot;\&quot;&quot;</span><span class="p">,</span> <span class="kp">args</span><span class="p">,</span> <span class="s">&quot;\&quot;&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> collapse<span class="o">=</span><span class="s">&quot;, &quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+unimplemented <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">()</span> <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;UNIMPLEMENTED&quot;</span><span class="p">)</span>
+
+<span class="c1">## Timestampped message</span>
+tsmsg <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;# &quot;</span><span class="p">,</span> <span class="kp">date</span><span class="p">(),</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+tsmsg<span class="p">(</span><span class="s">&quot;Starting deloxer and loading required packages&quot;</span><span class="p">)</span>
+
+<span class="kp">suppressMessages</span><span class="p">({</span>
+    <span class="kn">library</span><span class="p">(</span>ShortRead<span class="p">)</span>
+    <span class="kn">library</span><span class="p">(</span>optparse<span class="p">)</span>
+    <span class="kn">library</span><span class="p">(</span>foreach<span class="p">)</span>
+    <span class="kn">library</span><span class="p">(</span>iterators<span class="p">)</span>
+    <span class="kn">library</span><span class="p">(</span>itertools<span class="p">)</span>
+    <span class="kn">library</span><span class="p">(</span>doMC<span class="p">)</span>
+    registerDoMC<span class="p">()</span>
+    mcoptions <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>preschedule<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> set.seed<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">## Merge l1 and l2 by names</span>
+merge.lists <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>l1<span class="p">,</span> l2<span class="p">)</span> <span class="p">{</span>
+    new.names <span class="o">&lt;-</span> <span class="kp">setdiff</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>l2<span class="p">),</span> <span class="kp">names</span><span class="p">(</span>l1<span class="p">))</span>
+    l1<span class="p">[</span>new.names<span class="p">]</span> <span class="o">&lt;-</span> l2<span class="p">[</span>new.names<span class="p">]</span>
+    l1
+<span class="p">}</span>
+
+<span class="c1">## Return an object sans names</span>
+strip.names <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+    <span class="kp">names</span><span class="p">(</span>x<span class="p">)</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+    x
+<span class="p">}</span>
+
+<span class="c1">## Define some missing type coercions</span>
+setAs<span class="p">(</span>from<span class="o">=</span><span class="s">&quot;ShortRead&quot;</span><span class="p">,</span> to<span class="o">=</span><span class="s">&quot;DNAStringSet&quot;</span><span class="p">,</span> def<span class="o">=</span><span class="kr">function</span><span class="p">(</span>from<span class="p">)</span> sread<span class="p">(</span>from<span class="p">))</span>
+setAs<span class="p">(</span>from<span class="o">=</span><span class="s">&quot;PhredQuality&quot;</span><span class="p">,</span> to<span class="o">=</span><span class="s">&quot;FastqQuality&quot;</span><span class="p">,</span> def<span class="o">=</span><span class="kr">function</span><span class="p">(</span>from<span class="p">)</span> FastqQuality<span class="p">(</span>BStringSet<span class="p">(</span>from<span class="p">)))</span>
+setAs<span class="p">(</span>from<span class="o">=</span><span class="s">&quot;SolexaQuality&quot;</span><span class="p">,</span> to<span class="o">=</span><span class="s">&quot;SFastqQuality&quot;</span><span class="p">,</span> def<span class="o">=</span><span class="kr">function</span><span class="p">(</span>from<span class="p">)</span> SFastqQuality<span class="p">(</span>BStringSet<span class="p">(</span>from<span class="p">)))</span>
+setAs<span class="p">(</span>from<span class="o">=</span><span class="s">&quot;QualityScaledXStringSet&quot;</span><span class="p">,</span> to<span class="o">=</span><span class="s">&quot;ShortReadQ&quot;</span><span class="p">,</span> def<span class="o">=</span><span class="kr">function</span><span class="p">(</span>from<span class="p">)</span> <span class="p">{</span>
+    q <span class="o">&lt;-</span> quality<span class="p">(</span>from<span class="p">)</span>
+    new.quality.class <span class="o">&lt;-</span> <span class="kr">switch</span><span class="p">(</span><span class="kp">class</span><span class="p">(</span><span class="kp">q</span><span class="p">),</span>
+                                SolexaQuality<span class="o">=</span><span class="s">&quot;SFastqQuality&quot;</span><span class="p">,</span>
+                                PhredQuality<span class="o">=</span><span class="s">&quot;FastqQuality&quot;</span><span class="p">,</span>
+                                <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Unknown quality type: &quot;</span><span class="p">,</span> <span class="kp">class</span><span class="p">(</span><span class="kp">q</span><span class="p">)))</span>
+    q <span class="o">&lt;-</span> as<span class="p">(</span><span class="kp">q</span><span class="p">,</span> new.quality.class<span class="p">)</span>
+    ShortReadQ<span class="p">(</span>sread<span class="o">=</span>as<span class="p">(</span>from<span class="p">,</span> <span class="s">&quot;DNAStringSet&quot;</span><span class="p">),</span>
+               quality<span class="o">=</span><span class="kp">q</span><span class="p">,</span>
+               id<span class="o">=</span>BStringSet<span class="p">(</span><span class="kp">names</span><span class="p">(</span>from<span class="p">)))</span>
+<span class="p">})</span>
+<span class="c1">## Override the provided method to keep the sequence names</span>
+setAs<span class="p">(</span>from<span class="o">=</span><span class="s">&quot;ShortReadQ&quot;</span><span class="p">,</span> to<span class="o">=</span><span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">,</span>
+      def<span class="o">=</span><span class="kr">function</span> <span class="p">(</span>from<span class="p">,</span> to <span class="o">=</span> <span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">,</span> strict <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="p">{</span>
+          q <span class="o">&lt;-</span> quality<span class="p">(</span>from<span class="p">)</span>
+          new.quality.class <span class="o">&lt;-</span> <span class="kr">switch</span><span class="p">(</span><span class="kp">class</span><span class="p">(</span><span class="kp">q</span><span class="p">),</span>
+                                      SFastqQuality<span class="o">=</span><span class="s">&quot;SolexaQuality&quot;</span><span class="p">,</span>
+                                      FastqQuality<span class="o">=</span><span class="s">&quot;PhredQuality&quot;</span><span class="p">,</span>
+                                      <span class="s">&quot;XStringQuality&quot;</span><span class="p">)</span>
+          q <span class="o">&lt;-</span> as<span class="p">(</span><span class="kp">q</span><span class="p">,</span> new.quality.class<span class="p">)</span>
+          x <span class="o">&lt;-</span> QualityScaledDNAStringSet<span class="p">(</span>sread<span class="p">(</span>from<span class="p">),</span> <span class="kp">q</span><span class="p">)</span>
+          <span class="kp">names</span><span class="p">(</span>x<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>id<span class="p">(</span>from<span class="p">))</span>
+          x
+      <span class="p">})</span>
+
+<span class="c1">## Define functions for reading fastq into standard Biostrings object</span>
+<span class="c1">## and writing it back out. The standard functions readFastq and</span>
+<span class="c1">## writeFastq operate on ShortRead objects. These simply wrap them in</span>
+<span class="c1">## conversion to/from QualityScaledDNAStringSet.</span>
+read.QualityScaledDNAStringSet <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>filepath<span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;fastq&quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">switch</span><span class="p">(</span><span class="kp">format</span><span class="p">,</span>
+           fastq<span class="o">=</span>as<span class="p">(</span>readFastq<span class="p">(</span>filepath<span class="p">,</span> withIds<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">...</span><span class="p">),</span> <span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">),</span>
+           <span class="c1">## Default</span>
+           <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Unknown quality-scaled sequence format: &quot;</span><span class="p">,</span> <span class="kp">format</span><span class="p">))</span>
+<span class="p">}</span>
+
+write.QualityScaledDNAStringSet <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>x<span class="p">,</span> filepath<span class="p">,</span> append <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;fastq&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">if</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>x<span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+        sr <span class="o">&lt;-</span> as<span class="p">(</span>x<span class="p">,</span> <span class="s">&quot;ShortReadQ&quot;</span><span class="p">)</span>
+        <span class="kr">switch</span><span class="p">(</span><span class="kp">format</span><span class="p">,</span>
+               fastq<span class="o">=</span><span class="p">{</span>
+                   <span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">append</span><span class="p">)</span>
+                       <span class="kp">unlink</span><span class="p">(</span>filepath<span class="p">);</span>
+                   writeFastq<span class="p">(</span>object<span class="o">=</span>sr<span class="p">,</span>
+                              file<span class="o">=</span>filepath<span class="p">,</span> mode<span class="o">=</span><span class="kp">ifelse</span><span class="p">(</span><span class="kp">append</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">))</span>
+               <span class="p">},</span>
+               <span class="c1">## Default</span>
+               <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Unknown quality-scaled sequence format: &quot;</span><span class="p">,</span> <span class="kp">format</span><span class="p">))</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+        <span class="c1">## Zero-length sequence; just truncate/touch the file</span>
+        <span class="kp">sink</span><span class="p">(</span>file<span class="o">=</span>filepath<span class="p">,</span> append<span class="o">=</span><span class="kp">append</span><span class="p">)</span>
+        <span class="kp">sink</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+discard.short.reads <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>reads<span class="p">,</span> min.length<span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+    kept.reads <span class="o">&lt;-</span> reads<span class="p">[</span>width<span class="p">(</span>reads<span class="p">)</span> <span class="o">&gt;=</span> min.length<span class="p">]</span>
+    <span class="kr">return</span><span class="p">(</span>kept.reads<span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## Takes a set of interleaved reads (or anything else) and</span>
+<span class="c1">## de-interleaves them</span>
+deinterleave.pairs <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>reads<span class="p">)</span> <span class="p">{</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>reads<span class="p">)</span> <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
+    mask <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span>from<span class="o">=</span><span class="m">1</span><span class="p">,</span> to<span class="o">=</span><span class="kp">length</span><span class="p">(</span>reads<span class="p">),</span> by<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kt">list</span><span class="p">(</span>read1<span class="o">=</span>reads<span class="p">[</span>mask<span class="p">],</span> read2<span class="o">=</span>reads<span class="p">[</span><span class="o">-</span>mask<span class="p">]))</span>
+<span class="p">}</span>
+
+<span class="m">.</span>delox.trimmed.ranges <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>subj<span class="p">,</span> reads<span class="p">,</span> min.length<span class="o">=</span><span class="m">36</span><span class="p">,</span>
+                                  include.scores<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
+                                  include.deleted.ranges<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
+                                  align.opts<span class="o">=</span><span class="kt">list</span><span class="p">())</span> <span class="p">{</span>
+
+    align.opts <span class="o">&lt;-</span> merge.lists<span class="p">(</span>align.opts<span class="p">,</span> default.align.opts<span class="p">)</span>
+
+    aln <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>forward<span class="o">=</span>pairwiseAlignment<span class="p">(</span>pattern<span class="o">=</span>reads<span class="p">,</span>
+                subject<span class="o">=</span>subj<span class="p">,</span>
+                type<span class="o">=</span><span class="s">&quot;overlap&quot;</span><span class="p">,</span>
+                substitutionMatrix<span class="o">=</span>nucleotideSubstitutionMatrix<span class="p">(</span>match <span class="o">=</span> align.opts<span class="o">$</span><span class="kp">match</span><span class="p">,</span> mismatch <span class="o">=</span> <span class="o">-</span>align.opts<span class="o">$</span>mismatch<span class="p">),</span>
+                gapOpening<span class="o">=-</span>align.opts<span class="o">$</span>gapOpening<span class="p">,</span> gapExtension<span class="o">=-</span>align.opts<span class="o">$</span>gapExtension<span class="p">),</span>
+                revcomp<span class="o">=</span>pairwiseAlignment<span class="p">(</span>pattern<span class="o">=</span>reads<span class="p">,</span>
+                subject<span class="o">=</span>reverseComplement<span class="p">(</span>DNAString<span class="p">(</span>subj<span class="p">)),</span>
+                type<span class="o">=</span><span class="s">&quot;overlap&quot;</span><span class="p">,</span>
+                substitutionMatrix<span class="o">=</span>nucleotideSubstitutionMatrix<span class="p">(</span>match <span class="o">=</span> align.opts<span class="o">$</span><span class="kp">match</span><span class="p">,</span> mismatch <span class="o">=</span> <span class="o">-</span>align.opts<span class="o">$</span>mismatch<span class="p">),</span>
+                gapOpening<span class="o">=-</span>align.opts<span class="o">$</span>gapOpening<span class="p">,</span> gapExtension<span class="o">=-</span>align.opts<span class="o">$</span>gapExtension<span class="p">))</span>
+
+    aln.scores <span class="o">&lt;-</span> <span class="kp">Map</span><span class="p">(</span>score<span class="p">,</span> aln<span class="p">)</span>
+    aln.pat <span class="o">&lt;-</span> <span class="kp">Map</span><span class="p">(</span>pattern<span class="p">,</span> aln<span class="p">)</span>
+    aln.ranges <span class="o">&lt;-</span> <span class="kp">Map</span><span class="p">(</span><span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> IRanges<span class="p">(</span>start<span class="o">=</span>start<span class="p">(</span>x<span class="p">),</span> end<span class="o">=</span>end<span class="p">(</span>x<span class="p">)),</span> aln.pat<span class="p">)</span>
+    aln.threebands <span class="o">&lt;-</span> <span class="kp">Map</span><span class="p">(</span><span class="kr">function</span> <span class="p">(</span>x<span class="p">)</span> threebands<span class="p">(</span>IRanges<span class="p">(</span>start<span class="o">=</span><span class="m">1</span><span class="p">,</span> end<span class="o">=</span>width<span class="p">(</span>reads<span class="p">)),</span>
+                                                  start<span class="o">=</span>start<span class="p">(</span>x<span class="p">),</span> end<span class="o">=</span>end<span class="p">(</span>x<span class="p">)),</span>
+                          aln.ranges<span class="p">)</span>
+
+    <span class="c1">## For each read, decide whether the forward or reverse alignment</span>
+    <span class="c1">## was better.</span>
+    revcomp.better <span class="o">&lt;-</span> aln.scores<span class="o">$</span>forward <span class="o">&lt;</span> aln.scores<span class="o">$</span>revcomp
+
+    <span class="c1">## For each read, take the threebands for the better alignment.</span>
+    best.threebands <span class="o">&lt;-</span> aln.threebands<span class="o">$</span>forward
+    <span class="kr">for</span> <span class="p">(</span>band <span class="kr">in</span> <span class="kp">names</span><span class="p">(</span>best.threebands<span class="p">))</span> <span class="p">{</span>
+        best.threebands<span class="p">[[</span>band<span class="p">]][</span>revcomp.better<span class="p">]</span> <span class="o">&lt;-</span> aln.threebands<span class="o">$</span>revcomp<span class="p">[[</span>band<span class="p">]][</span>revcomp.better<span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="c1">## Use the left band if it is longer than either min.length or</span>
+    <span class="c1">## length of right band.</span>
+    use.right.band <span class="o">&lt;-</span> width<span class="p">(</span>best.threebands<span class="o">$</span>left<span class="p">)</span> <span class="o">&lt;</span> <span class="kp">pmin</span><span class="p">(</span>min.length<span class="p">,</span> width<span class="p">(</span>best.threebands<span class="o">$</span>right<span class="p">))</span>
+    ranges <span class="o">&lt;-</span> best.threebands<span class="o">$</span>left
+    ranges<span class="p">[</span>use.right.band<span class="p">]</span> <span class="o">&lt;-</span> best.threebands<span class="o">$</span>right<span class="p">[</span>use.right.band<span class="p">]</span>
+
+    <span class="c1">## Record which ranges are shorter than min.length</span>
+    too.short <span class="o">&lt;-</span> width<span class="p">(</span>ranges<span class="p">)</span> <span class="o">&lt;</span> min.length
+    <span class="c1">## ranges[too.short] &lt;- IRanges(start=1,end=0)</span>
+
+    <span class="c1">## Record what was trimmed off of each read (NOT what was kept!)</span>
+    trim <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kp">ifelse</span><span class="p">(</span>use.right.band<span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,</span> <span class="s">&quot;right&quot;</span><span class="p">),</span> levels<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;right&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">,</span> <span class="s">&quot;none&quot;</span><span class="p">))</span>
+    <span class="c1">## If it&#39;s too short, then we trim &quot;all&quot;, i.e. discard the whole</span>
+    <span class="c1">## read.</span>
+    trim<span class="p">[</span>too.short<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;all&quot;</span>
+    <span class="c1">## If the read is not shorter after trimming, then nothing was</span>
+    <span class="c1">## actually trimmed.</span>
+    trim<span class="p">[</span>width<span class="p">(</span>ranges<span class="p">)</span> <span class="o">==</span> width<span class="p">(</span>reads<span class="p">)]</span> <span class="o">&lt;-</span> <span class="s">&quot;none&quot;</span>
+
+    emeta <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+
+    emeta<span class="o">$</span>trim <span class="o">&lt;-</span> trim
+
+    <span class="kr">if</span> <span class="p">(</span>include.deleted.ranges<span class="p">)</span> <span class="p">{</span>
+        deleted.start <span class="o">&lt;-</span> <span class="kp">ifelse</span><span class="p">(</span>too.short<span class="p">,</span> <span class="m">1</span><span class="p">,</span>
+                                <span class="kp">ifelse</span><span class="p">(</span>use.right.band<span class="p">,</span>
+                                       start<span class="p">(</span>best.threebands<span class="o">$</span>left<span class="p">),</span>
+                                       start<span class="p">(</span>best.threebands<span class="o">$</span>middle<span class="p">)))</span>
+        deleted.end <span class="o">&lt;-</span> <span class="kp">ifelse</span><span class="p">(</span>too.short<span class="p">,</span> width<span class="p">(</span>reads<span class="p">),</span>
+                              <span class="kp">ifelse</span><span class="p">(</span>use.right.band<span class="p">,</span>
+                                     end<span class="p">(</span>best.threebands<span class="o">$</span>middle<span class="p">),</span>
+                                     end<span class="p">(</span>best.threebands<span class="o">$</span>right<span class="p">)))</span>
+        emeta<span class="o">$</span>deleted.range <span class="o">&lt;-</span> IRanges<span class="p">(</span>deleted.start<span class="p">,</span> deleted.end<span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">if</span> <span class="p">(</span>include.scores<span class="p">)</span> <span class="p">{</span>
+        <span class="c1">## If requested, take the best score out of each pair of forward</span>
+        <span class="c1">## and reverse scores.</span>
+        scores <span class="o">&lt;-</span> <span class="kp">ifelse</span><span class="p">(</span>revcomp.better<span class="p">,</span> aln.scores<span class="o">$</span>revcomp<span class="p">,</span> aln.scores<span class="o">$</span>forward<span class="p">)</span>
+        emeta<span class="o">$</span>score <span class="o">&lt;-</span> scores
+    <span class="p">}</span>
+
+    mcols<span class="p">(</span>ranges<span class="p">)</span> <span class="o">&lt;-</span> DataFrame<span class="p">(</span>emeta<span class="p">)</span>
+
+    <span class="kr">return</span><span class="p">(</span>ranges<span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## Always call delox on the underlying DNAStringSet object when called</span>
+<span class="c1">## on something more complicated.</span>
+<span class="kp">suppressMessages</span><span class="p">({</span>
+    <span class="kp">invisible</span><span class="p">(</span>setMethod<span class="p">(</span><span class="s">&quot;.delox.trimmed.ranges&quot;</span><span class="p">,</span> signature<span class="o">=</span><span class="kt">c</span><span class="p">(</span>reads<span class="o">=</span><span class="s">&quot;ShortRead&quot;</span><span class="p">),</span>
+                        <span class="kr">function</span> <span class="p">(</span>subj<span class="p">,</span> reads<span class="p">,</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span> <span class="p">{</span>
+                            callGeneric<span class="p">(</span>subj<span class="p">,</span> as<span class="p">(</span>reads<span class="p">,</span> <span class="s">&quot;DNAStringSet&quot;</span><span class="p">),</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span>
+                        <span class="p">}))</span>
+    <span class="kp">invisible</span><span class="p">(</span>setMethod<span class="p">(</span><span class="s">&quot;.delox.trimmed.ranges&quot;</span><span class="p">,</span> signature<span class="o">=</span><span class="kt">c</span><span class="p">(</span>reads<span class="o">=</span><span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">),</span>
+                        <span class="kr">function</span> <span class="p">(</span>subj<span class="p">,</span> reads<span class="p">,</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span> <span class="p">{</span>
+                            callGeneric<span class="p">(</span>subj<span class="p">,</span> as<span class="p">(</span>reads<span class="p">,</span> <span class="s">&quot;DNAStringSet&quot;</span><span class="p">),</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span>
+                        <span class="p">}))</span>
+    <span class="kp">invisible</span><span class="p">(</span>setMethod<span class="p">(</span><span class="s">&quot;.delox.trimmed.ranges&quot;</span><span class="p">,</span> signature<span class="o">=</span><span class="kt">c</span><span class="p">(</span>reads<span class="o">=</span><span class="s">&quot;QualityScaledXStringSet&quot;</span><span class="p">),</span>
+                        <span class="kr">function</span> <span class="p">(</span>subj<span class="p">,</span> reads<span class="p">,</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span> <span class="p">{</span>
+                            callGeneric<span class="p">(</span>subj<span class="p">,</span> as<span class="p">(</span>reads<span class="p">,</span> <span class="s">&quot;XStringSet&quot;</span><span class="p">),</span> min.length<span class="p">,</span> include.scores<span class="p">,</span> include.deleted.ranges<span class="p">,</span> align.opts<span class="p">)</span>
+                        <span class="p">}))</span>
+<span class="p">})</span>
+
+delox.single <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>subj<span class="p">,</span> reads <span class="p">,</span> min.length<span class="o">=</span><span class="m">36</span><span class="p">,</span>
+                         include.scores<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> align.opts<span class="o">=</span><span class="kt">list</span><span class="p">())</span> <span class="p">{</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Saving read names&quot;</span><span class="p">)</span>
+    saved.names <span class="o">&lt;-</span> BStringSet<span class="p">(</span><span class="kp">names</span><span class="p">(</span>reads<span class="p">))</span>
+    reads <span class="o">&lt;-</span> strip.names<span class="p">(</span>reads<span class="p">)</span>
+    <span class="kp">invisible</span><span class="p">(</span><span class="kp">gc</span><span class="p">())</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Doing alignments&quot;</span><span class="p">)</span>
+    nchunks <span class="o">&lt;-</span> <span class="kp">min</span><span class="p">(</span>getDoParWorkers<span class="p">(),</span> <span class="kp">ceiling</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>reads<span class="p">)</span><span class="o">/</span><span class="m">1000</span><span class="p">))</span>
+    deloxed.ranges <span class="o">&lt;-</span> foreach<span class="p">(</span>reads<span class="o">=</span>isplitVector<span class="p">(</span>reads<span class="p">,</span> chunks<span class="o">=</span>nchunks<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kt">c</span><span class="p">)</span> <span class="o">%dopar%</span> <span class="p">{</span>
+        <span class="m">.</span>delox.trimmed.ranges<span class="p">(</span>reads<span class="o">=</span>reads<span class="p">,</span> subj<span class="o">=</span>subj<span class="p">,</span> min.length<span class="o">=</span>min.length<span class="p">,</span>
+                              include.scores<span class="o">=</span>include.scores<span class="p">,</span>
+                              include.deleted.ranges<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>
+                              align.opts<span class="o">=</span>align.opts<span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">## maybe.chunkapply(.delox.trimmed.ranges,</span>
+    <span class="c1">##                  VECTOR.ARGS=list(reads=reads),</span>
+    <span class="c1">##                  SCALAR.ARGS=list(subj=subj, min.length=min.length,</span>
+    <span class="c1">##                    include.scores=include.scores,</span>
+    <span class="c1">##                    include.deleted.ranges=FALSE,</span>
+    <span class="c1">##                    align.opts=align.opts),</span>
+    <span class="c1">##                  min.chunk.size=1000,</span>
+    <span class="c1">##                  MERGE=c)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Trimming reads&quot;</span><span class="p">)</span>
+    trimmed.reads <span class="o">&lt;-</span> narrow<span class="p">(</span>reads<span class="p">,</span> start<span class="p">(</span>deloxed.ranges<span class="p">),</span> end<span class="p">(</span>deloxed.ranges<span class="p">))</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Restoring read names&quot;</span><span class="p">)</span>
+    <span class="kp">names</span><span class="p">(</span>trimmed.reads<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>saved.names<span class="p">)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Adding metadata&quot;</span><span class="p">)</span>
+    emeta <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+    <span class="kr">if</span> <span class="p">(</span>include.scores<span class="p">)</span> <span class="p">{</span>
+        emeta<span class="o">$</span>score <span class="o">&lt;-</span> mcols<span class="p">(</span>deloxed.ranges<span class="p">)</span><span class="o">$</span>score
+    <span class="p">}</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>emeta<span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+        mcols<span class="p">(</span>trimmed.reads<span class="p">)</span> <span class="o">&lt;-</span> DataFrame<span class="p">(</span>emeta<span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">return</span><span class="p">(</span>discard.short.reads<span class="p">(</span>trimmed.reads<span class="p">,</span> min.length<span class="p">))</span>
+<span class="p">}</span>
+
+delox.paired <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>subj<span class="p">,</span> read1<span class="p">,</span> read2<span class="p">,</span>
+                         min.call<span class="o">=</span><span class="m">10</span><span class="p">,</span> min.length<span class="o">=</span><span class="m">36</span><span class="p">,</span>
+                         include.scores<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> align.opts<span class="o">=</span><span class="kt">list</span><span class="p">())</span> <span class="p">{</span>
+    align.opts <span class="o">&lt;-</span> merge.lists<span class="p">(</span>align.opts<span class="p">,</span> default.align.opts<span class="p">)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Checking read counts&quot;</span><span class="p">)</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>read1<span class="p">)</span> <span class="o">==</span> <span class="kp">length</span><span class="p">(</span>read2<span class="p">))</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Listing reads&quot;</span><span class="p">)</span>
+    original.reads <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>read1<span class="o">=</span>read1<span class="p">,</span>
+                           read2<span class="o">=</span>read2<span class="p">)</span>
+    <span class="kp">rm</span><span class="p">(</span>read1<span class="p">,</span> read2<span class="p">)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Saving read names&quot;</span><span class="p">)</span>
+    read.names <span class="o">&lt;-</span> foreach<span class="p">(</span>r<span class="o">=</span>original.reads<span class="p">)</span> <span class="o">%do%</span> BStringSet<span class="p">(</span><span class="kp">names</span><span class="p">(</span>r<span class="p">))</span>
+    <span class="kp">names</span><span class="p">(</span>read.names<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>original.reads<span class="p">)</span>
+    original.reads <span class="o">&lt;-</span> <span class="kp">Map</span><span class="p">(</span>strip.names<span class="p">,</span> original.reads<span class="p">)</span>
+    <span class="kp">invisible</span><span class="p">(</span><span class="kp">gc</span><span class="p">())</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Doing alignments&quot;</span><span class="p">)</span>
+    deloxed.ranges <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>original.reads<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+        nchunks <span class="o">&lt;-</span> <span class="kp">min</span><span class="p">(</span>getDoParWorkers<span class="p">(),</span> <span class="kp">ceiling</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>x<span class="p">)</span><span class="o">/</span><span class="m">1000</span><span class="p">))</span>
+        foreach<span class="p">(</span>reads<span class="o">=</span>isplitVector<span class="p">(</span>x<span class="p">,</span> chunks<span class="o">=</span>nchunks<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kt">c</span><span class="p">)</span> <span class="o">%dopar%</span> <span class="p">{</span>
+            <span class="m">.</span>delox.trimmed.ranges<span class="p">(</span>reads<span class="o">=</span>reads<span class="p">,</span> subj<span class="o">=</span>subj<span class="p">,</span> min.length<span class="o">=</span>min.length<span class="p">,</span>
+                                  include.scores<span class="o">=</span>include.scores<span class="p">,</span>
+                                  include.deleted.ranges<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>
+                                  align.opts<span class="o">=</span>align.opts<span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1">## maybe.chunkapply(.delox.trimmed.ranges,</span>
+        <span class="c1">##                  VECTOR.ARGS=list(reads=strip.names(x)),</span>
+        <span class="c1">##                  SCALAR.ARGS=list(subj=subj,</span>
+        <span class="c1">##                    min.length=min.length,</span>
+        <span class="c1">##                    include.scores=TRUE,</span>
+        <span class="c1">##                    include.deleted.ranges=TRUE,</span>
+        <span class="c1">##                    align.opts=align.opts),</span>
+        <span class="c1">##                  MERGE=c,</span>
+        <span class="c1">##                  min.chunk.size=1000)</span>
+    <span class="p">})</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Extracting metadata&quot;</span><span class="p">)</span>
+    delox.meta <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>deloxed.ranges<span class="p">,</span> mcols<span class="p">)</span>
+
+    <span class="c1">## Decide whether enough was trimmed on the inside (right end) of</span>
+    <span class="c1">## either read to call it a mate-pair.</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Calculating inside trim score&quot;</span><span class="p">)</span>
+    inside.trim.score <span class="o">&lt;-</span> <span class="kp">Reduce</span><span class="p">(</span><span class="kp">pmax</span><span class="p">,</span>
+                                <span class="kp">lapply</span><span class="p">(</span>delox.meta<span class="p">,</span>
+                                       <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kp">ifelse</span><span class="p">(</span>x<span class="o">$</span>trim <span class="o">==</span> <span class="s">&quot;right&quot;</span><span class="p">,</span> x<span class="o">$</span>score<span class="p">,</span> <span class="m">0</span><span class="p">)))</span>
+
+    <span class="c1">## Decide whether enough was trimmed on the outside (left end) of</span>
+    <span class="c1">## either read to call it a non-mate-pair.</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Calculating outside trim score&quot;</span><span class="p">)</span>
+    outside.trim.score <span class="o">&lt;-</span> <span class="kp">Reduce</span><span class="p">(</span><span class="kp">pmax</span><span class="p">,</span>
+                                 <span class="kp">lapply</span><span class="p">(</span>delox.meta<span class="p">,</span>
+                                        <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kp">ifelse</span><span class="p">(</span>x<span class="o">$</span>trim <span class="o">==</span> <span class="s">&quot;left&quot;</span><span class="p">,</span> x<span class="o">$</span>score<span class="p">,</span> <span class="m">0</span><span class="p">)))</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Calling presence of subject&quot;</span><span class="p">)</span>
+    calls <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>inside<span class="o">=</span>inside.trim.score <span class="o">&gt;=</span> min.call <span class="o">*</span> align.opts<span class="o">$</span><span class="kp">match</span><span class="p">,</span>
+                  outside<span class="o">=</span>outside.trim.score <span class="o">&gt;=</span> min.call <span class="o">*</span> align.opts<span class="o">$</span><span class="kp">match</span><span class="p">)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Categorizing reads&quot;</span><span class="p">)</span>
+    <span class="kt">category</span> <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>original.reads<span class="o">$</span>read1<span class="p">)),</span> levels<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;mate&quot;</span><span class="p">,</span> <span class="s">&quot;non-mate&quot;</span><span class="p">,</span> <span class="s">&quot;negative&quot;</span><span class="p">,</span> <span class="s">&quot;unpaired&quot;</span><span class="p">,</span> <span class="s">&quot;discard&quot;</span><span class="p">))</span>
+    <span class="kp">category</span><span class="p">[</span>calls<span class="o">$</span>inside<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;mate&quot;</span>
+    <span class="kp">category</span><span class="p">[</span>calls<span class="o">$</span>outside<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;non-mate&quot;</span>
+    <span class="c1">## If they&#39;re either both true or both false, then it&#39;s ambiguous</span>
+    <span class="kp">category</span><span class="p">[</span>calls<span class="o">$</span>inside <span class="o">==</span> calls<span class="o">$</span>outside<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;negative&quot;</span>
+    <span class="c1">## All categories should be filled in now</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">all</span><span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span><span class="kp">category</span><span class="p">)))</span>
+
+    too.short <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>deloxed.ranges<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> width<span class="p">(</span>x<span class="p">)</span> <span class="o">&lt;</span> min.length<span class="p">)</span>
+    <span class="c1">## If either read in a pair is too short, then its partner is no</span>
+    <span class="c1">## longer paired at all.</span>
+    one.too.short <span class="o">&lt;-</span> <span class="kp">Reduce</span><span class="p">(</span><span class="sb">`|`</span><span class="p">,</span> too.short<span class="p">)</span>
+    <span class="kp">category</span><span class="p">[</span>one.too.short<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;unpaired&quot;</span>
+    <span class="c1">## If both reads in a pair are too short, then the entire pair is</span>
+    <span class="c1">## discarded. This is highly unlikely, since Cre-Lox should not</span>
+    <span class="c1">## appear in the middle of both sequences.</span>
+    both.too.short <span class="o">&lt;-</span> <span class="kp">Reduce</span><span class="p">(</span><span class="sb">`&amp;`</span><span class="p">,</span> too.short<span class="p">)</span>
+    <span class="kp">category</span><span class="p">[</span>both.too.short<span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;discard&quot;</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Trimming reads and restoring read names&quot;</span><span class="p">)</span>
+    trimmed.reads <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>original.reads<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+        trimmed <span class="o">&lt;-</span> narrow<span class="p">(</span>original.reads<span class="p">[[</span>x<span class="p">]],</span>
+                          start<span class="o">=</span>start<span class="p">(</span>deloxed.ranges<span class="p">[[</span>x<span class="p">]]),</span>
+                          end<span class="o">=</span>end<span class="p">(</span>deloxed.ranges<span class="p">[[</span>x<span class="p">]]))</span>
+        <span class="kp">names</span><span class="p">(</span>trimmed<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>read.names<span class="p">[[</span>x<span class="p">]])</span>
+        trimmed
+    <span class="p">})</span>
+    <span class="kp">names</span><span class="p">(</span>trimmed.reads<span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>original.reads<span class="p">)</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Assembling metadata&quot;</span><span class="p">)</span>
+    foreach <span class="p">(</span>r<span class="o">=</span><span class="kp">names</span><span class="p">(</span>trimmed.reads<span class="p">))</span> <span class="o">%do%</span> <span class="p">{</span>
+        emeta <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+        emeta<span class="o">$</span><span class="kt">category</span> <span class="o">&lt;-</span> <span class="kp">category</span>
+        emeta<span class="o">$</span><span class="kp">category</span><span class="p">[</span>too.short<span class="p">[[</span>r<span class="p">]]]</span> <span class="o">&lt;-</span> <span class="s">&quot;discard&quot;</span>
+        <span class="kr">if</span> <span class="p">(</span>include.scores<span class="p">)</span> <span class="p">{</span>
+            emeta<span class="o">$</span>score <span class="o">&lt;-</span> delox.meta<span class="p">[[</span>r<span class="p">]]</span><span class="o">$</span>score
+        <span class="p">}</span>
+        mcols<span class="p">(</span>trimmed.reads<span class="p">[[</span>r<span class="p">]])</span> <span class="o">&lt;-</span> DataFrame<span class="p">(</span>emeta<span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">return</span><span class="p">(</span>trimmed.reads<span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## Wrapper for both single and paired as appropriate</span>
+delox <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>subj<span class="p">,</span> read1<span class="p">,</span> read2<span class="o">=</span><span class="kc">NULL</span><span class="p">,</span>
+                  min.call<span class="o">=</span><span class="m">10</span><span class="p">,</span> min.length<span class="o">=</span><span class="m">36</span><span class="p">,</span>
+                  interleaved<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>
+                  read1.orientation<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">,</span> <span class="s">&quot;out&quot;</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span>
+                  read2.orientation<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">,</span> <span class="s">&quot;out&quot;</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span>
+                  align.opts<span class="o">=</span><span class="kt">list</span><span class="p">())</span> <span class="p">{</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">is.null</span><span class="p">(</span>read2<span class="p">))</span> <span class="p">{</span>
+        <span class="kr">if</span> <span class="p">(</span>interleaved<span class="p">)</span> <span class="p">{</span>
+            x <span class="o">&lt;-</span> deinterleave.pairs<span class="p">(</span>read1<span class="p">)</span>
+            read1 <span class="o">&lt;-</span> x<span class="o">$</span>read1
+            read2 <span class="o">&lt;-</span> x<span class="o">$</span>read2
+        <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+            tsmsg<span class="p">(</span><span class="s">&quot;Doing single-read delox&quot;</span><span class="p">)</span>
+            <span class="kr">return</span><span class="p">(</span>delox.single<span class="p">(</span>subj<span class="o">=</span>subj<span class="p">,</span> reads<span class="o">=</span>read1<span class="p">,</span> min.length<span class="o">=</span>min.length<span class="p">,</span> align.opts<span class="o">=</span>align.opts<span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">## Make sure both reads are oriented &quot;in&quot; before calling</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Ensuring correct read orientation&quot;</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">tolower</span><span class="p">(</span>read1.orientation<span class="p">)</span> <span class="o">==</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        read1 <span class="o">&lt;-</span> reverseComplement<span class="p">(</span>read1<span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">is.null</span><span class="p">(</span>read2<span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="kp">tolower</span><span class="p">(</span>read2.orientation<span class="p">)</span> <span class="o">==</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        read2 <span class="o">&lt;-</span> reverseComplement<span class="p">(</span>read2<span class="p">)</span>
+    <span class="p">}</span>
+
+    tsmsg<span class="p">(</span><span class="s">&quot;Doing paired-end delox&quot;</span><span class="p">)</span>
+    deloxed.reads <span class="o">&lt;-</span> delox.paired<span class="p">(</span>subj<span class="p">,</span> read1<span class="p">,</span> read2<span class="p">,</span>
+                                  min.call<span class="o">=</span>min.call<span class="p">,</span> min.length<span class="o">=</span>min.length<span class="p">,</span>
+                                  align.opts<span class="o">=</span>align.opts<span class="p">)</span>
+
+    <span class="c1">## If reads started &quot;out&quot;, put them back that way before returning</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Restoring original read orientation&quot;</span><span class="p">)</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">tolower</span><span class="p">(</span>read1.orientation<span class="p">)</span> <span class="o">==</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        deloxed.reads<span class="o">$</span>read1 <span class="o">&lt;-</span> reverseComplement<span class="p">(</span>deloxed.reads<span class="o">$</span>read1<span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">if</span> <span class="p">(</span><span class="kp">tolower</span><span class="p">(</span>read2.orientation<span class="p">)</span> <span class="o">==</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        deloxed.reads<span class="o">$</span>read2 <span class="o">&lt;-</span> reverseComplement<span class="p">(</span>deloxed.reads<span class="o">$</span>read2<span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">return</span><span class="p">(</span>deloxed.reads<span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">## ## Hack to work around a bug in BioConductor that prevents subsetting</span>
+<span class="c1">## ## of named XStringSet objects. Apparently, since DeLoxer was first</span>
+<span class="c1">## ## published, the BioConductor devs broke the XStringSet subsetting</span>
+<span class="c1">## ## code so that it can no longer handle XStringSets with names. The</span>
+<span class="c1">## ## code below strips the names from the XStringSet, then calls the old</span>
+<span class="c1">## ## code to subset the nameless object while subsetting the names</span>
+<span class="c1">## ## separately, then finally puts the names back on and returns the</span>
+<span class="c1">## ## result.</span>
+<span class="c1">## old.XStringSet.subset.method &lt;- selectMethod(&quot;[&quot;, &quot;XStringSet&quot;)</span>
+<span class="c1">## invisible(setMethod(&quot;[&quot;, signature=&quot;XStringSet&quot;, definition=function(x, i, j, ..., drop=TRUE) {</span>
+<span class="c1">##     ## Save the names into a seaprate variable</span>
+<span class="c1">##     xnames &lt;- names(x)</span>
+<span class="c1">##     ## Do the old behavior, which works on unnamed objects</span>
+<span class="c1">##     x &lt;- old.XStringSet.subset.method(unname(x), i, j, ..., drop=drop)</span>
+<span class="c1">##     ## Put the names back on and return</span>
+<span class="c1">##     setNames(x, xnames[i])</span>
+<span class="c1">## }))</span>
+
+save.deloxed.pairs.as.fastq <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>read1<span class="p">,</span> read2<span class="p">,</span> output.base<span class="p">,</span>
+                                        mate.ext<span class="o">=</span><span class="s">&quot;matepaired&quot;</span><span class="p">,</span>
+                                        nonmate.ext<span class="o">=</span><span class="s">&quot;paired&quot;</span><span class="p">,</span>
+                                        negative.ext<span class="o">=</span><span class="s">&quot;negative&quot;</span><span class="p">,</span>
+                                        unpaired.ext<span class="o">=</span><span class="s">&quot;unpaired&quot;</span><span class="p">,</span>
+                                        append<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span> <span class="p">{</span>
+
+    extension <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>mate<span class="o">=</span>mate.ext<span class="p">,</span>
+                   <span class="sb">`non-mate`</span><span class="o">=</span>nonmate.ext<span class="p">,</span>
+                   negative<span class="o">=</span>negative.ext<span class="p">,</span>
+                   unpaired<span class="o">=</span>unpaired.ext<span class="p">)</span>
+
+    <span class="c1">## ## Make sure that read1 and read2 are a match for each other</span>
+    <span class="c1">## stopifnot(identical(as.character(mcols(read1)$category),</span>
+    <span class="c1">##                     as.character(mcols(read2)$category)))</span>
+
+    <span class="c1">## ## Discard the shorter read on &quot;unpaired&quot;</span>
+    <span class="c1">## read1.shorter &lt;- width(read1) &lt; width(read2)</span>
+    <span class="c1">## mcols(read1)$category[mcols(read1)$category == &quot;unpaired&quot; &amp; read1.shorter] &lt;- NA</span>
+    <span class="c1">## mcols(read2)$category[mcols(read2)$category == &quot;unpaired&quot; &amp; !read1.shorter] &lt;- NA</span>
+
+    filename.template <span class="o">&lt;-</span> <span class="s">&quot;%s_read%s.%s.fastq&quot;</span>
+
+    <span class="kr">for</span> <span class="p">(</span>cat <span class="kr">in</span> <span class="kp">names</span><span class="p">(</span>extension<span class="p">))</span> <span class="p">{</span>
+        read1.for.category <span class="o">&lt;-</span> read1<span class="p">[</span>mcols<span class="p">(</span>read1<span class="p">)</span><span class="o">$</span><span class="kt">category</span> <span class="o">==</span> <span class="kp">cat</span><span class="p">]</span>
+        read1.file.for.category <span class="o">&lt;-</span> <span class="kp">sprintf</span><span class="p">(</span>filename.template<span class="p">,</span> output.base<span class="p">,</span> <span class="m">1</span><span class="p">,</span> extension<span class="p">[[</span><span class="kp">cat</span><span class="p">]])</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Writing &quot;</span><span class="p">,</span> read1.file.for.category<span class="p">)</span>
+        write.QualityScaledDNAStringSet<span class="p">(</span>read1.for.category<span class="p">,</span>
+                                        file<span class="o">=</span>read1.file.for.category<span class="p">,</span>
+                                        append<span class="o">=</span><span class="kp">append</span><span class="p">)</span>
+
+        read2.for.category <span class="o">&lt;-</span> read2<span class="p">[</span>mcols<span class="p">(</span>read2<span class="p">)</span><span class="o">$</span><span class="kt">category</span> <span class="o">==</span> <span class="kp">cat</span><span class="p">]</span>
+        read2.file.for.category <span class="o">&lt;-</span> <span class="kp">sprintf</span><span class="p">(</span>filename.template<span class="p">,</span> output.base<span class="p">,</span> <span class="m">2</span><span class="p">,</span> extension<span class="p">[[</span><span class="kp">cat</span><span class="p">]])</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Writing &quot;</span><span class="p">,</span> read2.file.for.category<span class="p">)</span>
+        write.QualityScaledDNAStringSet<span class="p">(</span>read2.for.category<span class="p">,</span>
+                                        file<span class="o">=</span>read2.file.for.category<span class="p">,</span>
+                                        append<span class="o">=</span><span class="kp">append</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kr">return</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="p">}</span>
+
+get.category.counts <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>deloxed.pairs<span class="p">)</span> <span class="p">{</span>
+    r1cat <span class="o">&lt;-</span> mcols<span class="p">(</span>deloxed.pairs<span class="o">$</span>read1<span class="p">)</span><span class="o">$</span><span class="kp">category</span>
+    r2cat <span class="o">&lt;-</span> mcols<span class="p">(</span>deloxed.pairs<span class="o">$</span>read2<span class="p">)</span><span class="o">$</span><span class="kp">category</span>
+    x <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>r1cat<span class="p">)[</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;mate&quot;</span><span class="p">,</span> <span class="s">&quot;non-mate&quot;</span><span class="p">,</span> <span class="s">&quot;negative&quot;</span><span class="p">)]</span>
+    x<span class="p">[</span><span class="s">&quot;r1.single&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>r1cat <span class="o">==</span> <span class="s">&quot;unpaired&quot;</span><span class="p">)</span>
+    x<span class="p">[</span><span class="s">&quot;r2.single&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>r2cat <span class="o">==</span> <span class="s">&quot;unpaired&quot;</span><span class="p">)</span>
+    x<span class="p">[</span><span class="s">&quot;discard&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>r1cat<span class="p">)</span> <span class="o">-</span> <span class="kp">sum</span><span class="p">(</span>x<span class="p">)</span>
+    x
+<span class="p">}</span>
+
+mcparallel.quiet <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>expr<span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
+    parallel<span class="o">:::</span>mcparallel<span class="p">(</span><span class="kp">suppressMessages</span><span class="p">(</span>expr<span class="p">),</span> <span class="kc">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+print.stats <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>category.counts<span class="p">)</span> <span class="p">{</span>
+    category.pct <span class="o">&lt;-</span> setNames<span class="p">(</span><span class="kp">sprintf</span><span class="p">(</span><span class="s">&quot;%.3g%%&quot;</span><span class="p">,</span> category.counts <span class="o">/</span> <span class="kp">sum</span><span class="p">(</span>category.counts<span class="p">)</span> <span class="o">*</span> <span class="m">100</span><span class="p">),</span>
+                             <span class="kp">names</span><span class="p">(</span>category.counts<span class="p">))</span>
+    x <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span>Counts<span class="o">=</span>category.counts<span class="p">,</span> Fractions<span class="o">=</span>category.pct<span class="p">)</span>
+    <span class="kp">names</span><span class="p">(</span><span class="kp">dimnames</span><span class="p">(</span>x<span class="p">))</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Stat&quot;</span><span class="p">,</span> <span class="s">&quot;Category&quot;</span><span class="p">)</span>
+    <span class="kp">print</span><span class="p">(</span>x<span class="p">,</span> quote<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> justify<span class="o">=</span><span class="s">&quot;right&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+main <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">()</span> <span class="p">{</span>
+    opt <span class="o">&lt;-</span> parse_arguments<span class="p">()</span>
+    print.option.list<span class="p">(</span>opt<span class="p">)</span>
+    args <span class="o">&lt;-</span> opt<span class="o">$</span><span class="kp">args</span>
+    opts <span class="o">&lt;-</span> opt<span class="o">$</span><span class="kp">options</span>
+
+    <span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="kp">tolower</span><span class="p">(</span>opts<span class="p">[[</span><span class="s">&quot;read1-orientation&quot;</span><span class="p">]])</span> <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">,</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+          <span class="kp">tolower</span><span class="p">(</span>opts<span class="p">[[</span><span class="s">&quot;read2-orientation&quot;</span><span class="p">]])</span> <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;in&quot;</span><span class="p">,</span> <span class="s">&quot;out&quot;</span><span class="p">)</span> <span class="p">))</span> <span class="p">{</span>
+        <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Valid orientations are \&quot;in\&quot; and \&quot;out\&quot;&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    align.opts <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>match <span class="o">=</span> opts<span class="p">[[</span><span class="s">&quot;match-bonus&quot;</span><span class="p">]],</span>
+                       mismatch <span class="o">=</span> opts<span class="p">[[</span><span class="s">&quot;mismatch-penalty&quot;</span><span class="p">]],</span>
+                       gapOpening <span class="o">=</span> opts<span class="p">[[</span><span class="s">&quot;gap-open-penalty&quot;</span><span class="p">]],</span>
+                       gapExtension <span class="o">=</span> opts<span class="p">[[</span><span class="s">&quot;gap-extension-penalty&quot;</span><span class="p">]])</span>
+
+    <span class="kp">stopifnot</span><span class="p">(</span>opts<span class="o">$</span><span class="sb">`min-call`</span> <span class="o">&gt;=</span> <span class="m">1</span> <span class="o">&amp;&amp;</span>
+              opts<span class="o">$</span><span class="sb">`min-length`</span> <span class="o">&gt;=</span> <span class="m">0</span> <span class="o">&amp;&amp;</span>
+              opts<span class="o">$</span><span class="sb">`jobs`</span> <span class="o">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+
+    <span class="c1">## Set jobs if requested</span>
+    <span class="kr">if</span> <span class="p">(</span>opts<span class="o">$</span>jobs <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kp">options</span><span class="p">(</span>cores<span class="o">=</span>opts<span class="o">$</span>jobs<span class="p">)</span>
+    <span class="p">}</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Using &quot;</span><span class="p">,</span> getDoParWorkers<span class="p">(),</span> <span class="s">&quot; cores.&quot;</span><span class="p">)</span>
+
+    paired <span class="o">&lt;-</span> <span class="o">!</span>opts<span class="p">[[</span><span class="s">&quot;single-read-mode&quot;</span><span class="p">]]</span>
+    interleaved <span class="o">&lt;-</span> opts<span class="p">[[</span><span class="s">&quot;interleaved&quot;</span><span class="p">]]</span>
+
+    <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>paired <span class="o">&amp;&amp;</span> interleaved<span class="p">)</span> <span class="p">{</span>
+        <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;ERROR: You cannot specify both --interleaved and --single-read-mode&quot;</span><span class="p">)</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>paired<span class="p">)</span> <span class="p">{</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span><span class="kp">args</span><span class="p">)</span> <span class="o">!=</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;DeLoxer in single-read mode requires exactly 3 arguments&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        subject.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+        read1.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+        read2.file <span class="o">&lt;-</span> <span class="kc">NULL</span>
+        output.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>interleaved<span class="p">)</span> <span class="p">{</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span><span class="kp">args</span><span class="p">)</span> <span class="o">!=</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;DeLoxer interleaved input mode requires exactly 3 arguments&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        subject.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+        read1.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+        read2.file <span class="o">&lt;-</span> <span class="kc">NULL</span>
+        output.basename <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span><span class="kp">args</span><span class="p">)</span> <span class="o">!=</span> <span class="m">4</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;DeLoxer requires exactly 4 arguments&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        subject.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+        read1.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+        read2.file <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">3</span><span class="p">]]</span>
+        output.basename <span class="o">&lt;-</span> <span class="kp">args</span><span class="p">[[</span><span class="m">4</span><span class="p">]]</span>
+    <span class="p">}</span>
+
+    subj <span class="o">&lt;-</span> readDNAStringSet<span class="p">(</span>subject.file<span class="p">,</span> format<span class="o">=</span><span class="s">&quot;fasta&quot;</span><span class="p">,</span> nrec<span class="o">=</span><span class="m">1</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+
+    yieldSize <span class="o">&lt;-</span> opts<span class="p">[[</span><span class="s">&quot;yield-size&quot;</span><span class="p">]]</span>
+    <span class="kr">if</span> <span class="p">(</span>paired<span class="p">)</span> <span class="p">{</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Deloxing and classifying paired sequences&quot;</span><span class="p">)</span>
+        read1.stream <span class="o">&lt;-</span> FastqStreamer<span class="p">(</span>read1.file<span class="p">,</span> n<span class="o">=</span>yieldSize<span class="p">)</span>
+        read2.stream <span class="o">&lt;-</span> <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>interleaved<span class="p">)</span> FastqStreamer<span class="p">(</span>read2.file<span class="p">,</span> n<span class="o">=</span>yieldSize<span class="p">)</span>
+        process.chunk <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>fq1<span class="p">,</span> fq2<span class="p">,</span> <span class="kp">append</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq1<span class="p">)</span> <span class="o">&lt;</span> <span class="m">1</span><span class="p">)</span>
+                <span class="kr">return</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+            <span class="kr">if</span> <span class="p">(</span>interleaved<span class="p">)</span> <span class="p">{</span>
+                <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">is.null</span><span class="p">(</span>fq2<span class="p">))</span>
+                deint <span class="o">&lt;-</span> deinterleave.pairs<span class="p">(</span>fq1<span class="p">)</span>
+                fq1 <span class="o">&lt;-</span> deint<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+                fq2 <span class="o">&lt;-</span> deint<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+            <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+                <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq1<span class="p">)</span> <span class="o">!=</span> <span class="kp">length</span><span class="p">(</span>fq2<span class="p">))</span>
+                    <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Both input files must have equal numbers of reads&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+            read1 <span class="o">&lt;-</span> as<span class="p">(</span>fq1<span class="p">,</span> <span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">)</span>
+            read2 <span class="o">&lt;-</span> as<span class="p">(</span>fq2<span class="p">,</span> <span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">)</span>
+            deloxed.pairs <span class="o">&lt;-</span>
+                delox<span class="p">(</span>subj<span class="p">,</span> read1<span class="p">,</span> read2<span class="p">,</span>
+                      min.call<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;min-call&quot;</span><span class="p">]],</span>
+                      interleaved<span class="o">=</span>interleaved<span class="p">,</span>
+                      read1.orientation<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;read1-orientation&quot;</span><span class="p">]],</span>
+                      read2.orientation<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;read2-orientation&quot;</span><span class="p">]],</span>
+                      align.opts<span class="o">=</span>align.opts<span class="p">)</span>
+            save.deloxed.pairs.as.fastq<span class="p">(</span>deloxed.pairs<span class="o">$</span>read1<span class="p">,</span> deloxed.pairs<span class="o">$</span>read2<span class="p">,</span> output.basename<span class="p">,</span> append<span class="o">=</span><span class="kp">append</span><span class="p">)</span>
+
+            ret <span class="o">&lt;-</span> get.category.counts<span class="p">(</span>deloxed.pairs<span class="p">)</span>
+            <span class="kr">return</span><span class="p">(</span>ret<span class="p">)</span>
+        <span class="p">}</span>
+        fq1 <span class="o">&lt;-</span> yield<span class="p">(</span>read1.stream<span class="p">)</span>
+        fq2 <span class="o">&lt;-</span> <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>interleaved<span class="p">)</span> yield<span class="p">(</span>read2.stream<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq1<span class="p">)</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
+            <span class="kp">warning</span><span class="p">(</span><span class="s">&quot;No reads were read from the input file.&quot;</span><span class="p">)</span>
+        proc <span class="o">&lt;-</span> mcparallel.quiet<span class="p">(</span>process.chunk<span class="p">(</span>fq1<span class="p">,</span> fq2<span class="p">,</span> append<span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span>
+        reads.processed <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>fq1<span class="p">)</span> <span class="o">/</span> <span class="kp">ifelse</span><span class="p">(</span>interleaved<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        category.stats <span class="o">&lt;-</span>
+            category.counts <span class="o">&lt;-</span> <span class="kc">NULL</span>
+        <span class="kr">while</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq1 <span class="o">&lt;-</span> yield<span class="p">(</span>read1.stream<span class="p">)))</span> <span class="p">{</span>
+            <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>interleaved<span class="p">)</span>
+                fq2 <span class="o">&lt;-</span> yield<span class="p">(</span>read2.stream<span class="p">)</span>
+            prev.result <span class="o">&lt;-</span> mccollect<span class="p">(</span>proc<span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+            <span class="kr">if</span> <span class="p">(</span>is<span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;try-error&quot;</span><span class="p">))</span> <span class="p">{</span>
+                tsmsg<span class="p">(</span><span class="s">&quot;Encountered error in deloxing subprocess:&quot;</span><span class="p">)</span>
+                <span class="kp">stop</span><span class="p">(</span><span class="kp">attr</span><span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;condition&quot;</span><span class="p">))</span>
+            <span class="p">}</span>
+            <span class="kr">if</span> <span class="p">(</span><span class="kp">is.null</span><span class="p">(</span>category.counts<span class="p">))</span> <span class="p">{</span>
+                category.counts <span class="o">&lt;-</span> prev.result
+            <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+                category.counts <span class="o">&lt;-</span> category.counts <span class="o">+</span> prev.result
+            <span class="p">}</span>
+            tsmsg<span class="p">(</span><span class="s">&quot;Category stats after processing &quot;</span><span class="p">,</span> reads.processed<span class="p">,</span> <span class="s">&quot; reads:&quot;</span><span class="p">)</span>
+            <span class="c1">## category.pct &lt;- setNames(sprintf(&quot;%.3g%%&quot;, category.counts / sum(category.counts) * 100),</span>
+            <span class="c1">##                          names(category.counts))</span>
+            print.stats<span class="p">(</span>category.counts<span class="p">)</span>
+            proc <span class="o">&lt;-</span> mcparallel.quiet<span class="p">(</span>process.chunk<span class="p">(</span>fq1<span class="p">,</span> fq2<span class="p">,</span> append<span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span>
+            reads.processed <span class="o">&lt;-</span> reads.processed <span class="o">+</span> <span class="kp">length</span><span class="p">(</span>fq1<span class="p">)</span> <span class="o">/</span> <span class="kp">ifelse</span><span class="p">(</span>interleaved<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="kp">close</span><span class="p">(</span>read1.stream<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="o">!</span>interleaved<span class="p">)</span> <span class="kp">close</span><span class="p">(</span>read2.stream<span class="p">)</span>
+        prev.result <span class="o">&lt;-</span> mccollect<span class="p">(</span>proc<span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">is.null</span><span class="p">(</span>category.counts<span class="p">))</span> <span class="p">{</span>
+            category.counts <span class="o">&lt;-</span> prev.result
+        <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+            category.counts <span class="o">&lt;-</span> category.counts <span class="o">+</span> prev.result
+        <span class="p">}</span>
+        <span class="kr">if</span> <span class="p">(</span>is<span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;try-error&quot;</span><span class="p">))</span> <span class="p">{</span>
+            tsmsg<span class="p">(</span><span class="s">&quot;Encountered error in deloxing subprocess:&quot;</span><span class="p">)</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="kp">attr</span><span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;condition&quot;</span><span class="p">))</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Encountered error in deloxing&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Final category stats after processing &quot;</span><span class="p">,</span> reads.processed<span class="p">,</span> <span class="s">&quot; reads:&quot;</span><span class="p">)</span>
+        print.stats<span class="p">(</span>category.counts<span class="p">)</span>
+    <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Deloxing single sequences&quot;</span><span class="p">)</span>
+        read1.stream <span class="o">&lt;-</span> FastqStreamer<span class="p">(</span>read1.file<span class="p">,</span> n<span class="o">=</span>yieldSize<span class="p">)</span>
+        process.chunk <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>fq<span class="p">,</span> <span class="kp">append</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq<span class="p">)</span> <span class="o">&lt;</span> <span class="m">1</span><span class="p">)</span>
+                <span class="kr">return</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+            reads <span class="o">&lt;-</span> as<span class="p">(</span>fq<span class="p">,</span> <span class="s">&quot;QualityScaledDNAStringSet&quot;</span><span class="p">)</span>
+            deloxed.reads <span class="o">&lt;-</span>
+                delox<span class="p">(</span>subj<span class="p">,</span> reads<span class="p">,</span> <span class="kc">NULL</span><span class="p">,</span>
+                      min.call<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;min-call&quot;</span><span class="p">]],</span>
+                      interleaved<span class="o">=</span>interleaved<span class="p">,</span>
+                      read1.orientation<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;read1-orientation&quot;</span><span class="p">]],</span>
+                      read2.orientation<span class="o">=</span>opts<span class="p">[[</span><span class="s">&quot;read2-orientation&quot;</span><span class="p">]],</span>
+                      align.opts<span class="o">=</span>align.opts<span class="p">)</span>
+            write.QualityScaledDNAStringSet<span class="p">(</span>deloxed.reads<span class="p">,</span> output.file<span class="p">,</span> append<span class="o">=</span><span class="kp">append</span><span class="p">)</span>
+            <span class="kr">return</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">## First chunk is processed with append=FALSE to start the file</span>
+        fq <span class="o">&lt;-</span> yield<span class="p">(</span>read1.stream<span class="p">)</span>
+        <span class="kr">if</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq<span class="p">)</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
+            <span class="kp">warning</span><span class="p">(</span><span class="s">&quot;No reads were read from the input file.&quot;</span><span class="p">)</span>
+        proc <span class="o">&lt;-</span> mcparallel.quiet<span class="p">(</span><span class="kp">suppressMessages</span><span class="p">(</span>process.chunk<span class="p">(</span>fq<span class="p">,</span> append<span class="o">=</span><span class="kc">FALSE</span><span class="p">)))</span>
+        reads.processed <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>fq<span class="p">)</span>
+        <span class="kr">while</span> <span class="p">(</span><span class="kp">length</span><span class="p">(</span>fq <span class="o">&lt;-</span> yield<span class="p">(</span>read1.stream<span class="p">)))</span> <span class="p">{</span>
+            prev.result <span class="o">&lt;-</span> mccollect<span class="p">(</span>proc<span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+            <span class="kr">if</span> <span class="p">(</span>is<span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;try-error&quot;</span><span class="p">))</span> <span class="p">{</span>
+                tsmsg<span class="p">(</span><span class="s">&quot;Encountered error in deloxing subprocess:&quot;</span><span class="p">)</span>
+                <span class="kp">stop</span><span class="p">(</span><span class="kp">attr</span><span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;condition&quot;</span><span class="p">))</span>
+                <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Encountered error in deloxing&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+            tsmsg<span class="p">(</span><span class="s">&quot;Processed &quot;</span><span class="p">,</span> reads.processed<span class="p">,</span> <span class="s">&quot; reads&quot;</span><span class="p">)</span>
+            proc <span class="o">&lt;-</span> mcparallel.quiet<span class="p">(</span><span class="kp">suppressMessages</span><span class="p">(</span>process.chunk<span class="p">(</span>fq<span class="p">,</span> append<span class="o">=</span><span class="kc">TRUE</span><span class="p">)))</span>
+            reads.processed <span class="o">&lt;-</span> reads.processed <span class="o">+</span> <span class="kp">length</span><span class="p">(</span>fq<span class="p">)</span>
+        <span class="p">}</span>
+        <span class="kp">close</span><span class="p">(</span>read1.stream<span class="p">)</span>
+        prev.result <span class="o">&lt;-</span> mccollect<span class="p">(</span>proc<span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+        <span class="kr">if</span> <span class="p">(</span>is<span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;try-error&quot;</span><span class="p">))</span> <span class="p">{</span>
+            tsmsg<span class="p">(</span><span class="s">&quot;Encountered error in deloxing subprocess:&quot;</span><span class="p">)</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="kp">attr</span><span class="p">(</span>prev.result<span class="p">,</span> <span class="s">&quot;condition&quot;</span><span class="p">))</span>
+            <span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Encountered error in deloxing&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        tsmsg<span class="p">(</span><span class="s">&quot;Processed &quot;</span><span class="p">,</span> reads.processed<span class="p">,</span> <span class="s">&quot; reads&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Finished successful run&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+main<span class="p">()</span>
+</pre></div>
+</body>
+</html>

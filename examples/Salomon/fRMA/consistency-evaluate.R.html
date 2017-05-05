@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="c1">#!/usr/bin/env Rscript</span>
+
+<span class="c1"># Script to check reproducibility of fRMA training process</span>
+
+<span class="kn">library</span><span class="p">(</span>xlsx<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>frma<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>frmaTools<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>stringr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>magrittr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>plyr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>affy<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>preprocessCore<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>proto<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<span class="kp">load</span><span class="p">(</span><span class="s">&quot;consistency.rda&quot;</span><span class="p">)</span>
+
+<span class="c1">## Select a random subset of 20 arrays from each tissue (Would rather</span>
+<span class="c1">## use entire dataset but ENOMEM)</span>
+<span class="kp">set.seed</span><span class="p">(</span><span class="m">1986</span><span class="p">)</span>
+norm.exprs <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>vectors<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>ttype<span class="p">)</span> <span class="p">{</span>
+    stab <span class="o">&lt;-</span> sample.tables<span class="p">[[</span>ttype<span class="p">]]</span> <span class="o">%&gt;%</span> sample_n<span class="p">(</span><span class="m">20</span><span class="p">)</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Reading 20 random arrays for &quot;</span><span class="p">,</span> ttype<span class="p">)</span>
+    affy <span class="o">&lt;-</span> ReadAffy<span class="p">(</span>filenames<span class="o">=</span>stab<span class="o">$</span>Filename<span class="p">,</span> sampleNames<span class="o">=</span><span class="kp">rownames</span><span class="p">(</span>stab<span class="p">))</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Normalizing with RMA for comparison&quot;</span><span class="p">)</span>
+    eset.rma <span class="o">&lt;-</span> rma<span class="p">(</span>affy<span class="p">)</span>
+    rma.exprs <span class="o">&lt;-</span> eset.rma <span class="o">%&gt;%</span> exprs <span class="o">%&gt;%</span> <span class="kp">as.vector</span>
+    tsmsg<span class="p">(</span><span class="s">&quot;Normalizing with 5 trains fRMA vector sets&quot;</span><span class="p">)</span>
+    esets.frma <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>vectors<span class="p">[[</span>ttype<span class="p">]],</span> <span class="m">.</span> <span class="o">%&gt;%</span> frma<span class="p">(</span>affy<span class="p">,</span> input.vecs<span class="o">=</span><span class="m">.</span><span class="p">))</span>
+    frma.exprs <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span>esets.frma<span class="p">,</span> <span class="m">.</span> <span class="o">%&gt;%</span> exprs <span class="o">%&gt;%</span> <span class="kp">as.vector</span><span class="p">)</span>
+    <span class="kt">data.frame</span><span class="p">(</span>RMA<span class="o">=</span>rma.exprs<span class="p">,</span> fRMA<span class="o">=</span>frma.exprs<span class="p">)</span>
+<span class="p">})</span> <span class="o">%&gt;%</span> setNames<span class="p">(</span><span class="kp">names</span><span class="p">(</span>vectors<span class="p">))</span>
+
+<span class="c1">## Save because the above takes a while</span>
+<span class="kp">save.image</span><span class="p">(</span><span class="s">&quot;consistency.rda&quot;</span><span class="p">)</span>
+
+<span class="kp">dir.create</span><span class="p">(</span><span class="s">&quot;fRMA_consistency_results&quot;</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="c1">## Compute M/A data for all pairwise comparisons</span>
+ma.data <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>norm.exprs<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>normexprs<span class="p">)</span> <span class="p">{</span>
+    normexprs <span class="o">%&gt;%</span> names <span class="o">%&gt;%</span> combn<span class="p">(</span><span class="m">2</span><span class="p">,</span> simplify<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span> <span class="o">%&gt;%</span> ldply<span class="p">(</span><span class="m">.</span> <span class="o">%&gt;%</span> <span class="p">{</span>
+        col1 <span class="o">&lt;-</span> <span class="m">.</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+        col2 <span class="o">&lt;-</span> <span class="m">.</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+        x1 <span class="o">&lt;-</span> normexprs<span class="p">[[</span>col1<span class="p">]]</span>
+        x2 <span class="o">&lt;-</span> normexprs<span class="p">[[</span>col2<span class="p">]]</span>
+        <span class="kt">data.frame</span><span class="p">(</span>Comparison <span class="o">=</span> str_c<span class="p">(</span>col1<span class="p">,</span><span class="s">&quot;.vs.&quot;</span><span class="p">,</span>col2<span class="p">),</span>
+                   x1<span class="o">=</span>x1<span class="p">,</span> x2<span class="o">=</span>x2<span class="p">,</span>
+                   M <span class="o">=</span> x2 <span class="o">-</span> x1<span class="p">,</span>
+                   A <span class="o">=</span> <span class="p">(</span>x1<span class="o">+</span>x2<span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+
+<span class="kr">for</span> <span class="p">(</span>ttype <span class="kr">in</span> <span class="kp">names</span><span class="p">(</span>norm.exprs<span class="p">))</span> <span class="p">{</span>
+    madata <span class="o">&lt;-</span> ma.data<span class="p">[[</span>ttype<span class="p">]]</span>
+
+    pdf<span class="p">(</span>str_c<span class="p">(</span><span class="s">&quot;fRMA_consistency_results/MA Plots for &quot;</span><span class="p">,</span> ttype<span class="p">,</span> <span class="s">&quot;.pdf&quot;</span><span class="p">))</span>
+    <span class="c1">## MA plot for every pair of normalizations</span>
+    ddply<span class="p">(</span>madata<span class="p">,</span> <span class="m">.</span><span class="p">(</span>Comparison<span class="p">),</span> <span class="m">.</span> <span class="o">%$%</span> <span class="p">{</span>
+        smoothScatter<span class="p">(</span>x<span class="o">=</span>A<span class="p">,</span> y<span class="o">=</span>M<span class="p">,</span> nbin<span class="o">=</span><span class="m">512</span><span class="p">,</span> main<span class="o">=</span>Comparison<span class="p">[</span><span class="m">1</span><span class="p">],</span> xlab<span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;M&quot;</span><span class="p">)</span>
+    <span class="p">})</span>
+    dev.off<span class="p">()</span>
+
+    <span class="c1">## M boxplots &amp; violin plots</span>
+    pdf<span class="p">(</span>str_c<span class="p">(</span><span class="s">&quot;fRMA_consistency_results/M Boxplots for &quot;</span><span class="p">,</span> ttype<span class="p">,</span> <span class="s">&quot;.pdf&quot;</span><span class="p">),</span>
+        width<span class="o">=</span><span class="m">8</span><span class="p">,</span> height<span class="o">=</span><span class="m">12</span><span class="p">)</span>
+    p <span class="o">&lt;-</span> ggplot<span class="p">(</span>madata<span class="p">)</span> <span class="o">+</span> aes<span class="p">(</span>x<span class="o">=</span>Comparison<span class="p">,</span> y<span class="o">=</span>M<span class="p">)</span> <span class="o">+</span>
+        scale_x_discrete<span class="p">(</span>limits <span class="o">=</span> <span class="kp">rev</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>madata<span class="o">$</span>Comparison<span class="p">)))</span> <span class="o">+</span>
+            coord_flip<span class="p">()</span>
+    <span class="kp">print</span><span class="p">(</span>p <span class="o">+</span> geom_boxplot<span class="p">(</span>notch<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> outlier.shape <span class="o">=</span> <span class="kc">NA</span><span class="p">)</span> <span class="o">+</span>
+          ggtitle<span class="p">(</span>str_c<span class="p">(</span><span class="s">&quot;Boxplots of M value distributions for &quot;</span><span class="p">,</span> ttype<span class="p">)))</span>
+    <span class="kp">print</span><span class="p">(</span>p <span class="o">+</span> geom_violin<span class="p">(</span>scale<span class="o">=</span><span class="s">&quot;width&quot;</span><span class="p">)</span> <span class="o">+</span>
+          ggtitle<span class="p">(</span>str_c<span class="p">(</span><span class="s">&quot;Violin plots of M value distributions for &quot;</span><span class="p">,</span> ttype<span class="p">)))</span>
+    dev.off<span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</body>
+</html>

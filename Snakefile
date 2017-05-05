@@ -3,6 +3,7 @@
 import locale
 import os.path
 import regex
+import urllib.parse
 
 from collections import Iterable, Mapping  # in Python 3 use from collections.abc
 from distutils.spawn import find_executable
@@ -16,7 +17,7 @@ except ImportError:
     from scandir import scandir, walk
 
 def unnest(*args):
-    """Un-nest list- and tuple-like elements in arguments.
+    '''Un-nest list- and tuple-like elements in arguments.
 
 "List-like" means anything with a len() and whose elments can be
 accessed with numeric indexing, except for string-like elements. It
@@ -26,7 +27,7 @@ Dict-like elements and iterators/generators are not affected.
 This function always returns a list, even if it is passed a single
 scalar argument.
 
-    """
+    '''
     result = []
     for arg in args:
         if isinstance(arg, str):
@@ -50,37 +51,37 @@ scalar argument.
     return result
 
 def check_output_decode(*args, encoding=locale.getpreferredencoding(), **kwargs):
-    """Shortcut for check.output + str.decode"""
+    '''Shortcut for check.output + str.decode'''
     return check_output(*args, **kwargs).decode(encoding)
 
 def find_mac_app(name):
     try:
         return check_output_decode(
-            ["mdfind",
-             "kMDItemDisplayName=={name}&&kMDItemKind==Application".format(name=name)]).split("\n")[0]
+            ['mdfind',
+             'kMDItemDisplayName=={name}&&kMDItemKind==Application'.format(name=name)]).split('\n')[0]
     except Exception:
         return None
 
-def glob_recursive(pattern, top=".", include_hidden=False, *args, **kwargs):
-    """Combination of glob.glob and os.walk.
+def glob_recursive(pattern, top='.', include_hidden=False, *args, **kwargs):
+    '''Combination of glob.glob and os.walk.
 
 Reutrns the relative path to every file or directory matching the
 pattern anywhere in the specified directory hierarchy. Defaults to the
 current working directory. Any additional arguments are passed to
-os.walk."""
+os.walk.'''
     for (path, dirs, files) in walk(top, *args, **kwargs):
         for f in dirs + files:
-            if include_hidden or f.startswith("."):
+            if include_hidden or f.startswith('.'):
                 continue
             if fnmatch(f, pattern):
                 yield os.path.normpath(os.path.join(path, f))
 
-LYXPATH = find_executable("lyx") or \
-    os.path.join(find_mac_app("LyX"), "Contents/MacOS/lyx") or \
+LYXPATH = find_executable('lyx') or \
+    os.path.join(find_mac_app('LyX'), 'Contents/MacOS/lyx') or \
     '/bin/false'
 
 def rsync_list_files(*paths, extra_rsync_args=(), include_dirs=False):
-    """Iterate over the files in path that rsync would copy.
+    '''Iterate over the files in path that rsync would copy.
 
 By default, only files are listed, not directories, since doit doesn't
 like dependencies on directories because it can't hash them.
@@ -89,43 +90,71 @@ This uses "rsync --list-only" to make rsync directly indicate which
 files it would copy, so any exclusion/inclusion rules are taken into
 account.
 
-    """
-    rsync_list_cmd = [ 'rsync', '-r', "--list-only" ] + unnest(extra_rsync_args) + unnest(paths) + [ "." ]
+    '''
+    rsync_list_cmd = [ 'rsync', '-r', '--list-only' ] + unnest(extra_rsync_args) + unnest(paths) + [ '.' ]
     rsync_out = check_output_decode(rsync_list_cmd).splitlines()
     for line in rsync_out:
-        s = regex.search("^(-|d)(?:\S+\s+){4}(.*)", line)
+        s = regex.search('^(-|d)(?:\S+\s+){4}(.*)', line)
         if s is not None:
             if include_dirs or s.group(1) == '-':
                 yield s.group(2)
 
-def lyx_image_deps(wildcards):
-    lyxfile = wildcards.filename + ".lyx"
+def lyx_bib_deps(lyxfile):
+    '''Return an iterator over bib files referenced by a Lyx file.'''
+    # Cheat: Assume every bib file in the folder is a dependency of
+    # any LaTeX operation. Doing this properly is tricky without
+    # implementing the full bibfile-finding logic of LyX/LaTeX.
+    return glob_recursive('*.bib')
 
+def lyx_hrefs(lyxfile):
+    '''Return an iterator over hrefs in a LyX file.'''
+    pattern = '''
+    (?xsm)
+    ^ LatexCommand \\s+ href \\s* \\n
+    (?: name \\b [^\\n]+ \\n )?
+    target \\s+ "(.*?)" $
+    '''
+    with open(lyxfile) as f:
+        return (urllib.parse.unquote(m.group(1)) for m in
+                re.finditer(pattern, f.read()))
 
-def lyx_bib_deps(wildcards):
-    # Cheat: Assume every bib file is a dependency of any LaTeX
-    # operation
-    return list(glob_recursive('*.bib'))
+examples_base_url = 'https://darwinawardwinner.github.io/resume/examples/'
+examples_dir = 'examples'
 
-readme_files = list(glob_recursive("README.mkdn", top="examples"))
-index_files = [ os.path.join(os.path.dirname(f), "index.html") for f in readme_files ]
+def resume_example_deps(lyxfile):
+    '''Iterate over all referenced example files in a LyX file.'''
+    for href in lyx_hrefs(lyxfile):
+        if href.startswith(examples_base_url) and not href.endswith('/'):
+            expath = href[len(examples_base_url):]
+            yield os.path.join(examples_dir, expath)
 
-rsync_common_args = ["-rL", "--size-only", "--delete", "--exclude", ".DS_Store", "--delete-excluded",]
+readme_files = list(glob_recursive('README.mkdn', top='examples'))
+index_files = [ os.path.join(os.path.dirname(f), 'index.html') for f in readme_files ]
+
+rsync_common_args = ['-rL', '--size-only', '--delete', '--exclude', '.DS_Store', '--delete-excluded',]
 
 all_example_files = set(rsync_list_files('examples', extra_rsync_args=rsync_common_args))
+r_html_files = [ f + '.html' for f in all_example_files if f.endswith('.R') ]
 all_example_files = all_example_files.union(index_files)
+all_example_files = all_example_files.union(r_html_files)
 
 rule build_all:
-    input: "ryan_thompson_resume.pdf", "ryan_thompson_resume.html", index_files
+    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', index_files, r_html_files
 
 rule create_resume_pdf:
-    input: lyxfile="ryan_thompson_resume.lyx", bibfile="citations.bib", headshot="headshot-crop.jpg"
-    output: pdf="ryan_thompson_resume.pdf"
+    input: lyxfile='ryan_thompson_resume.lyx',
+           bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
+           example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
+           headshot='headshot-crop.jpg',
+    output: pdf='ryan_thompson_resume.pdf'
     shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
 
 rule create_resume_html:
-    input: lyxfile="ryan_thompson_resume.lyx", bibfile="citations.bib", headshot="headshot-crop.jpg"
-    output: html="ryan_thompson_resume.html"
+    input: lyxfile='ryan_thompson_resume.lyx',
+           bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
+           example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
+           headshot='headshot-crop.jpg',
+    output: html='ryan_thompson_resume.html'
     run:
         with NamedTemporaryFile() as tempf:
             shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
@@ -137,7 +166,11 @@ rule link_resume_to_index_html:
     shell: 'ln -s {input:q} {output:q}'
 
 rule readme_to_index_html:
-    input: "{dirname}/README.mkdn"
-    output: "{dirname}/index.html"
+    input: '{dirname}/README.mkdn'
+    output: '{dirname}/index.html'
     shell: 'pandoc -t html -o {output[0]:q} {input[0]:q}'
 
+rule R_to_html:
+    input: '{dirname}/{basename,[^/]+}.R'
+    output: '{dirname}/{basename}.R.html'
+    shell: 'pygmentize -f html -O full -l R -o {output:q} {input:q}'

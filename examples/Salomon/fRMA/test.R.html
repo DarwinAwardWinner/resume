@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <style type="text/css">
+td.linenos { background-color: #f0f0f0; padding-right: 10px; }
+span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }
+pre { line-height: 125%; }
+body .hll { background-color: #ffffcc }
+body  { background: #f8f8f8; }
+body .c { color: #408080; font-style: italic } /* Comment */
+body .err { border: 1px solid #FF0000 } /* Error */
+body .k { color: #008000; font-weight: bold } /* Keyword */
+body .o { color: #666666 } /* Operator */
+body .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+body .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+body .cp { color: #BC7A00 } /* Comment.Preproc */
+body .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+body .c1 { color: #408080; font-style: italic } /* Comment.Single */
+body .cs { color: #408080; font-style: italic } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .gr { color: #FF0000 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888888 } /* Generic.Output */
+body .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #0044DD } /* Generic.Traceback */
+body .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #008000 } /* Keyword.Pseudo */
+body .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #B00040 } /* Keyword.Type */
+body .m { color: #666666 } /* Literal.Number */
+body .s { color: #BA2121 } /* Literal.String */
+body .na { color: #7D9029 } /* Name.Attribute */
+body .nb { color: #008000 } /* Name.Builtin */
+body .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+body .no { color: #880000 } /* Name.Constant */
+body .nd { color: #AA22FF } /* Name.Decorator */
+body .ni { color: #999999; font-weight: bold } /* Name.Entity */
+body .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+body .nf { color: #0000FF } /* Name.Function */
+body .nl { color: #A0A000 } /* Name.Label */
+body .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+body .nt { color: #008000; font-weight: bold } /* Name.Tag */
+body .nv { color: #19177C } /* Name.Variable */
+body .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+body .w { color: #bbbbbb } /* Text.Whitespace */
+body .mb { color: #666666 } /* Literal.Number.Bin */
+body .mf { color: #666666 } /* Literal.Number.Float */
+body .mh { color: #666666 } /* Literal.Number.Hex */
+body .mi { color: #666666 } /* Literal.Number.Integer */
+body .mo { color: #666666 } /* Literal.Number.Oct */
+body .sa { color: #BA2121 } /* Literal.String.Affix */
+body .sb { color: #BA2121 } /* Literal.String.Backtick */
+body .sc { color: #BA2121 } /* Literal.String.Char */
+body .dl { color: #BA2121 } /* Literal.String.Delimiter */
+body .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+body .s2 { color: #BA2121 } /* Literal.String.Double */
+body .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+body .sh { color: #BA2121 } /* Literal.String.Heredoc */
+body .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+body .sx { color: #008000 } /* Literal.String.Other */
+body .sr { color: #BB6688 } /* Literal.String.Regex */
+body .s1 { color: #BA2121 } /* Literal.String.Single */
+body .ss { color: #19177C } /* Literal.String.Symbol */
+body .bp { color: #008000 } /* Name.Builtin.Pseudo */
+body .fm { color: #0000FF } /* Name.Function.Magic */
+body .vc { color: #19177C } /* Name.Variable.Class */
+body .vg { color: #19177C } /* Name.Variable.Global */
+body .vi { color: #19177C } /* Name.Variable.Instance */
+body .vm { color: #19177C } /* Name.Variable.Magic */
+body .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="c1">#!/usr/bin/env Rscript</span>
+
+<span class="kn">library</span><span class="p">(</span>xlsx<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>frma<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>frmaTools<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>stringr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>magrittr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>plyr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>affy<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>preprocessCore<span class="p">)</span>
+
+training.data.dir <span class="o">&lt;-</span> <span class="s">&quot;Training Data&quot;</span>
+datasets <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>Dataset<span class="o">=</span><span class="kp">list.files</span><span class="p">(</span>training.data.dir<span class="p">))</span>
+<span class="kp">rownames</span><span class="p">(</span>datasets<span class="p">)</span> <span class="o">&lt;-</span> datasets<span class="o">$</span>Dataset
+datasets<span class="o">$</span>Tissue <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>str_extract<span class="p">(</span>datasets<span class="o">$</span>Dataset<span class="p">,</span> <span class="s">&quot;\\b(PAX|BX)\\b&quot;</span><span class="p">))</span>
+
+tsmsg <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kp">message</span><span class="p">(</span><span class="kp">date</span><span class="p">(),</span> <span class="s">&quot;: &quot;</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+parse.date.from.filename <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>fname<span class="p">)</span> <span class="p">{</span>
+    res1 <span class="o">&lt;-</span> str_match<span class="p">(</span>fname<span class="p">,</span> <span class="s">&quot;^(\\d\\d)(\\d\\d)(\\d\\d)&quot;</span><span class="p">)[,</span><span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+    res2 <span class="o">&lt;-</span> str_match<span class="p">(</span>fname<span class="p">,</span> <span class="s">&quot;^20(\\d\\d)_(\\d\\d)_(\\d\\d)&quot;</span><span class="p">)[,</span><span class="m">-1</span><span class="p">]</span>
+    res1<span class="p">[</span><span class="kp">is.na</span><span class="p">(</span>res1<span class="p">)]</span> <span class="o">&lt;-</span> res2<span class="p">[</span><span class="kp">is.na</span><span class="p">(</span>res1<span class="p">)]</span>
+    <span class="kp">colnames</span><span class="p">(</span>res1<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">,</span> <span class="s">&quot;month&quot;</span><span class="p">,</span> <span class="s">&quot;day&quot;</span><span class="p">)</span>
+    res1<span class="p">[,</span><span class="s">&quot;year&quot;</span><span class="p">]</span> <span class="o">%&lt;&gt;%</span> str_c<span class="p">(</span><span class="s">&quot;20&quot;</span><span class="p">,</span> <span class="m">.</span><span class="p">)</span>
+    <span class="kp">as.Date</span><span class="p">(</span><span class="kp">do.call</span><span class="p">(</span><span class="kp">ISOdate</span><span class="p">,</span> <span class="kt">data.frame</span><span class="p">(</span>res1<span class="p">)))</span>
+<span class="p">}</span>
+
+sample.tables <span class="o">&lt;-</span> ddply<span class="p">(</span>datasets<span class="p">,</span> <span class="m">.</span><span class="p">(</span>Dataset<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>df<span class="p">)</span> <span class="p">{</span>
+    df <span class="o">&lt;-</span> df<span class="p">[</span><span class="m">1</span><span class="p">,]</span>
+    <span class="kp">rownames</span><span class="p">(</span>df<span class="p">)</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+    dset.dir <span class="o">&lt;-</span> <span class="kp">file.path</span><span class="p">(</span>training.data.dir<span class="p">,</span> df<span class="o">$</span>Dataset<span class="p">)</span>
+    x <span class="o">&lt;-</span> read.xlsx<span class="p">(</span><span class="kp">list.files</span><span class="p">(</span>dset.dir<span class="p">,</span> pattern<span class="o">=</span>glob2rx<span class="p">(</span><span class="s">&quot;*.xlsx&quot;</span><span class="p">),</span> full.names<span class="o">=</span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span> <span class="m">1</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        setNames<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Filename&quot;</span><span class="p">,</span> <span class="s">&quot;Phenotype&quot;</span><span class="p">,</span> <span class="s">&quot;ScanDate&quot;</span><span class="p">))</span>
+    x<span class="o">$</span>Filename <span class="o">&lt;-</span> <span class="kp">as.character</span><span class="p">(</span>x<span class="o">$</span>Filename<span class="p">)</span>
+    missing.CEL <span class="o">&lt;-</span> <span class="o">!</span>str_detect<span class="p">(</span>x<span class="o">$</span>Filename<span class="p">,</span> <span class="s">&quot;\\.CEL$&quot;</span><span class="p">)</span>
+    x<span class="o">$</span>Filename<span class="p">[</span>missing.CEL<span class="p">]</span> <span class="o">&lt;-</span> str_c<span class="p">(</span>x<span class="o">$</span>Filename<span class="p">[</span>missing.CEL<span class="p">],</span> <span class="s">&quot;.CEL&quot;</span><span class="p">)</span>
+    <span class="kp">stopifnot</span><span class="p">(</span><span class="kp">all</span><span class="p">(</span>str_detect<span class="p">(</span>x<span class="o">$</span>Filename<span class="p">,</span> <span class="s">&quot;\\.CEL$&quot;</span><span class="p">)))</span>
+    parsed.date <span class="o">&lt;-</span> parse.date.from.filename<span class="p">(</span>x<span class="o">$</span>Filename<span class="p">)</span>
+    x<span class="o">$</span>ScanDate<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>parsed.date<span class="p">)]</span> <span class="o">&lt;-</span> parsed.date<span class="p">[</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>parsed.date<span class="p">)]</span>
+    x <span class="o">%&gt;%</span> <span class="kp">cbind</span><span class="p">(</span>df<span class="p">)</span> <span class="o">%&gt;%</span>
+        <span class="kp">transform</span><span class="p">(</span>Filename<span class="o">=</span><span class="kp">file.path</span><span class="p">(</span>dset.dir<span class="p">,</span> Filename<span class="p">),</span>
+                  Batch<span class="o">=</span><span class="kp">droplevels</span><span class="p">(</span>Tissue<span class="o">:</span>Dataset<span class="o">:</span><span class="kp">factor</span><span class="p">(</span>ScanDate<span class="p">)</span><span class="o">:</span>Phenotype<span class="p">))</span> <span class="o">%&gt;%</span>
+                      <span class="kp">subset</span><span class="p">(</span><span class="o">!</span> Filename <span class="o">%in%</span> blacklist<span class="p">)</span>
+<span class="p">})</span> <span class="o">%&gt;%</span> <span class="kp">split</span><span class="p">(</span><span class="m">.</span><span class="o">$</span>Tissue<span class="p">)</span> <span class="o">%&gt;%</span> <span class="kp">lapply</span><span class="p">(</span><span class="kp">droplevels</span><span class="p">)</span>
+
+annotation <span class="o">&lt;-</span> cleancdfname<span class="p">(</span>affyio<span class="o">:::</span>read.celfile.header<span class="p">(</span>sample.tables<span class="p">[[</span><span class="m">1</span><span class="p">]]</span><span class="o">$</span>Filename<span class="p">[</span><span class="m">1</span><span class="p">])</span><span class="o">$</span>cdfName<span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+esets <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="kp">names</span><span class="p">(</span>sample.tables<span class="p">))</span> <span class="p">{</span>
+    pkgname <span class="o">&lt;-</span> <span class="kp">sprintf</span><span class="p">(</span><span class="s">&quot;DSalomon.%s.%sfrmavecs&quot;</span><span class="p">,</span> i<span class="p">,</span> annotation<span class="p">)</span>
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Loading &quot;</span><span class="p">,</span> pkgname<span class="p">)</span>
+    <span class="kn">require</span><span class="p">(</span>pkgname<span class="p">,</span> character.only<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> quietly<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+    data<span class="p">(</span><span class="kt">list</span> <span class="o">=</span> pkgname<span class="p">)</span>
+
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Loading raw data for &quot;</span><span class="p">,</span> i<span class="p">)</span>
+    stab <span class="o">&lt;-</span> sample.tables<span class="p">[[</span>i<span class="p">]]</span>
+    affy <span class="o">&lt;-</span> ReadAffy<span class="p">(</span>filenames<span class="o">=</span>stab<span class="o">$</span>Filename<span class="p">,</span> phenoData<span class="o">=</span>stab<span class="p">)</span>
+
+    <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Running fRMA for &quot;</span><span class="p">,</span> i<span class="p">)</span>
+    esets<span class="p">[[</span>i<span class="p">]]</span> <span class="o">&lt;-</span> frma<span class="p">(</span>affy<span class="p">,</span> input.vecs<span class="o">=</span><span class="kp">get</span><span class="p">(</span>pkgname<span class="p">),</span> verbose<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+    <span class="kp">rm</span><span class="p">(</span>affy<span class="p">)</span>
+    <span class="kp">gc</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</body>
+</html>
