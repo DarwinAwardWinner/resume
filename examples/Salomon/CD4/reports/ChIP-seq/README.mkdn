@@ -1,0 +1,10 @@
+- [`H3K4me2-exploration.html`](H3K4me2-exploration.html),
+  [`H3K4me3-exploration.html`](H3K4me3-exploration.html),
+  [`H3K27me3-exploration.html`](H3K27me3-exploration.html):
+  Exploration and QC reports on ChIP-seq data from 3 histone marks
+- [`H3K4me2-diffmod.html`](H3K4me2-diffmod.html),
+  [`H3K4me3-diffmod.html`](H3K4me3-diffmod.html),
+  [`H3K27me3-diffmod.html`](H3K27me3-diffmod.html): Differential
+  modification reports for three histone marks
+- [`peak-sizes.html`](peak-sizes.html): Analysis of peak sizes for 3
+  histone marks

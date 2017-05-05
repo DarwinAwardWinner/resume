@@ -1,0 +1,39 @@
+## Sub-folders
+
+- [`Teaching`](Teaching): Teaching materials for my lecture and lab on
+  introductory RNA-seq analysis
+- [`CD4`](CD4): Examples relating to my CD4 memory RNA-seq & ChIP-seq
+  project
+- [`450k`](450k): Examples relating to analysis of Illumina 450k DNA
+  methylation arrays
+- [`Pathways`](Pathways): Examples of gene set and pathway analysis
+  for RNA-seq data
+- [`globin`](globin): Examples of my work in demonstrating the
+  performance of a new globin blocking protocol for RNA-seq of blood
+  tissues
+- [`fRMA`](fRMA): Examples and code from my work creating a custom
+  frozen RMA reference to provide a stable normalization for machine
+  learning applications
+
+## Presentations
+
+- [`DGE Presentation.pdf`](DGE Presentation.pdf): A presentation
+  comparing edgeR, DESeq, and limma on both a conceptual and practical
+  level
+- [`Advanced RNA-seq Analysis.pdf`](Advanced RNA-seq Analysis.pdf): A
+  presentation on the advanced features of limma for RNA-seq analysis
+- [`Reproducible Workflow Presentation.pdf`](Reproducible Workflow Presentation.pdf):
+
+## Other files
+- [`Classifier Math Write-up.pdf`](Classifier Math Write-up.pdf): A
+  short write-up to explain the mathematical principles behind the
+  classifier method used in a machine learning project 
+- [`blockbuster-pipeline.R.html`](blockbuster-pipeline.R.html): R code
+  for clustering small RNA reads into clusters
+  using
+  [Blockbuster](http://hoffmann.bioinf.uni-leipzig.de/LIFE/blockbuster.html)
+- [`mdsplots-multidim.pdf`](mdsplots-multidim.pdf): A PCA plot of RNA-seq
+  data for *C. elegans* samples with and without a drug that retards
+  the aging process, demonstrating smaller age-related changes with
+  the drug
+  (for [this paper](https://elifesciences.org/content/4/e08833))

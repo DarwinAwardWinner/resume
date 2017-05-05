@@ -1,0 +1,2 @@
+- [`ChIP-seq`](ChIP-seq): Example reports for ChIP-seq data
+- [`RNA-seq`](RNA-seq): Example reports for RNA-seq data

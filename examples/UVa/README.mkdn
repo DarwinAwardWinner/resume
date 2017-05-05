@@ -1,0 +1,11 @@
+- [`contigfarmer.pdf`](contigfarmer.pdf): My undergraduate thesis
+  describing "Contig Farmer", a method to extend contigs with
+  overlapping reads when memory is too limited to perform a complete
+  *de novo* assembly of the whole data set
+- [`blast-slides.pdf`](blast-slides.pdf): A presentation explaining
+  the basic principles of optimal and heuristic sequence alignment
+- [`probe-selection.R.html`](probe-selection.R.html): R code to select
+  the 3 most informative probes for each gene in a custom-designed
+  microarray for a non-model organism
+- [`math-history-paper.pdf`](math-history-paper.pdf): My final paper
+  for History of Methematics class

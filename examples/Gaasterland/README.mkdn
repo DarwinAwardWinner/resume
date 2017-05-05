@@ -1,0 +1,21 @@
+- [`delox.R.html`](delox.R.html): The R code
+  for
+  [Deloxer](https://academic.oup.com/nar/article/40/3/e24/1128321/Illumina-mate-paired-DNA-sequencing-library)
+- [`depth-consistency.pdf`](depth-consistency.pdf): Visualization of
+  consistency of coverage depth between 2 Exome sequencing replicates
+- [`illumina-qc.html`](illumina-qc.html): QC chart indicating quality
+  score dropoff along read length for exome sequencing data set.
+- [`ipi-results-small.txt`](ipi-results-small.txt): A sample of output
+  showing alignment of *de novo* assembled black rhino and white rhino
+  transcript sequences to human proteins. This was used to find
+  differences between the two rhino species in otherwise conserved
+  regions.
+- [`mirna-results.html`](mirna-results.html): Example output from
+  miRNA binding site predictions
+- [`neartarget.pdf`](neartarget.pdf): Visualization of mean coverage
+  depth in exome sequencing data in the regions flanking the probe
+  targets.
+- [`on-off-coverage.pdf`](on-off-coverage.pdf): Relationship between
+  covered on-target bases and covered off-target bases in exome-seq
+  data, with varying extensions of the target region to allow for
+  "near-target" capture.

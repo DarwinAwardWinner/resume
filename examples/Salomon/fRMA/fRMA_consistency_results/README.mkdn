@@ -1,0 +1,9 @@
+These are a series of plots to assess the effectiveness and
+consistency of the frozen RMA (fRMA) implementation for blood (PAX)
+and biopsy (BX) samples, by looking at the relative fold changes of
+the same data normalized by RNA and five replicate fRMA vector sets.
+
+- [`M Boxplots for BX.pdf`](M Boxplots for BX.pdf)
+- [`M Boxplots for PAX.pdf`](M Boxplots for PAX.pdf)
+- [`MA Plots for BX.pdf`](MA Plots for BX.pdf)
+- [`MA Plots for PAX.pdf`](MA Plots for PAX.pdf)

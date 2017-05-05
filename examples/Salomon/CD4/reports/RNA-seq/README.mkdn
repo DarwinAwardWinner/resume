@@ -1,0 +1,32 @@
+RNA-seq data were analyzed using 5 different quantification strategies
+and 2 different transcriptome annotations, for 10 total analyses.
+
+## Data exploration and QC reports
+
+- [`hisat2_grch38_snp_tran_ensembl.85-exploration.html`](hisat2_grch38_snp_tran_ensembl.85-exploration.html)
+- [`hisat2_grch38_snp_tran_knownGene-exploration.html`](hisat2_grch38_snp_tran_knownGene-exploration.html)
+- [`kallisto_hg38.analysisSet_ensembl.85-exploration.html`](kallisto_hg38.analysisSet_ensembl.85-exploration.html)
+- [`kallisto_hg38.analysisSet_knownGene-exploration.html`](kallisto_hg38.analysisSet_knownGene-exploration.html)
+- [`salmon_hg38.analysisSet_ensembl.85-exploration.html`](salmon_hg38.analysisSet_ensembl.85-exploration.html)
+- [`salmon_hg38.analysisSet_knownGene-exploration.html`](salmon_hg38.analysisSet_knownGene-exploration.html)
+- [`shoal_hg38.analysisSet_ensembl.85-exploration.html`](shoal_hg38.analysisSet_ensembl.85-exploration.html)
+- [`shoal_hg38.analysisSet_knownGene-exploration.html`](shoal_hg38.analysisSet_knownGene-exploration.html)
+- [`star_hg38.analysisSet_ensembl.85-exploration.html`](star_hg38.analysisSet_ensembl.85-exploration.html)
+- [`star_hg38.analysisSet_knownGene-exploration.html`](star_hg38.analysisSet_knownGene-exploration.html)
+
+## Differential expression reports
+
+- [`hisat2_grch38_snp_tran_ensembl.85-diffexp.html`](hisat2_grch38_snp_tran_ensembl.85-diffexp.html)
+- [`hisat2_grch38_snp_tran_knownGene-diffexp.html`](hisat2_grch38_snp_tran_knownGene-diffexp.html)
+- [`kallisto_hg38.analysisSet_ensembl.85-diffexp.html`](kallisto_hg38.analysisSet_ensembl.85-diffexp.html)
+- [`kallisto_hg38.analysisSet_knownGene-diffexp.html`](kallisto_hg38.analysisSet_knownGene-diffexp.html)
+- [`salmon_hg38.analysisSet_ensembl.85-diffexp.html`](salmon_hg38.analysisSet_ensembl.85-diffexp.html)
+- [`salmon_hg38.analysisSet_knownGene-diffexp.html`](salmon_hg38.analysisSet_knownGene-diffexp.html)
+- [`shoal_hg38.analysisSet_ensembl.85-diffexp.html`](shoal_hg38.analysisSet_ensembl.85-diffexp.html)
+- [`shoal_hg38.analysisSet_knownGene-diffexp.html`](shoal_hg38.analysisSet_knownGene-diffexp.html)
+- [`star_hg38.analysisSet_ensembl.85-diffexp.html`](star_hg38.analysisSet_ensembl.85-diffexp.html)
+- [`star_hg38.analysisSet_knownGene-diffexp.html`](star_hg38.analysisSet_knownGene-diffexp.html)
+
+## Comparison between quantification strategies
+
+- [`rnaseq-compare.html`](rnaseq-compare.html)

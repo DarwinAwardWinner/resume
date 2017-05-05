@@ -1,0 +1,11 @@
+- [`Salomon`](Salomon): Examples of my Ph.D. work in Dr. Daniel
+  Salomon's lab at The Scripps Research Insitute
+- [`Gaasterland`](Gaasterland): Example of my work in
+  [Terry Gaasterland's](http://igm.ucsd.edu/faculty/profiles/gaasterland.shtml) 
+  lab at UCSD
+- [`UVa`](UVa): Examples of my work during my undergraduate studies at
+  the University of Virginia
+- [`cufflinks-presentation.pdf`](cufflinks-presentation.pdf): A slide
+  deck to explain the concepts
+  behind [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/) to
+  the department during my internship at Merck & Co.
