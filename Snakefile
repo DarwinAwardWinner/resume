@@ -115,8 +115,6 @@ rsync_common_args = ["-rL", "--size-only", "--delete", "--exclude", ".DS_Store",
 all_example_files = set(rsync_list_files('examples', extra_rsync_args=rsync_common_args))
 all_example_files = all_example_files.union(index_files)
 
-rsync_dest = "apollo:public_html/resume/"
-
 rule build_all:
     input: "ryan_thompson_resume.pdf", "ryan_thompson_resume.html", index_files
 
@@ -143,10 +141,3 @@ rule readme_to_index_html:
     output: "{dirname}/index.html"
     shell: 'pandoc -t html -o {output[0]:q} {input[0]:q}'
 
-rule publish:
-    input: roots=('ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', 'index.html', 'examples', 'headshot-crop.jpg'),
-           others=all_example_files
-    shell: '''
-    rsync --info=progress2 {rsync_common_args:q} \
-      {input.roots:q} {rsync_dest:q}
-    '''
