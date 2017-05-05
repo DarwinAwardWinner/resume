@@ -27,10 +27,6 @@ parse.date.from.filename <- function(fname) {
     as.Date(do.call(ISOdate, data.frame(res1)))
 }
 
-## Error: the following are not valid files:
-##     Training Data/03 - TGCG ARADNRCANTX PAX Samples/10733.CEL
-blacklist <- "Training Data/03 - TGCG ARADNRCANTX PAX Samples/10733.CEL"
-
 sample.tables <- ddply(datasets, .(Dataset), function(df) {
     df <- df[1,]
     rownames(df) <- NULL

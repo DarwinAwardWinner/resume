@@ -141,11 +141,6 @@ makeVectorsAffyBatch <- function (files, batch.id, background = "rma", normalize
         version = vers))
 }
 
-
-## Error: the following are not valid files:
-##     Training Data/03 - TGCG ARADNRCANTX PAX Samples/10733.CEL
-blacklist <- "Training Data/03 - TGCG ARADNRCANTX PAX Samples/10733.CEL"
-
 ## This reads in the xlsx file for each of the 7 datasets and combines
 ## them into one big table of all samples. The Batch column contains
 ## the partitioning of samples into unique combinations of Dataset,
