@@ -9,6 +9,12 @@ supporting files, and deploying them all to a web server for online
 viewing. You can see the result here:
 http://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
 
+There is also an HTML version generated from the same source here:
+http://darwinawardwinner.github.io/resume/ryan_thompson_resume.html
+
+Lastly, there is a manually-prepared plain text version here:
+http://darwinawardwinner.github.io/resume/ryan_thompson_resume.mkdn
+
 If you want to use this as a template for your own résumé, you'll need
 to install a few fonts (or else switch the style to fonts that you
 prefer):
