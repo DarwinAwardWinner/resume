@@ -92,7 +92,7 @@ Summer Internship, Informatics IT, Merck & Co.
 Boston, MA   2011
 
 Contact:
-    Adnan Derti, adnan.derti@gmail.com 
+    Adnan Derti, adnan.derti@gmail.com
 
 * Built a transcriptome assembly and quantification pipeline using
   Cufflinks, including fully-automated cluster job control for
@@ -107,7 +107,7 @@ Gaasterland Lab, UCSD Bioinformatcs
 -----------------------------------
 La Jolla, CA   2010 - 2012
 
-Contact: Terry Gaasterland, gaasterland@ucsd.edu 
+Contact: Terry Gaasterland, gaasterland@ucsd.edu
 
 * Designed and implemented Deloxer, a critical software step in a new
   Illumina mate-pair sequencing protocol using Cre recombination.
@@ -170,11 +170,11 @@ design and parametrization, empirical Bayesian methods, predictive
 modeling of clinical outcomes, machine learning classifier training &
 validation, survival analysis, data visualization & presentation,
 reproducible research practices
-  
+
 Wet Lab: PCR, molecular cloning, recombinant protein purification,
 epitope mapping, site-directed mutagenesis, 2D gels, real-time PCR,
 and associated data analysis
-  
+
 Languages: English: native speaker; German: written and spoken
 
 Other Work Experience
@@ -264,3 +264,7 @@ http://darwinawardwinner.github.io/resume/examples/UVa/contigfarmer.pdf
 [10] Ryan C. Thompson. The sources and limits of geometric rigor from
 Euclid through Descartes. May 2008.
 http://darwinawardwinner.github.io/resume/examples/UVa/math-history-paper.pdf
+
+<!-- Local Variables: -->
+<!-- mode: markdown -->
+<!-- End: -->
