@@ -1,16 +1,16 @@
 This is my résumé, built using Rob Oakes' excellent
-[xetexCV class](http://www.oak-tree.us/blog/index.php/2009/11/25/latex-cv-part1)
+[xetexCV class](https://www.oak-tree.us/blog/index.php/2009/11/25/latex-cv-part1)
 for [LaTeX](https://www.latex-project.org/) using 
-[LyX](http://www.lyx.org/), along with a series of examples of
+[LyX](https://www.lyx.org/), along with a series of examples of
 my work that are linked to from the résumé itself. I use
 the [Snakemake](https://snakemake.readthedocs.io/en/stable/) build
 tool to automate generating the PDF of my résumé, preparing all the
 supporting files, and deploying them all to a web server for online
 viewing. You can see the result here:
-http://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
+https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
 
 There is also an HTML version generated from the same source here:
-http://darwinawardwinner.github.io/resume/ryan_thompson_resume.html
+https://darwinawardwinner.github.io/resume/ryan_thompson_resume.html
 
 Lastly, there is a manually-prepared plain text version here:
 https://raw.githubusercontent.com/DarwinAwardWinner/resume/master/ryan_thompson_resume.txt
@@ -20,8 +20,8 @@ to install a few fonts (or else switch the style to fonts that you
 prefer):
 
 1. Minion Pro: https://typekit.com/fonts/minion-pro
-2. Fontin: http://www.exljbris.com/fontin.html
-3. Fontin Sans: http://www.exljbris.com/fontinsans.html
+2. Fontin: https://www.exljbris.com/fontin.html
+3. Fontin Sans: https://www.exljbris.com/fontinsans.html
 
 Additionally, my résumé uses slightly modified versions of the xetexCV
 document class ([`xetexCV.cls`](./xetexCV.cls)) and LyX layout
