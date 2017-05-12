@@ -5,6 +5,17 @@
 \save_transient_properties true
 \origin unavailable
 \textclass xetexCV
+\begin_preamble
+% Clear existing header/footer
+\fancyhf{}
+% Page number in top right
+\fancyhead[R]{\thepage}
+% Online PDF URL in bottom right
+\fancyfoot[R]{\footnotesize{Online version (with links): \href{https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf}{https://darwinawardwinner.github.io/resume/ryan\_{}thompson\_{}resume.pdf}}}
+% No horizontal rules
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\end_preamble
 \options unicode=true
 \use_default_options true
 \maintain_unincluded_children false
@@ -62,7 +73,7 @@
 \quotes_language english
 \papercolumns 1
 \papersides 1
-\paperpagestyle default
+\paperpagestyle fancy
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -1016,46 +1027,6 @@ LatexCommand bibtex
 btprint "btPrintAll"
 bibfiles "citations"
 options "plainyr-rev"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-The following spacing hackery puts the URL right-justified on the bottom
- of the last page.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace vfill
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space \hspace{}
-\length -116pt
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-Online version (with links): 
-\begin_inset CommandInset href
-LatexCommand href
-target "https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf"
 
 \end_inset
 
