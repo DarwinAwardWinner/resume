@@ -3,7 +3,7 @@
   [Deloxer](https://academic.oup.com/nar/article/40/3/e24/1128321/Illumina-mate-paired-DNA-sequencing-library)
 - [`depth-consistency.pdf`](depth-consistency.pdf): Visualization of
   consistency of coverage depth between 2 Exome sequencing replicates
-- [`illumina-qc.html`](illumina-qc.html): QC chart indicating quality
+- [`illumina-qc.html`](illumina-qc.png): QC chart indicating quality
   score dropoff along read length for exome sequencing data set.
 - [`ipi-results-small.txt`](ipi-results-small.txt): A sample of output
   showing alignment of *de novo* assembled black rhino and white rhino
