@@ -11,7 +11,7 @@ Email: rct@thompsonclan.org
 Website: https://github.com/DarwinAwardWinner
 
 Summary
-=======
+==========
 
 * Well-rounded computational biologist with deep knowledge of biology,
   mathematics, and programming
@@ -26,7 +26,7 @@ Summary
   level of abstraction
 
 Education
-=========
+==========
 
 The Scripps Research Institute
 
@@ -38,12 +38,12 @@ University of Virginia
 * Echols Scholar
 
 Research Experience
-===================
+==========
 
 Salomon Lab, The Scripps Research Institute
--------------------------------------------
-La Jolla, CA   2012 - 2017
-
+----------
+La Jolla, CA; 2012 - 2017
+ 
 Contact: Dr. Andrew Su, asu@scripps.edu
 
 * Created an open source, reproducible workflow to analyze a large
@@ -88,11 +88,10 @@ Contact: Dr. Andrew Su, asu@scripps.edu
 * Mentored 2 coworkers in learning bioinformatics.
 
 Summer Internship, Informatics IT, Merck & Co.
-----------------------------------------------
-Boston, MA   2011
+----------
+Boston, MA; 2011
 
-Contact:
-    Adnan Derti, adnan.derti@gmail.com
+Contact: Adnan Derti, adnan.derti@gmail.com
 
 * Built a transcriptome assembly and quantification pipeline using
   Cufflinks, including fully-automated cluster job control for
@@ -104,8 +103,8 @@ Contact:
   antibiotic-resistant bacterial genomes.
 
 Gaasterland Lab, UCSD Bioinformatcs
------------------------------------
-La Jolla, CA   2010 - 2012
+----------
+La Jolla, CA; 2010 - 2012
 
 Contact: Terry Gaasterland, gaasterland@ucsd.edu
 
@@ -135,8 +134,8 @@ Contact: Terry Gaasterland, gaasterland@ucsd.edu
   identify target pathways of autophagy-related miRNAs for biological validation.
 
 Timko Lab, U. of Virginia Biology
----------------------------------
-Charlottesville, VA   2007 - 2009
+----------
+Charlottesville, VA; 2007 - 2009
 
 Contact: Paul J. Rushton, Paul.Rushton@sdstate.edu
 
@@ -155,7 +154,7 @@ Contact: Paul J. Rushton, Paul.Rushton@sdstate.edu
   biologists.
 
 Skills
-======
+==========
 
 Computing Skills: R/BioConductor, Python, Perl, Lisp, Java, C#, C++;
 Git version control; Remote UNIX system administration & software
@@ -178,9 +177,9 @@ and associated data analysis
 Languages: English: native speaker; German: written and spoken
 
 Other Work Experience
-=====================
+==========
 
-Computing Advisor & Help Desk, U. Va. IT Dept. Charlottesville, VA    2005 - 2007
+Computing Advisor & Help Desk, U. Va. IT Dept. Charlottesville, VA; 2005 - 2007
 
 * Provided support via phone and on-site for students, faculty, and
   staff having problems with computers, phone system, network access,
@@ -189,7 +188,7 @@ Computing Advisor & Help Desk, U. Va. IT Dept. Charlottesville, VA    2005
   removal, iPod recovery, printer setup and repair, diagnosis of
   hardware malfunctions, and data recovery from failing hard disks
 
-Summer Sailing Instructor, Raritan Yacht Club Perth Amboy, NJ    2006 - 2009
+Summer Sailing Instructor, Raritan Yacht Club Perth Amboy, NJ; 2006 - 2009
 
 * Instructed children ages 8-18 in sailing skills, safety, seamanship,
   knots, rigging & de-rigging boats, navigation, and racing strategy
@@ -203,7 +202,7 @@ Summer Sailing Instructor, Raritan Yacht Club Perth Amboy, NJ    2006 - 2009
   students from RYC and neighboring yacht clubs
 
 Writings and Publications
-=========================
+==========
 
 [1] Sunil Kurian, Enrique Velazquez, Ryan Thompson, Thomas Whisenant,
 Stanley Rose, Nicole Riley, Frank Harrison, Terri Gelbart, John
