@@ -85,7 +85,8 @@ Contact: Dr. Andrew Su, asu@scripps.edu
   data.
 * Active member of the Bioconductor community and contributing
   developer for several Bioconductor packages.
-* Mentored 2 coworkers in learning bioinformatics.
+* Mentored 2 coworkers in learning bioinformatics, one from a
+  programming background and the other from a biology background.
 
 Summer Internship, Informatics IT, Merck & Co.
 ----------
@@ -114,12 +115,12 @@ Contact: Terry Gaasterland, gaasterland@ucsd.edu
   world.
 * Performed a molecular genetics study to find potential causal
   mutations for fatal iron overload disease in critically endangered
-  black rhinoceros by de novo assembly of black rhino transcriptome
-  using Trinity and comparison to closely-related white rhino
-  transcriptome. Developed a custom pipeline to match up ortholog gene
-  pairs, discover single-nucleotide differences between them, and
-  functionally annotate these differences, and delivered a list of
-  potential causal variants to collaborators for follow-up.
+  black rhinoceros by de novo assembly of transcriptomes for black
+  rhino and closely-related white rhino. Developed a custom pipeline
+  to match up ortholog gene pairs, discover single-nucleotide
+  differences between them, and functionally annotate these
+  differences, and delivered a list of potential causal variants to
+  collaborators for follow-up.
 * Helped design & implement a large-scale high-throughput exome
   sequencing pipeline for SNP discovery and functional annotation,
   including QC and validation of on-target coverage depth and

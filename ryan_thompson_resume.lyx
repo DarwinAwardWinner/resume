@@ -550,7 +550,8 @@ target "https://support.bioconductor.org/u/5618/"
 \end_layout
 
 \begin_layout Itemize
-Mentored 2 coworkers in learning bioinformatics.
+Mentored 2 coworkers in learning bioinformatics, one from a programming
+ background and the other from a biology background.
 \end_layout
 
 \begin_layout Subsection
@@ -677,8 +678,7 @@ target "https://en.wikipedia.org/wiki/Black_rhinoceros#Threats"
 \emph on
 de novo
 \emph default
- assembly of black rhino transcriptome using Trinity and comparison to closely-r
-elated white rhino transcriptome.
+ assembly of transcriptomes for black rhino and closely-related white rhino.
  Developed a custom pipeline to match up ortholog gene pairs, discover single-nu
 cleotide differences between them, and functionally annotate these differences,
  and delivered a list of potential causal variants to collaborators for
