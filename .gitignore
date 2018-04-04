@@ -2,3 +2,4 @@
 .doit*
 # Snakemake cache
 .snakemake
+*.emergency
