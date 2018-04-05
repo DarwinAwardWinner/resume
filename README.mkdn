@@ -29,3 +29,17 @@ document class ([`xetexCV.cls`](./xetexCV.cls)) and LyX layout
 repository. You may need to install these files to the appropriate
 locations for LaTeX and LyX, respectively in order for the resume pdf
 to build properly.
+
+## License
+
+All files in this repository are licensed under the [Creative Commons
+Attribution-ShareAlike 4.0
+license](https://creativecommons.org/licenses/by-sa/4.0/), with the
+exception of `xetexCV.cls` and `xetexCV.layout`. These two files are
+based on the originals created by Rob Oakes, which are licensed under
+the [LGPL license](https://www.gnu.org/licenses/lgpl-3.0.en.html).
+Hence, my modified versions are also licensed under the same terms.
+(Rob Oakes' [original 2009 mailing list
+post](https://tug.org/pipermail/xetex/2009-December/015046.html)
+doesn't specify a version of the LGPL, but the latest version at that
+time was version 3, so I'm assuming that's what was meant.)
