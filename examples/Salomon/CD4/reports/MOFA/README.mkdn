@@ -1,0 +1,18 @@
+[MOFA](https://github.com/PMBio/MOFA) was used to analyze RNA-seq data
+and ChIP-seq data for 3 histone marks together, looking for sources of
+variation shared acorss all data types. Two different analyses were
+done, one with ChIP-seq reads counted in promoter regions, and one
+with ChIP-seq reads counted in called peaks. Each analysis is split
+into two steps. The first step ("run") is fitting the model (which
+takes a long time) and performing some basic QC, while the second step
+("analyze") loads the fitted model and performs some analysis.
+
+## Peak-based analysis
+
+- Step 1: [`peak-mofa-run.html`](peak-mofa-run.html)
+- Step 2: [`peak-mofa-analyze.html`](peak-mofa-analyze.html)
+
+## Promoter-based analysis
+
+- Step 1: [`promoter-mofa-run.html`](promoter-mofa-run.html)
+- Step 2: [`promoter-mofa-analyze.html`](promoter-mofa-analyze.html)
