@@ -1,5 +1,5 @@
 This is my résumé, built using Rob Oakes' excellent
-[xetexCV class](https://www.oak-tree.us/blog/index.php/2009/11/25/latex-cv-part1)
+[xetexCV class](https://code.google.com/archive/p/latex-professional/)
 for [LaTeX](https://www.latex-project.org/) using 
 [LyX](https://www.lyx.org/), along with a series of examples of
 my work that are linked to from the résumé itself. I use
