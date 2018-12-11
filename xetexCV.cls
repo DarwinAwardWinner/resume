@@ -18,7 +18,7 @@ uses the xetex typesetting system.]
 \RequirePackage{xltxtra}
 
 \RequirePackage{graphicx}
-\RequirePackage[colorlinks,unicode=true]{hyperref}
+\RequirePackage[colorlinks,unicode=true,xetex,unicode=true]{hyperref}
 \hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
 
 % Fonts

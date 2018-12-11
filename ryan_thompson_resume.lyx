@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -33,6 +33,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format pdf4
 \output_sync 1
@@ -62,6 +64,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -70,7 +73,10 @@
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
@@ -235,6 +241,7 @@ LatexCommand href
 name "asu@scripps.edu"
 target "asu@scripps.edu"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -250,6 +257,7 @@ Created an open source, reproducible workflow to analyze a large multi-omics
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lamere2016,lamere2017-JMJD3"
+literal "true"
 
 \end_inset
 
@@ -262,6 +270,7 @@ Links:
 LatexCommand href
 name "Reproducible workflow"
 target "https://github.com/DarwinAwardWinner/CD4-csaw#re-analysis-of-a-combined-chip-seq--rna-seq-data-set"
+literal "false"
 
 \end_inset
 
@@ -270,6 +279,7 @@ target "https://github.com/DarwinAwardWinner/CD4-csaw#re-analysis-of-a-combined-
 LatexCommand href
 name "Slides"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/CD4/ChIP-Seq%20presentation.pdf"
+literal "false"
 
 \end_inset
 
@@ -278,6 +288,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/CD4/ChIP-Seq
 LatexCommand href
 name "Example results and visualizations"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/CD4/"
+literal "false"
 
 \end_inset
 
@@ -299,6 +310,7 @@ transcriptional drift
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rangarajue08833"
+literal "true"
 
 \end_inset
 
@@ -311,6 +323,7 @@ Link:
 LatexCommand href
 name "PCoA Plot"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/mdsplots-multidim.pdf"
+literal "false"
 
 \end_inset
 
@@ -324,6 +337,7 @@ Significantly improved performce of machine learning classifier for identifying
 \begin_inset CommandInset citation
 LatexCommand cite
 key "kurian2014molecular"
+literal "true"
 
 \end_inset
 
@@ -338,6 +352,7 @@ Links:
 LatexCommand href
 name "fRMA example code & plots"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/fRMA/"
+literal "false"
 
 \end_inset
 
@@ -346,6 +361,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/fRMA/"
 LatexCommand href
 name "Classifier Method Write-up"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Classifier%20Math%20Write-up.pdf"
+literal "false"
 
 \end_inset
 
@@ -365,6 +381,7 @@ Links:
 LatexCommand href
 name "Presentation"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Pathways/Pathway%20Presentation.pdf"
+literal "false"
 
 \end_inset
 
@@ -373,6 +390,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/Pathways/Pat
 LatexCommand href
 name "Example Results"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Pathways/Pathway%20Analysis%20Example.html"
+literal "false"
 
 \end_inset
 
@@ -381,6 +399,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/Pathways/Pat
 LatexCommand href
 name "Summary"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Pathways/Cyno%20Pathway%20Summary.pdf"
+literal "false"
 
 \end_inset
 
@@ -401,6 +420,7 @@ Links:
 LatexCommand href
 name "RNA-seq Presentation"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/DGE%20Presentation.pdf"
+literal "false"
 
 \end_inset
 
@@ -409,6 +429,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/DGE%20Presen
 LatexCommand href
 name "Advanced RNA-seq Presentation"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Advanced%20RNA-seq%20Analysis.pdf"
+literal "false"
 
 \end_inset
 
@@ -417,6 +438,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/Advanced%20R
 LatexCommand href
 name "Example plot "
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/globin/pval-comparisons.pdf"
+literal "false"
 
 \end_inset
 
@@ -434,6 +456,7 @@ Links:
 LatexCommand href
 name "Lecture Slides"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq Lecture.pdf"
+literal "false"
 
 \end_inset
 
@@ -442,6 +465,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA
 LatexCommand href
 name "Hands-on lab section"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq Lab.html"
+literal "false"
 
 \end_inset
 
@@ -456,6 +480,7 @@ Evaluated and optimized cost and performance of custom protocol for RNA-seq
 \begin_inset CommandInset citation
 LatexCommand cite
 key "globin-reduction"
+literal "true"
 
 \end_inset
 
@@ -468,6 +493,7 @@ Link:
 LatexCommand href
 name "Example results"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/globin/"
+literal "false"
 
 \end_inset
 
@@ -481,6 +507,7 @@ Adapted common normalization methods from RNA-seq to improve performance
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scott036061"
+literal "true"
 
 \end_inset
 
@@ -501,6 +528,7 @@ Link:
 LatexCommand href
 name "Example diagnostic plots"
 target "https://darwinawardwinner.github.io/resume/examples/Salomon/450k/"
+literal "false"
 
 \end_inset
 
@@ -519,6 +547,7 @@ Links:
 LatexCommand href
 name "BiocParallel"
 target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
+literal "false"
 
 \end_inset
 
@@ -527,6 +556,7 @@ target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
 LatexCommand href
 name "ChIPPeakAnno"
 target "http://bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html"
+literal "false"
 
 \end_inset
 
@@ -535,6 +565,7 @@ target "http://bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html"
 LatexCommand href
 name "MyGene"
 target "http://bioconductor.org/packages/release/bioc/html/mygene.html"
+literal "false"
 
 \end_inset
 
@@ -543,6 +574,7 @@ target "http://bioconductor.org/packages/release/bioc/html/mygene.html"
 LatexCommand href
 name "Support Profile"
 target "https://support.bioconductor.org/u/5618/"
+literal "false"
 
 \end_inset
 
@@ -574,6 +606,7 @@ LatexCommand href
 name "adnan.derti@gmail.com"
 target "adnan.derti@gmail.com"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -593,6 +626,7 @@ Link:
 LatexCommand href
 name "Presentation Slides"
 target "https://darwinawardwinner.github.io/resume/examples/cufflinks-presentation.pdf"
+literal "false"
 
 \end_inset
 
@@ -624,6 +658,7 @@ LatexCommand href
 name "gaasterland@ucsd.edu"
 target "gaasterland@ucsd.edu"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -637,6 +672,7 @@ Designed and implemented Deloxer, a critical software step in a new Illumina
 \begin_inset CommandInset citation
 LatexCommand cite
 key "van2011illumina"
+literal "true"
 
 \end_inset
 
@@ -650,6 +686,7 @@ Links:
 LatexCommand href
 name "Documentation"
 target "http://genomes.sdsc.edu/downloads/deloxer/index.html"
+literal "false"
 
 \end_inset
 
@@ -658,6 +695,7 @@ target "http://genomes.sdsc.edu/downloads/deloxer/index.html"
 LatexCommand href
 name "Code"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/delox.R.html"
+literal "false"
 
 \end_inset
 
@@ -671,6 +709,7 @@ Performed a molecular genetics study to find potential causal mutations
 LatexCommand href
 name "fatal iron overload disease"
 target "https://en.wikipedia.org/wiki/Black_rhinoceros#Threats"
+literal "false"
 
 \end_inset
 
@@ -692,6 +731,7 @@ Link:
 LatexCommand href
 name "Example results"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/ipi-results-small.txt"
+literal "false"
 
 \end_inset
 
@@ -711,6 +751,7 @@ Links:
 LatexCommand href
 name "Example 1"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/neartarget.pdf"
+literal "false"
 
 \end_inset
 
@@ -719,6 +760,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/neartarg
 LatexCommand href
 name "Example 2"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/on-off-coverage.pdf"
+literal "false"
 
 \end_inset
 
@@ -727,6 +769,7 @@ target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/on-off-c
 LatexCommand href
 name "Example 3"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/depth-consistency.pdf"
+literal "false"
 
 \end_inset
 
@@ -746,6 +789,7 @@ Link:
 LatexCommand href
 name "Example results"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/illumina-qc.png"
+literal "false"
 
 \end_inset
 
@@ -770,6 +814,7 @@ Link:
 LatexCommand href
 name "Example results"
 target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/mirna-results.html"
+literal "false"
 
 \end_inset
 
@@ -797,6 +842,7 @@ LatexCommand href
 name "Paul.Rushton@sdstate.edu"
 target "Paul.Rushton@sdstate.edu"
 type "mailto:"
+literal "false"
 
 \end_inset
 
@@ -811,6 +857,7 @@ Undergraduate thesis: Designed and implemented Contig Farmer, an algorithm
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cfarmer"
+literal "true"
 
 \end_inset
 
@@ -831,6 +878,7 @@ Link:
 LatexCommand href
 name "Code"
 target "https://darwinawardwinner.github.io/resume/examples/UVa/probe-selection.R.html"
+literal "false"
 
 \end_inset
 
@@ -848,6 +896,7 @@ Link:
 LatexCommand href
 name "Presentation Slides"
 target "https://darwinawardwinner.github.io/resume/examples/UVa/blast-slides.pdf"
+literal "false"
 
 \end_inset
 
@@ -873,6 +922,7 @@ Public code:
 \begin_inset CommandInset href
 LatexCommand href
 target "https://github.com/DarwinAwardWinner"
+literal "false"
 
 \end_inset
 
@@ -884,6 +934,7 @@ StackOverflow Profile:
 \begin_inset CommandInset href
 LatexCommand href
 target "http://stackoverflow.com/users/125921"
+literal "false"
 
 \end_inset
 
