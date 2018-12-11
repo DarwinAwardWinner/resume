@@ -56,9 +56,12 @@ def check_output_decode(*args, encoding=locale.getpreferredencoding(), **kwargs)
 
 def find_mac_app(name):
     try:
-        return check_output_decode(
+        result = check_output_decode(
             ['mdfind',
-             'kMDItemDisplayName=={name}&&kMDItemKind==Application'.format(name=name)]).split('\n')[0]
+             'kMDItemDisplayName=={name}.app&&kMDItemKind==Application'.format(name=name)]).split('\n')[0]
+        if not result:
+            raise Exception("No result found")
+        return result
     except Exception:
         return None
 
