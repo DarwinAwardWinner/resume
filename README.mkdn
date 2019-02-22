@@ -26,9 +26,11 @@ prefer):
 Additionally, my résumé uses slightly modified versions of the xetexCV
 document class ([`xetexCV.cls`](./xetexCV.cls)) and LyX layout
 ([`xetexCV.layout`](./xetexCV.layout)), which are included in this
-repository. You may need to install these files to the appropriate
-locations for LaTeX and LyX, respectively in order for the resume pdf
-to build properly.
+repository. You can install these files to the appropriate locations
+for
+[LaTeX](http://blog.pengyifan.com/where-to-place-you-own-sty-or-cls-files-to-make-them-available-to-all-my-tex-files/)
+and [LyX](https://wiki.lyx.org/Layouts/Layouts), but they should also
+work if you just place them in the same directory as the LyX file.
 
 ## License
 
