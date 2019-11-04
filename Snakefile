@@ -148,7 +148,7 @@ rule create_resume_pdf:
     input: lyxfile='ryan_thompson_resume.lyx',
            bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
            example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
-           headshot='headshot-crop.jpg',
+           headshot='headshot-crop.png',
     output: pdf='ryan_thompson_resume.pdf'
     shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
 
@@ -156,7 +156,7 @@ rule create_resume_html:
     input: lyxfile='ryan_thompson_resume.lyx',
            bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
            example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
-           headshot='headshot-crop.jpg',
+           headshot='headshot-crop.png',
     output: html='ryan_thompson_resume.html'
     run:
         with NamedTemporaryFile() as tempf:
