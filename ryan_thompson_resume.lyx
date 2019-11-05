@@ -140,20 +140,40 @@ Summary
 \end_layout
 
 \begin_layout Itemize
-Well-rounded computational biologist with deep knowledge of biology, mathematics
-, and programming
+Accomplished, experienced computational biologist with deep knowledge of
+ biology, mathematics, statistics, and programming
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Underplays math/stats knowledge?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-10 years of bioinformatics experience answering a wide range of complex
+11 years of bioinformatics experience answering a wide range of complex
  biological questions through analysis of large NGS- and microarray-based
- whole transcriptome and epigenetic data sets 
+ whole transcriptome and epigenetic data sets
 \end_layout
 
 \begin_layout Itemize
 Strong focus on sound statistical analysis, effective data visualization
  and communication, and making expert knowledge and successful analysis
  methods available as re-usable software tools
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Work in machine learning?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -210,7 +230,17 @@ Virginia
 
 B.S.
  in Biology, B.A.
- in Mathematics, 2009
+ in Mathematics, 2009 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mention high distinction
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -246,6 +276,47 @@ literal "false"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Double-check all contact emails
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Lacking impact statement.
+ Say what I did and what the impact was.
+ Also say methodology applied.
+ First sentence: problem statement.
+ 2nd sentence: methodology applied.
+ 3rd sentence: impact/result/take-home
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Put most interesting/important/relevant up top
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -262,6 +333,17 @@ literal "true"
 \end_inset
 
 .
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add any new publications
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -296,43 +378,8 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Investigated effects of life-span-extending drug on worm gene expression
- over time revealing that the drug retards age-related 
-\begin_inset Quotes eld
-\end_inset
-
-transcriptional drift
-\begin_inset Quotes erd
-\end_inset
-
-, preserving a youthful phenotype at the molecular level.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Rangarajue08833"
-literal "true"
-
-\end_inset
-
- 
-\begin_inset Newline newline
-\end_inset
-
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "PCoA Plot"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/mdsplots-multidim.pdf"
-literal "false"
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Significantly improved performce of machine learning classifier for identifying
- transplant rejection by developing appropriate single-sample microarray
+Significantly improved performance of machine learning classifier for identifyin
+g transplant rejection by developing appropriate single-sample microarray
  normalization procedures
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -344,6 +391,17 @@ literal "true"
 , including training a custom set of frozen RMA normalization vectors.
  Classifier is currently being developed into a clinical test for transplant
  dysfunction.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Work in the word biomarker, cross validation
+\end_layout
+
+\end_inset
+
+
 \begin_inset Newline newline
 \end_inset
 
@@ -366,6 +424,90 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Performed a comprehensive comparative evaluation of over 20 subtly different
+ statistical models for differential methylation in Illumina 450k arrays,
+ selecting a model that best explained the observed sources and trends of
+ variation in the data, including cross-domain application of a method originall
+y designed for RNA-seq data.
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example diagnostic plots"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/450k/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Evaluated and optimized cost and performance of custom protocol for RNA-seq
+ of human and primate blood samples while minimizing nuisance globin reads.
+ Increased yield of useful reads nearly 2-fold.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "globin-reduction"
+literal "true"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/globin/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Investigated effects of life-span-extending drug on worm gene expression
+ over time revealing that the drug retards age-related 
+\begin_inset Quotes eld
+\end_inset
+
+transcriptional drift
+\begin_inset Quotes erd
+\end_inset
+
+, preserving a youthful phenotype at the molecular level.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rangarajue08833"
+literal "true"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "PCoA Plot"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/mdsplots-multidim.pdf"
+literal "false"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -473,34 +615,6 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Evaluated and optimized cost and performance of custom protocol for RNA-seq
- of human and primate blood samples while minimizing nuisance globin reads.
- Increased yield of useful reads nearly 2-fold.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "globin-reduction"
-literal "true"
-
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Example results"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/globin/"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 Adapted common normalization methods from RNA-seq to improve performance
  in analysis of RASL-seq experiments.
  
@@ -508,27 +622,6 @@ Adapted common normalization methods from RNA-seq to improve performance
 LatexCommand cite
 key "Scott036061"
 literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Performed a comprehensive comparative evaluation of over 20 subtly different
- statistical models for differential methylation in Illumina 450k arrays,
- selecting a model that best explained the observed sources and trends of
- variation in the data, including cross-domain application of a method originall
-y designed for RNA-seq data.
-\begin_inset Newline newline
-\end_inset
-
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Example diagnostic plots"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/450k/"
-literal "false"
 
 \end_inset
 
@@ -579,11 +672,31 @@ literal "false"
 \end_inset
 
 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Check bioc package links, add any additional ones?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
 Mentored 2 coworkers in learning bioinformatics, one from a programming
  background and the other from a biology background.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mentored how many?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -592,7 +705,7 @@ Summer Internship, Informatics IT, Merck & Co.
 \begin_inset space \hfill{}
 \end_inset
 
-Boston, MA
+ Boston, MA
 \begin_inset space \qquad{}
 \end_inset
 
@@ -611,6 +724,16 @@ literal "false"
 \end_inset
 
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Notify Adnan
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -644,7 +767,7 @@ Gaasterland Lab, UCSD Bioinformatcs
 \begin_inset space \hfill{}
 \end_inset
 
-La Jolla, CA
+ La Jolla, CA
 \begin_inset space \qquad{}
 \end_inset
 
@@ -823,11 +946,11 @@ literal "false"
 
 \begin_layout Subsection
 Timko Lab, U.
- of Virginia Biology
+ of Virginia Biology 
 \begin_inset space \hfill{}
 \end_inset
 
-Charlottesville, VA
+ Charlottesville, VA
 \begin_inset space \qquad{}
 \end_inset
 
@@ -942,7 +1065,15 @@ literal "false"
 \end_layout
 
 \begin_layout Description
-Statistics
+Statistics,
+\begin_inset space ~
+\end_inset
+
+Machine
+\begin_inset space ~
+\end_inset
+
+Learning,
 \begin_inset space ~
 \end_inset
 
@@ -1073,11 +1204,46 @@ hspace{-116pt}Writings and Publications}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Update references.
+ Change RASL-seq from 
+\begin_inset Quotes eld
+\end_inset
+
+in review
+\begin_inset Quotes erd
+\end_inset
+
+ to just link to the preprint
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintAll"
 bibfiles "citations"
 options "plainyr-rev"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Add section on talks
+\end_layout
 
 \end_inset
 
