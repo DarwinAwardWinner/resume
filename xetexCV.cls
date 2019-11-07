@@ -67,7 +67,7 @@ uses the xetex typesetting system.]
 
 % Spcial Commands for Fancy Characters and Years
 \newcommand{\amper}{{\fontspec[Scale=.95]{Hoefler Text}\selectfont\itshape\&}}
-\newcommand{\years}[1]{\marginpar{\hspace{5.13cm}\parbox{3.0cm}{\emph{#1}}}}
+\newcommand{\years}[1]{\leavevmode\marginpar{\hspace{5.13cm}\parbox{3.0cm}{\emph{#1}}}\ignorespaces}
 
 % Headings and Heading Fonts
 \RequirePackage[normalem]{ulem}
