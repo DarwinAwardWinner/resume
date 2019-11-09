@@ -160,7 +160,9 @@ all_example_files = all_example_files.union(index_files)
 all_example_files = all_example_files.union(r_html_files)
 
 rule build_all:
-    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html', 'index.html', index_files, r_html_files
+    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html',
+           'ryan_thompson_cv.pdf', 'ryan_thompson_cv.html',
+           'index.html', index_files, r_html_files
 
 rule create_resume_pdf:
     input: lyxfile='ryan_thompson_resume.lyx',
@@ -251,6 +253,8 @@ shortest URL is kept.'''
                 if m:
                     authors[i] = f"\\textbf{{{m.group(1)} Thompson}}"
             entry['author'] = ' and '.join(authors)
+            # Fix CD4+ formatting (superscript plus sign)
+            entry['title'] = regex.sub('CD4\\+', 'CD4$^{+}$', entry['title'])
         new_db = BibDatabase()
         new_db.entries = entries
         with open(output[0], 'w') as outfile:
