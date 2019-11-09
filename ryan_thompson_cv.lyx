@@ -17,6 +17,14 @@
 %\renewcommand{\footrulewidth}{0pt}
 
 \hypersetup{linkcolor=black,citecolor=black,filecolor=black,urlcolor=black} 
+
+% Add a DRAFT watermark
+\usepackage{draftwatermark}
+\usepackage{accsupp}
+\SetWatermarkLightness{0.97}
+\SetWatermarkScale{1}
+% Make watermark not copyable (in Adobe Reader)
+\SetWatermarkText{\BeginAccSupp{method=escape,ActualText={}}DRAFT\EndAccSupp{}}
 \end_preamble
 \options unicode=true
 \use_default_options true
