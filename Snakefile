@@ -160,9 +160,10 @@ all_example_files = all_example_files.union(index_files)
 all_example_files = all_example_files.union(r_html_files)
 
 rule build_all:
-    input: 'ryan_thompson_resume.pdf', 'ryan_thompson_resume.html',
-           'ryan_thompson_cv.pdf', 'ryan_thompson_cv.html',
-           'index.html', index_files, r_html_files
+    input: 'ryan_thompson_resume.pdf', #'ryan_thompson_resume.html',
+           'ryan_thompson_cv.pdf', #'ryan_thompson_cv.html',
+           #'index.html',
+           index_files, r_html_files
 
 rule create_resume_pdf:
     input: lyxfile='ryan_thompson_resume.lyx',
@@ -172,16 +173,16 @@ rule create_resume_pdf:
     output: pdf='ryan_thompson_resume.pdf'
     shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
 
-rule create_resume_html:
-    input: lyxfile='ryan_thompson_resume.lyx',
-           bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
-           example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
-           headshot='headshot-crop.png',
-    output: html='ryan_thompson_resume.html'
-    run:
-        with NamedTemporaryFile() as tempf:
-            shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
-            shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
+# rule create_resume_html:
+#     input: lyxfile='ryan_thompson_resume.lyx',
+#            bibfiles=list(lyx_bib_deps('ryan_thompson_resume.lyx')),
+#            example_files=list(resume_example_deps('ryan_thompson_resume.lyx')),
+#            headshot='headshot-crop.png',
+#     output: html='ryan_thompson_resume.html'
+#     run:
+#         with NamedTemporaryFile() as tempf:
+#             shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
+#             shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
 
 rule create_cv_pdf:
     input: lyxfile='ryan_thompson_cv.lyx',
@@ -191,21 +192,21 @@ rule create_cv_pdf:
     output: pdf='ryan_thompson_cv.pdf'
     shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
 
-rule create_cv_html:
-    input: lyxfile='ryan_thompson_cv.lyx',
-           bibfiles=list(lyx_bib_deps('ryan_thompson_cv.lyx')),
-           example_files=list(resume_example_deps('ryan_thompson_cv.lyx')),
-           headshot='headshot-crop.png',
-    output: html='ryan_thompson_cv.html'
-    run:
-        with NamedTemporaryFile() as tempf:
-            shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
-            shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
+# rule create_cv_html:
+#     input: lyxfile='ryan_thompson_cv.lyx',
+#            bibfiles=list(lyx_bib_deps('ryan_thompson_cv.lyx')),
+#            example_files=list(resume_example_deps('ryan_thompson_cv.lyx')),
+#            headshot='headshot-crop.png',
+#     output: html='ryan_thompson_cv.html'
+#     run:
+#         with NamedTemporaryFile() as tempf:
+#             shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
+#             shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
 
-rule link_resume_to_index_html:
-    input: 'ryan_thompson_resume.html'
-    output: 'index.html'
-    shell: 'ln -s {input:q} {output:q}'
+# rule link_resume_to_index_html:
+#     input: 'ryan_thompson_resume.html'
+#     output: 'index.html'
+#     shell: 'ln -s {input:q} {output:q}'
 
 rule examples_readme_to_index_html:
     input: '{dirname}README.mkdn'
