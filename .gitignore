@@ -2,4 +2,10 @@
 .doit*
 # Snakemake cache
 .snakemake
+# LyX temp files
 *.emergency
+# Intermediate bib files
+*-PROCESSED.bib
+# Misc files to ignore
+/LaMere CV Example.pdf
+/advcv.pdf

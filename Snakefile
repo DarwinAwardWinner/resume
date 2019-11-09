@@ -4,12 +4,14 @@ import locale
 import os.path
 import regex
 import urllib.parse
+import bibtexparser
 
-from collections import Iterable, Mapping  # in Python 3 use from collections.abc
+from collections.abc import Iterable, Mapping
 from distutils.spawn import find_executable
 from fnmatch import fnmatch
 from subprocess import check_output, check_call
 from tempfile import NamedTemporaryFile
+from bibtexparser.bibdatabase import BibDatabase
 
 try:
     from os import scandir, walk
@@ -103,11 +105,27 @@ account.
                 yield s.group(2)
 
 def lyx_bib_deps(lyxfile):
-    '''Return an iterator over bib files referenced by a Lyx file.'''
-    # Cheat: Assume every bib file in the folder is a dependency of
-    # any LaTeX operation. Doing this properly is tricky without
-    # implementing the full bibfile-finding logic of LyX/LaTeX.
-    return glob_recursive('*.bib')
+    '''Return an iterator over all bib files referenced by a Lyx file.
+
+    This will only return the names of existing files, so it will be
+    unreliable in the case of an auto-generated bib file.
+
+    '''
+    try:
+        with open(lyxfile) as f:
+            lyx_text = f.read()
+        bib_names = []
+        for m in regex.finditer('bibfiles "(.*?)"', lyx_text):
+            bib_names.extend(m.group(1).split(','))
+        # Unfortunately LyX doesn't indicate which bib names refer to
+        # files in the current directory and which don't. Currently that's
+        # not a problem for me since all my refs are in bib files in the
+        # current directory.
+        for bn in bib_names:
+            bib_path = bn + '.bib'
+            yield bib_path
+    except FileNotFoundError:
+        pass
 
 def lyx_hrefs(lyxfile):
     '''Return an iterator over hrefs in a LyX file.'''
@@ -163,6 +181,25 @@ rule create_resume_html:
             shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
             shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
 
+rule create_cv_pdf:
+    input: lyxfile='ryan_thompson_cv.lyx',
+           bibfiles=list(lyx_bib_deps('ryan_thompson_cv.lyx')),
+           example_files=list(resume_example_deps('ryan_thompson_cv.lyx')),
+           headshot='headshot-crop.png',
+    output: pdf='ryan_thompson_cv.pdf'
+    shell: '{LYXPATH:q} --export-to pdf4 {output.pdf:q} {input.lyxfile:q}'
+
+rule create_cv_html:
+    input: lyxfile='ryan_thompson_cv.lyx',
+           bibfiles=list(lyx_bib_deps('ryan_thompson_cv.lyx')),
+           example_files=list(resume_example_deps('ryan_thompson_cv.lyx')),
+           headshot='headshot-crop.png',
+    output: html='ryan_thompson_cv.html'
+    run:
+        with NamedTemporaryFile() as tempf:
+            shell('{LYXPATH:q} --export-to xhtml {tempf.name:q} {input.lyxfile:q}')
+            shell('''cat {tempf.name:q} | perl -lape 's[<span class="flex_cv_image">(.*?)</span>][<span class="flex_cv_image"><img src="$1" width="100"></span>]g' > {output.html:q}''')
+
 rule link_resume_to_index_html:
     input: 'ryan_thompson_resume.html'
     output: 'index.html'
@@ -177,3 +214,44 @@ rule R_to_html:
     input: '{dirname}/{basename,[^/]+}.R'
     output: '{dirname}/{basename}.R.html'
     shell: 'pygmentize -f html -O full -l R -o {output:q} {input:q}'
+
+rule process_bib:
+    '''Preprocess bib file for LaTeX.
+
+For entries with a DOI, all URLs are stripped, since the DOI already
+provides a clickable link. For entries with no DOI, all but one URL is
+discarded, since LyX can't handle entries with multiple URLs. The
+shortest URL is kept.'''
+    input: '{basename}.bib'
+    output: '{basename,.*(?<!-PROCESSED)}-PROCESSED.bib'
+    run:
+        with open(input[0]) as infile:
+            bib_db = bibtexparser.load(infile)
+        entries = bib_db.entries
+        for entry in entries:
+            # Keep DOI or exactly one URL
+            if 'doi' in entry:
+                try:
+                    del entry['url']
+                except KeyError:
+                    pass
+            else:
+                try:
+                    entry_urls = regex.split('\\s+', entry['url'])
+                    shortest_url = min(entry_urls, key=len)
+                    # Need to fix e.g. 'http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=55329{\\&}tool=pmcentrez{\\&}rendertype=abstract'
+                    shortest_url = re.sub('\\{\\\\?(.)\\}', '\\1', shortest_url)
+                    entry['url'] = shortest_url
+                except KeyError:
+                    pass
+            # Boldface my name
+            authors = regex.split("\\s+and\\s+",entry['author'])
+            for i in range(len(authors)):
+                m = regex.search('^Thompson,\\s+(R.*)$', authors[i])
+                if m:
+                    authors[i] = f"\\textbf{{{m.group(1)} Thompson}}"
+            entry['author'] = ' and '.join(authors)
+        new_db = BibDatabase()
+        new_db.entries = entries
+        with open(output[0], 'w') as outfile:
+            bibtexparser.dump(new_db, outfile)

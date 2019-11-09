@@ -19,7 +19,7 @@ uses the xetex typesetting system.]
 
 \RequirePackage{graphicx}
 \RequirePackage[colorlinks,unicode=true,xetex,unicode=true]{hyperref}
-\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue} 
+\hypersetup{linkcolor=blue,citecolor=blue,filecolor=black,urlcolor=blue}
 
 % Fonts
 \defaultfontfeatures{Mapping=tex-text}
