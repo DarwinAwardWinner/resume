@@ -306,12 +306,16 @@ status open
 
 \end_inset
 
- Ph.
+ 
+\series bold
+Ph.
 \begin_inset space \thinspace{}
 \end_inset
 
 D.
- in Bioinformatics, 
+ in Bioinformatics
+\series default
+, 
 \begin_inset CommandInset href
 LatexCommand href
 name "Skaggs Graduate School of Chemical and Biological Sciences"
@@ -320,7 +324,11 @@ literal "false"
 
 \end_inset
 
-, The Scripps Research Institute, La Jolla, California 
+, 
+\series bold
+The Scripps Research Institute
+\series default
+, La Jolla, California 
 \begin_inset Newline newline
 \end_inset
 
@@ -373,7 +381,9 @@ status open
 
 \end_inset
 
- B.
+ 
+\series bold
+B.
 \begin_inset space \thinspace{}
 \end_inset
 
@@ -383,7 +393,9 @@ S.
 \end_inset
 
 A.
- in Mathematics, University of Virginia, Charlottesville, Virginia 
+ in Mathematics, University of Virginia
+\series default
+, Charlottesville, Virginia 
 \begin_inset Newline newline
 \end_inset
 
@@ -428,7 +440,11 @@ status open
 
 \end_inset
 
- Gaasterland Lab, University of California San Diego, San Diego,
+ 
+\series bold
+Scripps Genome Center, University of California San Diego
+\series default
+, San Diego,
 \begin_inset space ~
 \end_inset
 
@@ -451,8 +467,11 @@ status open
 
 \end_inset
 
- Summer Bioinformatics Internship, Informatics & IT Department, Merck &
- Co., Boston,
+ 
+\series bold
+Summer Bioinformatics Internship, Informatics & IT Department, Merck & Co.
+\series default
+, Boston,
 \begin_inset space ~
 \end_inset
 
