@@ -143,7 +143,7 @@ Summary
 Accomplished, experienced computational biologist with deep knowledge of
  biology, mathematics, statistics, and programming
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Underplays math/stats knowledge?
@@ -185,66 +185,134 @@ Supportive team member with a strong ability to foster cross-disciplinary
 Education
 \end_layout
 
-\begin_layout Description
-The
-\begin_inset space \space{}
-\end_inset
-
-Scripps
-\begin_inset space \space{}
-\end_inset
-
-Research
-\begin_inset space \space{}
-\end_inset
-
-Institute 
-\begin_inset space \hfill{}
-\end_inset
-
- 
-\begin_inset Newline newline
-\end_inset
-
-Ph.
- D.
- in Bioinformatics, 2019
-\end_layout
-
-\begin_layout Description
-University
-\begin_inset space \space{}
-\end_inset
-
-of
-\begin_inset space \space{}
-\end_inset
-
-Virginia 
-\begin_inset space \hfill{}
-\end_inset
-
- 
-\begin_inset Newline newline
-\end_inset
-
-B.S.
- in Biology, B.A.
- in Mathematics, 2009 
-\begin_inset Note Note
+\begin_layout Standard
+\begin_inset Flex Years
 status open
 
 \begin_layout Plain Layout
-Mention high distinction
+2019
 \end_layout
 
 \end_inset
 
+ 
+\series bold
+Ph.
+\begin_inset space \thinspace{}
+\end_inset
 
+D.
+ in Bioinformatics
+\series default
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Skaggs Graduate School of Chemical and Biological Sciences"
+target "https://education.scripps.edu/graduate/about-the-graduate-school/"
+literal "false"
+
+\end_inset
+
+, 
+\series bold
+The Scripps Research Institute
+\series default
+, La Jolla, California 
 \begin_inset Newline newline
 \end_inset
 
-Echols Scholar
+
+\size small
+Dissertation: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Bioinformatic analysis of complex, high-throughput genomic and epigenomic data in the context of CD4$^{+}$ T-cell differentiation and diagnosis and treatment of transplant rejection"
+target "https://mneme.dedyn.io/~ryan/Thesis/thesis-final.pdf"
+literal "true"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\size small
+Update this link to one in the resume repo when possible
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Advisor: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Andrew Su"
+target "http://sulab.org/author/andrew-i-su/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2009
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+B.
+\begin_inset space \thinspace{}
+\end_inset
+
+S.
+ in Biology with High Distinction; B.
+\begin_inset space \thinspace{}
+\end_inset
+
+A.
+ in Mathematics, University of Virginia
+\series default
+, Charlottesville, Virginia 
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+Undergraduate thesis: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Contig Farmer: A tool for extracting maximal-length contiguous Sequences from a Database of Short Sequence Reads"
+target "http://darwinawardwinner.github.io/resume/examples/UVa/contigfarmer.pdf"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Advisor: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Paul J. Rushton"
+target "https://therushtonlab.wordpress.com/"
+literal "false"
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Section
@@ -378,9 +446,9 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Significantly improved performance of machine learning classifier for identifyin
-g transplant rejection by developing appropriate single-sample microarray
- normalization procedures
+Significantly improved cross-validated performance of machine learning classifie
+r for identifying biomarkers of transplant rejection by developing appropriate
+ single-sample microarray normalization procedures
 \begin_inset CommandInset citation
 LatexCommand cite
 key "kurian2014molecular"
@@ -391,17 +459,6 @@ literal "true"
 , including training a custom set of frozen RMA normalization vectors.
  Classifier is currently being developed into a clinical test for transplant
  dysfunction.
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Work in the word biomarker, cross validation
-\end_layout
-
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
