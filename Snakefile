@@ -12,6 +12,7 @@ from fnmatch import fnmatch
 from subprocess import check_output, check_call
 from tempfile import NamedTemporaryFile
 from bibtexparser.bibdatabase import BibDatabase
+from bibtexparser.bparser import BibTexParser
 
 try:
     from os import scandir, walk
@@ -229,7 +230,11 @@ shortest URL is kept.'''
     output: '{basename,.*(?<!-PROCESSED)}-PROCESSED.bib'
     run:
         with open(input[0]) as infile:
-            bib_db = bibtexparser.load(infile)
+            parser = BibTexParser(
+                ignore_nonstandard_types = False,
+                common_strings = True,
+            )
+            bib_db = bibtexparser.load(infile, parser)
         entries = bib_db.entries
         for entry in entries:
             # Keep DOI or exactly one URL
@@ -247,6 +252,13 @@ shortest URL is kept.'''
                     entry['url'] = shortest_url
                 except KeyError:
                     pass
+            # Delete PMID because it doesn't make a functional link
+            try:
+                if entry['eprinttype'] == 'pmid':
+                    del entry['eprinttype']
+                    del entry['eprint']
+            except KeyError:
+                pass
             # Boldface my name
             authors = regex.split("\\s+and\\s+",entry['author'])
             for i in range(len(authors)):
