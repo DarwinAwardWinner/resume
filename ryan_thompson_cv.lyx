@@ -26,7 +26,7 @@
 % Make watermark not copyable (in Adobe Reader)
 \SetWatermarkText{\BeginAccSupp{method=escape,ActualText={}}DRAFT\EndAccSupp{}}
 \end_preamble
-\options unicode=true
+\options unicode=true,final
 \use_default_options true
 \begin_modules
 customHeadersFooters
