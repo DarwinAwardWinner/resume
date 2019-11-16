@@ -301,7 +301,7 @@ Education
 status open
 
 \begin_layout Plain Layout
-2019
+2012—2019
 \end_layout
 
 \end_inset
@@ -324,8 +324,12 @@ literal "false"
 
 \end_inset
 
-, 
+ 
 \series bold
+
+\begin_inset Newline newline
+\end_inset
+
 The Scripps Research Institute
 \series default
 , La Jolla, California 
@@ -335,6 +339,8 @@ The Scripps Research Institute
 
 \size small
 Dissertation: 
+\emph on
+
 \begin_inset CommandInset href
 LatexCommand href
 name "Bioinformatic analysis of complex, high-throughput genomic and epigenomic data in the context of CD4$^{+}$ T-cell differentiation and diagnosis and treatment of transplant rejection"
@@ -343,6 +349,8 @@ literal "true"
 
 \end_inset
 
+
+\emph default
 
 \begin_inset Note Note
 status collapsed
@@ -376,7 +384,7 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-2009
+2005—2009
 \end_layout
 
 \end_inset
@@ -393,7 +401,11 @@ S.
 \end_inset
 
 A.
- in Mathematics, University of Virginia
+ in Mathematics
+\begin_inset Newline newline
+\end_inset
+
+University of Virginia
 \series default
 , Charlottesville, Virginia 
 \begin_inset Newline newline
@@ -402,6 +414,8 @@ A.
 
 \size small
 Undergraduate thesis: 
+\emph on
+
 \begin_inset CommandInset href
 LatexCommand href
 name "Contig Farmer: A tool for extracting maximal-length contiguous Sequences from a Database of Short Sequence Reads"
@@ -410,6 +424,8 @@ literal "false"
 
 \end_inset
 
+
+\emph default
  
 \begin_inset Newline newline
 \end_inset
@@ -423,11 +439,11 @@ literal "false"
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Section
-Professional Experience
+Academic Experience
 \end_layout
 
 \begin_layout Standard
@@ -442,7 +458,7 @@ status open
 
  
 \series bold
-Scripps Genome Center, University of California San Diego
+Researcher, Scripps Genome Center, University of California San Diego
 \series default
 , San Diego,
 \begin_inset space ~
@@ -454,7 +470,20 @@ CA
 
 
 \size small
-Advisor: Terry Gaasterland
+Advisor: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Terry Gaasterland"
+target "http://igm.ucsd.edu/faculty/profiles/gaasterland.shtml"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Professional Experience
 \end_layout
 
 \begin_layout Standard
@@ -774,7 +803,11 @@ May 8, 2018
 
 \end_inset
 
- Introductory RNA-seq Analysis (
+ 
+\series bold
+Guest lecturer on RNA-Seq
+\series default
+ for Advanced Tools and Data Challenges in Bioinformatics course (
 \begin_inset CommandInset href
 LatexCommand href
 name "Lecture"
@@ -807,6 +840,8 @@ November 21, 2016
 \end_inset
 
  
+\series bold
+
 \begin_inset CommandInset href
 LatexCommand href
 name "Advanced RNA-Seq Analysis"
@@ -816,6 +851,8 @@ literal "false"
 \end_inset
 
 .
+
+\series default
  Schork Lab, J.
  Craig Venter Institute, La Jolla, CA
 \end_layout
@@ -830,7 +867,11 @@ August 15, 2016
 
 \end_inset
 
- Introductory RNA-seq Analysis.
+ 
+\series bold
+RNA-seq Analysis.
+
+\series default
  Bristol-Myers Squibb, Hopewell, NJ
 \end_layout
 
@@ -844,7 +885,11 @@ April 29, 2016
 
 \end_inset
 
- Introductory RNA-seq Analysis.
+ 
+\series bold
+Lecturer on Introductory RNA-seq Analysis
+\series default
+ for Applied Bioinformatics and Computational Biology course.
  The Scripps Research Institute, La Jolla, CA
 \end_layout
 
@@ -858,8 +903,12 @@ December 21, 2015
 
 \end_inset
 
- Advanced RNA-Seq Analysis.
- Bristol-Myers Squibb, Hopewell, NJ 
+ 
+\series bold
+Advanced RNA-Seq Analysis.
+
+\series default
+ Bristol-Myers Squibb, Hopewell, NJ
 \end_layout
 
 \begin_layout Standard
@@ -872,7 +921,11 @@ November 13, 2015
 
 \end_inset
 
- Advanced RNA-Seq Analysis.
+ 
+\series bold
+Advanced RNA-Seq Analysis.
+
+\series default
  The Scripps Research Institute, La Jolla, CA
 \end_layout
 
@@ -912,6 +965,10 @@ literal "false"
 \end_layout
 
 \begin_layout Section
+\begin_inset Note Note
+status open
+
+\begin_layout Section
 Interests & Hobbies
 \end_layout
 
@@ -929,6 +986,11 @@ Tabletop & board gaming
 
 \begin_layout Itemize
 Web comics
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
