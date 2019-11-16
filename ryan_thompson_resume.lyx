@@ -339,7 +339,7 @@ Strong focus on sound statistical analysis, effective data visualization
  and communication, and making expert knowledge and successful analysis
  methods available as re-usable software tools
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Work in machine learning?
@@ -538,7 +538,7 @@ literal "false"
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Lacking impact statement.
@@ -547,19 +547,6 @@ Lacking impact statement.
  First sentence: problem statement.
  2nd sentence: methodology applied.
  3rd sentence: impact/result/take-home
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Put most interesting/important/relevant up top
 \end_layout
 
 \end_inset
@@ -581,17 +568,6 @@ literal "true"
 \end_inset
 
 .
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Add any new publications
-\end_layout
-
-\end_inset
-
-
 \begin_inset Newline newline
 \end_inset
 
