@@ -7,17 +7,31 @@
 \textclass xetexCV
 \begin_preamble
 % Clear existing header/footer
-\fancyhf{}
+%\fancyhf{}
 % Page number in top right
-\fancyhead[R]{\thepage}
+%\fancyhead[R]{\thepage}
 % Online PDF URL in bottom right
-\fancyfoot[R]{\footnotesize{Online version (with links): \href{https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf}{https://darwinawardwinner.github.io/resume/ryan\_{}thompson\_{}resume.pdf}}}
+%\fancyfoot[R]{\footnotesize{Online version (with links): \href{https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf}{https://darwinawardwinner.github.io/resume/ryan\_{}thompson\_{}resume.pdf}}}
 % No horizontal rules
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+
+\hypersetup{citecolor=black,filecolor=black} 
+
+% Add a DRAFT watermark
+\usepackage{draftwatermark}
+\usepackage{accsupp}
+\SetWatermarkLightness{0.97}
+\SetWatermarkScale{1}
+% Make watermark not copyable (in Adobe Reader)
+\SetWatermarkText{\BeginAccSupp{method=escape,ActualText={}}DRAFT\EndAccSupp{}}
 \end_preamble
-\options unicode=true
+\options unicode=true,final
 \use_default_options true
+\begin_modules
+customHeadersFooters
+todonotes
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -38,11 +52,20 @@
 \graphics default
 \default_output_format pdf4
 \output_sync 1
-\bibtex_command bibtex
+\bibtex_command default
 \index_command default
 \paperfontsize default
 \spacing single
 \use_hyperref false
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -57,8 +80,8 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
-\biblio_style plain
-\use_bibtopic false
+\biblio_style plainnat
+\use_bibtopic true
 \use_indices false
 \paperorientation portrait
 \suppress_date false
@@ -71,8 +94,8 @@
 \end_index
 \secnumdepth 2
 \tocdepth 2
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip smallskip
 \is_math_indent 0
 \math_numbering_side default
 \quotes_style english
@@ -90,6 +113,153 @@
 \begin_body
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+headrulewidth}{0pt}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+No hrule under header
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhf{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Clear any existing headers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Center Header
+Ryan C.
+ Thompson, Ph.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
+\end_layout
+
+\begin_layout Right Header
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Right Footer
+
+\size footnotesize
+Online version (with links): 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hide name in header on first page, since it's redundant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancypagestyle{plain}{
+\backslash
+chead{}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Actual content begins here
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Flex CV Image
 status open
 
@@ -104,7 +274,11 @@ headshot-crop.png
 
 \begin_layout CV Name
 Ryan C.
- Thompson
+ Thompson, Ph.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
 \end_layout
 
 \begin_layout Contact Address
@@ -190,7 +364,7 @@ Education
 status open
 
 \begin_layout Plain Layout
-2019
+2012—2019
 \end_layout
 
 \end_inset
@@ -213,8 +387,12 @@ literal "false"
 
 \end_inset
 
-, 
+ 
 \series bold
+
+\begin_inset Newline newline
+\end_inset
+
 The Scripps Research Institute
 \series default
 , La Jolla, California 
@@ -224,6 +402,8 @@ The Scripps Research Institute
 
 \size small
 Dissertation: 
+\emph on
+
 \begin_inset CommandInset href
 LatexCommand href
 name "Bioinformatic analysis of complex, high-throughput genomic and epigenomic data in the context of CD4$^{+}$ T-cell differentiation and diagnosis and treatment of transplant rejection"
@@ -232,6 +412,8 @@ literal "true"
 
 \end_inset
 
+
+\emph default
 
 \begin_inset Note Note
 status collapsed
@@ -265,7 +447,7 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-2009
+2005—2009
 \end_layout
 
 \end_inset
@@ -282,7 +464,11 @@ S.
 \end_inset
 
 A.
- in Mathematics, University of Virginia
+ in Mathematics
+\begin_inset Newline newline
+\end_inset
+
+University of Virginia
 \series default
 , Charlottesville, Virginia 
 \begin_inset Newline newline
@@ -291,6 +477,8 @@ A.
 
 \size small
 Undergraduate thesis: 
+\emph on
+
 \begin_inset CommandInset href
 LatexCommand href
 name "Contig Farmer: A tool for extracting maximal-length contiguous Sequences from a Database of Short Sequence Reads"
@@ -299,6 +487,8 @@ literal "false"
 
 \end_inset
 
+
+\emph default
  
 \begin_inset Newline newline
 \end_inset
@@ -312,7 +502,7 @@ literal "false"
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Section
@@ -320,7 +510,7 @@ Research Experience
 \end_layout
 
 \begin_layout Subsection
-Salomon Lab, The Scripps Research Institute 
+Salomon & Su Labs, The Scripps Research Institute 
 \begin_inset space \hfill{}
 \end_inset
 
@@ -340,16 +530,6 @@ name "asu@scripps.edu"
 target "asu@scripps.edu"
 type "mailto:"
 literal "false"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Double-check all contact emails
-\end_layout
 
 \end_inset
 
@@ -395,7 +575,7 @@ Created an open source, reproducible workflow to analyze a large multi-omics
  activation between naïve and memory cells 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "lamere2016,lamere2017-JMJD3"
+key "LaMere2017,LaMere2016,Thompson2019a"
 literal "true"
 
 \end_inset
@@ -415,6 +595,8 @@ Add any new publications
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -451,7 +633,7 @@ r for identifying biomarkers of transplant rejection by developing appropriate
  single-sample microarray normalization procedures
 \begin_inset CommandInset citation
 LatexCommand cite
-key "kurian2014molecular"
+key "Kurian2014"
 literal "true"
 
 \end_inset
@@ -462,6 +644,8 @@ literal "true"
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -492,6 +676,8 @@ y designed for RNA-seq data.
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -520,6 +706,8 @@ literal "true"
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -546,7 +734,7 @@ transcriptional drift
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Rangarajue08833"
+key "Rangaraju2015a"
 literal "true"
 
 \end_inset
@@ -555,6 +743,8 @@ literal "true"
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -575,6 +765,8 @@ Implemented a systems biology tool to analyze and efficiently present and
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -614,6 +806,8 @@ Performed comparative analysis of multiple differential expression statistical
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -650,6 +844,8 @@ Taught basic RNA-seq theory and practical analysis for the graduate-level
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -677,7 +873,7 @@ Adapted common normalization methods from RNA-seq to improve performance
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Scott036061"
+key "Scott2016"
 literal "true"
 
 \end_inset
@@ -686,12 +882,14 @@ literal "true"
 \end_layout
 
 \begin_layout Itemize
-Active member of the Bioconductor community and contributing developer for
- several Bioconductor packages.
+Active member of the Bioconductor community since 2012 and contributing
+ developer for several Bioconductor packages.
  
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -742,13 +940,13 @@ Check bioc package links, add any additional ones?
 \end_layout
 
 \begin_layout Itemize
-Mentored 2 coworkers in learning bioinformatics, one from a programming
+Mentored 3 coworkers in learning bioinformatics, one from a programming
  background and the other from a biology background.
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Mentored how many?
+Mentored how many? Enrique, Padma, Ramya
 \end_layout
 
 \end_inset
@@ -801,6 +999,8 @@ Built a transcriptome assembly and quantification pipeline using Cufflinks,
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -851,7 +1051,7 @@ Designed and implemented Deloxer, a critical software step in a new Illumina
  Deloxer is published
 \begin_inset CommandInset citation
 LatexCommand cite
-key "van2011illumina"
+key "VanNieuwerburgh2012"
 literal "true"
 
 \end_inset
@@ -861,6 +1061,8 @@ literal "true"
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -906,6 +1108,8 @@ cleotide differences between them, and functionally annotate these differences,
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -926,6 +1130,8 @@ Helped design & implement a large-scale high-throughput exome sequencing
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -964,6 +1170,8 @@ Created a fully-automated pipeline to produce quality-control metrics and
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -989,6 +1197,8 @@ Analyzed miRNA target predictions using GO & KEGG grouping to identify target
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -1036,7 +1246,7 @@ Undergraduate thesis: Designed and implemented Contig Farmer, an algorithm
  gene discovery in cowpea and tobacco shotgun genomic sequence data
 \begin_inset CommandInset citation
 LatexCommand cite
-key "cfarmer"
+key "Thompson2009"
 literal "true"
 
 \end_inset
@@ -1053,6 +1263,8 @@ Investigated transcription factors mediating plant stress response using
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -1071,6 +1283,8 @@ Acted as interpreter to explain complex biological concepts to programmers
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Link: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -1098,6 +1312,8 @@ Skills R/BioConductor, Python, Perl, Lisp, Java, C#, C++; Git version control;
 \begin_inset Newline newline
 \end_inset
 
+
+\size small
 Public code: 
 \begin_inset CommandInset href
 LatexCommand href
@@ -1110,7 +1326,7 @@ literal "false"
 \begin_inset Newline newline
 \end_inset
 
-StackOverflow Profile: 
+Stack Overflow profile: 
 \begin_inset CommandInset href
 LatexCommand href
 target "http://stackoverflow.com/users/125921"
@@ -1226,13 +1442,17 @@ Helped organize, run, and referee several regattas per season for students
  from RYC and neighboring yacht clubs
 \end_layout
 
+\begin_layout Section
+Peer-reviewed Publications
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-The following command changes the title of the bibliography and also un-does
- the indentation of it
+The following command suppresses the bibliography's own title, since we
+ have one above that's formatted the way we want.
 \end_layout
 
 \end_inset
@@ -1248,33 +1468,16 @@ status open
 
 
 \backslash
-renewcommand{
-\backslash
-refname}{
-\backslash
-hspace{-116pt}Writings and Publications}
+begingroup 
 \end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
 
 \begin_layout Plain Layout
-Update references.
- Change RASL-seq from 
-\begin_inset Quotes eld
-\end_inset
 
-in review
-\begin_inset Quotes erd
-\end_inset
 
- to just link to the preprint
+\backslash
+renewcommand{
+\backslash
+section}[2]{}%
 \end_layout
 
 \end_inset
@@ -1286,8 +1489,81 @@ in review
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 btprint "btPrintAll"
-bibfiles "citations"
-options "plainyr-rev"
+bibfiles "mypubs-PROCESSED"
+options "plainurlyr-rev"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Other Works
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begingroup 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand{
+\backslash
+section}[2]{}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "myunpubs-PROCESSED"
+options "plainurlyr-rev"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+endgroup
+\end_layout
 
 \end_inset
 
