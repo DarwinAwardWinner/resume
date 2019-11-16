@@ -1,0 +1,11 @@
+- [`ipi-results-small.txt`](ipi-results-small.txt): A sample of output
+  showing alignment of *de novo* assembled black rhino and white rhino
+  transcript sequences to human proteins. This was used to find
+  differences between the two rhino species in otherwise conserved
+  regions, using human as the phylogenetic outgroup.
+- [`rhino-abstract.pdf`](rhino-abstract.pdf) and
+  [`rhino-slides.pdf`](rhino-slides.pdf): Abstract and slides for a
+  talk incorporating my work on *de novo* assembly and mutation
+  analysis of the black rhino and white rhino transcriptomes,
+  presented at the 2013 International Elephant & Rhino Conservation &
+  Research Symposium

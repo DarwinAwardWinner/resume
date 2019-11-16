@@ -1,0 +1,384 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine biblatex
+\cite_engine_type numerical
+\biblio_options sorting=none
+\biblatex_bibstyle numeric
+\biblatex_citestyle numeric
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Current Studies on Molecular Mechanisms of Iron Homeostasis in Rhinoceroses
+\end_layout
+
+\begin_layout Author
+Rose Linzmeier, Ph.D.1
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Department of Pulmonary and Critical Care Medicine and Department of Pathology
+ and Laboratory Medicine, UCLA School of Medicine, Los Angeles, CA 90095
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Ryan Thompson2
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Department of Molecular and Experimental Medicine, The Scripps Research
+ Institute, La Jolla, CA 92037
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Sarah LaMere, D.V.M
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotemark[2]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Pauline Lee, Ph.D.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotemark[2]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Elizabeta Nemeth, Ph.D.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotemark[1]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Tomas Ganz, M.D., Ph.D.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+footnotemark[2]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Donald E.
+ Paglia, M.D.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+UCLA Hematology Research Laboratory, Department of Pathology and Laboratory
+ Medicine, UCLA School of Medicine, Los Angeles, CA 90095
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Look into https://tex.stackexchange.com/q/34746/5654
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+2013
+\end_layout
+
+\begin_layout Standard
+Iron storage disease (ISD) is a hazardous and clinically underappreciated
+ condition commonly acquired by exotic wildlife species when displaced from
+ their natural habitats and confined for even short periods under artificial
+ conditions.
+ An international symposium recently reviewed and validated evidence that
+ African black and Sumatran rhinoceroses invariably develop progressive
+ ISD commensurate with their times in captivity, whereas African white and
+ Indian rhinoceroses do not 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SpecialSupplement2012"
+literal "false"
+
+\end_inset
+
+.
+ Since vulnerability to ISD is a species-wide characteristic, it is likely
+ to have a genetic basis possibly reflecting evolutionary adaptions to differenc
+es in iron bioavailability between browser and grazer diets.
+ 
+\end_layout
+
+\begin_layout Standard
+As a biologically essential element that is also highly toxic in excess,
+ iron is exquisitely regulated by molecular mechanisms primarily focused
+ on interactions between the peptide hepcidin, (the principal iron-regulatory
+ hormone), and its receptor ferroportin, (the sole channel for egress of
+ intracellular iron into plasma) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nemethRegulationIronMetabolism2006"
+literal "false"
+
+\end_inset
+
+.
+ Iron-regulatory gene sequences from both ISD-susceptible and non-susceptible
+ species were compared to search for possible molecular differences.
+ DNA was extracted from peripheral blood samples from all four available
+ rhinoceros species, and genes encoding hepcidin and ferroportin, as well
+ as modulators hemojuvelin, transferrin receptor 2, and HFE protein, were
+ cloned and analyzed by PCR amplification.
+ Over half of the DNA sequences of these five genes have now been determined
+ without identifying any that could account for disparities in iron loading
+ among the species.
+ Evaluation of the remaining sequences continues, as do studies to determine
+ the responsiveness of rhinoceros ferroportin to hepcidin modulation and
+ quantitative levels of hepcidin expression 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "r.linzmeierRegulationIronBalance2008"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In addition, liver and spleen mRNA sequences from African black and white
+ rhinoceroses were assembled using Trinity RNA-Seq software 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "grabherrFulllengthTranscriptomeAssembly2011"
+literal "false"
+
+\end_inset
+
+ and compared with human sequences using the SIFT algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kumarPredictingEffectsCoding2009"
+literal "false"
+
+\end_inset
+
+.
+ Candidate single-nucleotide polymorphisms were independently validated
+ by genomic sequencing.
+ Mutations were found in four genes that may be associated with primary
+ iron disorders or hemolytic anemia in black rhinoceroses: SLC28a2, EPB41,
+ MTF1, and STEAP4 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "r.linzmeierRegulationIronBalance2013"
+literal "false"
+
+\end_inset
+
+.
+ The functional consequences of these mutations are being determined.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "refs"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

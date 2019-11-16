@@ -1,3 +1,5 @@
+This folder contains some examples of my work in the Gaasterland Lab.
+
 - [`delox.R.html`](delox.R.html): The R code
   for
   [Deloxer](https://academic.oup.com/nar/article/40/3/e24/1128321/Illumina-mate-paired-DNA-sequencing-library)
@@ -5,11 +7,6 @@
   consistency of coverage depth between 2 Exome sequencing replicates
 - [`illumina-qc.html`](illumina-qc.png): QC chart indicating quality
   score dropoff along read length for exome sequencing data set.
-- [`ipi-results-small.txt`](ipi-results-small.txt): A sample of output
-  showing alignment of *de novo* assembled black rhino and white rhino
-  transcript sequences to human proteins. This was used to find
-  differences between the two rhino species in otherwise conserved
-  regions.
 - [`mirna-results.html`](mirna-results.html): Example output from
   miRNA binding site predictions
 - [`neartarget.pdf`](neartarget.pdf): Visualization of mean coverage
