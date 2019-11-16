@@ -1,3 +1,5 @@
+<!-- TODO: Update this -->
+
 This is a series of example plots and tables from a combined
 RNA-seq/ChIP-seq study on differences between naive and memory T-cell
 activation. You can view the (old and messy) code for these plots

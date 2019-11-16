@@ -1,4 +1,16 @@
-## Sub-folders
+## My thesis
+
+- [My thesis](thesis-final.pdf): *Bioinformatic analysis of complex,
+  high-throughput genomic and epigenomic data in the context of CD4⁺
+  T-cell differentiation and diagnosis and treatment of transplant
+  rejection*
+- [Slides for my defense talk](defense-slides.pdf): The slides for
+  my dissertation defense, mainly covering Chapter 2 of my thesis
+
+## Interesting sub-folders
+
+Each folder showcases a different project or aspect of my work in the
+Salomon lab.
 
 - [`Teaching`](Teaching): Teaching materials for my lecture and lab on
   introductory RNA-seq analysis
@@ -17,14 +29,17 @@
 
 ## Presentations
 
-- [`DGE Presentation.pdf`](DGE Presentation.pdf): A presentation
-  comparing edgeR, DESeq, and limma on both a conceptual and practical
-  level
-- [`Advanced RNA-seq Analysis.pdf`](Advanced RNA-seq Analysis.pdf): A
-  presentation on the advanced features of limma for RNA-seq analysis
-- [`Reproducible Workflow Presentation.pdf`](Reproducible Workflow Presentation.pdf):
+- [`DGE Presentation.pdf`](DGE Presentation.pdf): comparing edgeR,
+  DESeq, and limma on both a conceptual and practical level
+- [`Advanced RNA-seq Analysis.pdf`](Advanced RNA-seq Analysis.pdf): On
+  the advanced features provided by limma for RNA-seq analysis
+- [`Reproducible Workflow Presentation.pdf`](Reproducible Workflow
+  Presentation.pdf): Showcases the use of
+  [Snakemake](https://snakemake.readthedocs.io/en/stable/) for
+  building a reproducible analysis
 
 ## Other files
+
 - [`Classifier Math Write-up.pdf`](Classifier Math Write-up.pdf): A
   short write-up to explain the mathematical principles behind the
   classifier method used in a machine learning project 

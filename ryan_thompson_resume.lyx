@@ -610,7 +610,7 @@ literal "false"
 \begin_inset CommandInset href
 LatexCommand href
 name "Slides"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/CD4/ChIP-Seq%20presentation.pdf"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/defense-slides.pdf"
 literal "false"
 
 \end_inset
