@@ -313,14 +313,12 @@ https://github.com/DarwinAwardWinner
 Summary
 \end_layout
 
-\begin_layout Itemize
-Accomplished, experienced computational biologist with deep knowledge of
- biology, mathematics, statistics, and programming
+\begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Underplays math/stats knowledge?
+Seeking what kind of job?
 \end_layout
 
 \end_inset
@@ -329,15 +327,20 @@ Underplays math/stats knowledge?
 \end_layout
 
 \begin_layout Itemize
-11 years of bioinformatics experience answering a wide range of complex
- biological questions through analysis of large NGS- and microarray-based
- whole transcriptome and epigenetic data sets
+Accomplished, experienced computational biologist with deep knowledge of
+ biology, mathematics, statistics, and programming.
 \end_layout
 
 \begin_layout Itemize
-Strong focus on sound statistical analysis, effective data visualization
- and communication, and making expert knowledge and successful analysis
- methods available as re-usable software tools
+11 years of bioinformatics experience answering a wide range of complex
+ biological questions through analysis of large NGS- and microarray-based
+ whole transcriptome and epigenetic data sets.
+\end_layout
+
+\begin_layout Itemize
+Focus on sound statistical analysis, effective data visualization and communicat
+ion, and making expert knowledge and successful analysis methods available
+ as re-usable software tools.
 \begin_inset Note Note
 status collapsed
 
@@ -351,8 +354,8 @@ Work in machine learning?
 \end_layout
 
 \begin_layout Itemize
-Supportive team member with a strong ability to foster cross-disciplinary
- literacy by explaining concepts at the right level of abstraction
+Supportive team member and experienced mentor with a strong ability to help
+ others connect biological, statistical, and computational understanding.
 \end_layout
 
 \begin_layout Section
@@ -557,9 +560,13 @@ Lacking impact statement.
 \begin_layout Itemize
 Created an open source, reproducible workflow to analyze a large multi-omics
  next-gen sequencing dataset of 220 RNA-seq and ChIP-seq samples to reveal
- interactions between differential histone methylation and differential
- gene expression during T-cell activation, as well as key differences in
- activation between naïve and memory cells 
+ coordinated changes in histone marks and gene expression during CD4
+\begin_inset Formula $^{+}$
+\end_inset
+
+ T-cell activation as well as epigenetic convergence between naive and memory
+ cells after activation.
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LaMere2017,LaMere2016,Thompson2019a"
