@@ -9,9 +9,6 @@ supporting files, and deploying them all to a web server for online
 viewing. You can see the result here:
 https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
 
-There is also an HTML version generated from the same source here:
-https://darwinawardwinner.github.io/resume/ryan_thompson_resume.html
-
 Lastly, there is a manually-prepared plain text version here:
 https://raw.githubusercontent.com/DarwinAwardWinner/resume/master/ryan_thompson_resume.txt
 
