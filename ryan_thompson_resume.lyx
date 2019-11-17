@@ -869,6 +869,15 @@ Active member of the Bioconductor community since 2012 and contributing
 Links: 
 \begin_inset CommandInset href
 LatexCommand href
+name "Support Profile"
+target "https://support.bioconductor.org/u/5618/"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
 name "BiocParallel"
 target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
 literal "false"
@@ -893,41 +902,12 @@ literal "false"
 
 \end_inset
 
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "Support Profile"
-target "https://support.bioconductor.org/u/5618/"
-literal "false"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Check bioc package links, add any additional ones?
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
 \begin_layout Itemize
 Mentored 3 coworkers in learning bioinformatics, one from a programming
  background and the other from a biology background.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Mentored how many? Enrique, Padma, Ramya
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsection
