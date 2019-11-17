@@ -1393,6 +1393,112 @@ Helped organize, run, and referee several regattas per season for students
 \end_layout
 
 \begin_layout Section
+Awards & Honors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2006—2009
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Echols Scholar"
+target "http://echols.as.virginia.edu/front"
+literal "false"
+
+\end_inset
+
+, University of Virginia
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2006
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Phi Eta Sigma National Honor Society"
+target "https://www.phietasigma.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2006
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "National Society of Collegiate Scholars"
+target "https://nscs.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2005
+\end_layout
+
+\end_inset
+
+Edward J.
+ Bloustein Disguingished Scholar
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2005
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "National Merit Scholar"
+target "https://www.nationalmerit.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Peer-reviewed Publications
 \end_layout
 
@@ -1520,17 +1626,144 @@ endgroup
 
 \end_layout
 
+\begin_layout Section
+Presentations and Teaching
+\end_layout
+
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset Flex Years
 status open
 
 \begin_layout Plain Layout
-Add section on talks
+May 8, 2018
 \end_layout
 
 \end_inset
 
+ 
+\series bold
+Guest lecturer on RNA-Seq
+\series default
+ for Advanced Tools and Data Challenges in Bioinformatics course (
+\begin_inset CommandInset href
+LatexCommand href
+name "Lecture"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq%20Lecture.pdf"
+literal "false"
 
+\end_inset
+
+ & 
+\begin_inset CommandInset href
+LatexCommand href
+name "Lab"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq%20Lab.html"
+literal "false"
+
+\end_inset
+
+).
+ University of California, San Diego, CA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+November 21, 2016
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Advanced RNA-Seq Analysis"
+target "https://darwinawardwinner.github.io/resume/examples/Salomon/Advanced%20RNA-seq%20Analysis.pdf"
+literal "false"
+
+\end_inset
+
+.
+
+\series default
+ Schork Lab, J.
+ Craig Venter Institute, La Jolla, CA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+August 15, 2016
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+RNA-seq Analysis.
+
+\series default
+ Bristol-Myers Squibb, Hopewell, NJ
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+April 29, 2016
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Lecturer on Introductory RNA-seq Analysis
+\series default
+ for Applied Bioinformatics and Computational Biology course.
+ The Scripps Research Institute, La Jolla, CA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+December 21, 2015
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Advanced RNA-Seq Analysis.
+
+\series default
+ Bristol-Myers Squibb, Hopewell, NJ
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+November 13, 2015
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Advanced RNA-Seq Analysis.
+
+\series default
+ The Scripps Research Institute, La Jolla, CA
 \end_layout
 
 \end_body
