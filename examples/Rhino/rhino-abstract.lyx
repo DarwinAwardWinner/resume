@@ -5,8 +5,65 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\renewcommand\Affilfont{\itshape\small}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
+\begin_local_layout
+Format 66
+
+Style Author
+	Margin                Static
+	LatexType             Command
+	Category              FrontMatter
+	InTitle               1
+	LatexName             author
+	LabelSep              xxx
+	ParSkip               0.4
+	TopSep                1.3
+	BottomSep             0.7
+	ParSep                0.7
+	Align                 Center
+	LabelType             No_Label
+	Font
+	  Size                Large
+	EndFont
+    Argument 1
+      Mandatory 0
+      LabelString "Affil. Tag"
+      LeftDelim       [
+      RightDelim      ]
+    EndArgument
+    Preamble
+      \usepackage{authblk}
+    EndPreamble
+End
+
+Style Affiliation
+    LatexType             Command
+    LatexName             affil
+    Category              FrontMatter
+    LabelSep              x
+    Align                 Center
+    LabelType             Static
+    LabelFont
+      Series              Bold
+      Color               Blue
+    EndFont
+    LabelString "Affil:"
+    InTitle 1
+    Preamble
+      \usepackage{authblk}
+    EndPreamble
+    Argument 1
+      Mandatory 0
+      LabelString "Tag"
+      LeftDelim       [
+      RightDelim      ]
+    EndArgument
+End
+\end_local_layout
 \language english
 \language_package default
 \inputencoding auto
@@ -23,8 +80,8 @@
 \font_tt_scale 100 100
 \use_microtype false
 \use_dash_ligatures true
-\graphics default
-\default_output_format default
+\graphics xetex
+\default_output_format pdf4
 \output_sync 0
 \bibtex_command default
 \index_command default
@@ -93,166 +150,117 @@ Current Studies on Molecular Mechanisms of Iron Homeostasis in Rhinoceroses
 \end_layout
 
 \begin_layout Author
-Rose Linzmeier, Ph.D.1
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Department of Pulmonary and Critical Care Medicine and Department of Pathology
- and Laboratory Medicine, UCLA School of Medicine, Los Angeles, CA 90095
-\end_layout
-
+Rose Linzmeier, Ph.
+\begin_inset space \thinspace{}
 \end_inset
 
- 
-\begin_inset ERT
+D.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-and
+1
 \end_layout
 
 \end_inset
 
- Ryan Thompson2
-\begin_inset Foot
-status collapsed
 
-\begin_layout Plain Layout
-Department of Molecular and Experimental Medicine, The Scripps Research
- Institute, La Jolla, CA 92037
 \end_layout
 
-\end_inset
-
- 
-\begin_inset ERT
+\begin_layout Author
+Ryan Thompson
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-and
+2
 \end_layout
 
 \end_inset
 
- Sarah LaMere, D.V.M
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Author
+Sarah LaMere, D.V.M.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-footnotemark[2]
+2
 \end_layout
 
 \end_inset
 
- 
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Author
+Pauline Lee, Ph.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-and
+2
 \end_layout
 
 \end_inset
 
- Pauline Lee, Ph.D.
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Author
+Elizabeta Nemeth, Ph.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-footnotemark[2]
+1
 \end_layout
 
 \end_inset
 
- 
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Author
+Tomas Ganz, M.D., Ph.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-and
+1
 \end_layout
 
 \end_inset
 
- Elizabeta Nemeth, Ph.D.
-\begin_inset ERT
+
+\end_layout
+
+\begin_layout Author
+Donald E.
+ Paglia, M.
+\begin_inset space \thinspace{}
+\end_inset
+
+D.
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-footnotemark[1]
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-and
-\end_layout
-
-\end_inset
-
- Tomas Ganz, M.D., Ph.D.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-footnotemark[2]
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-and
-\end_layout
-
-\end_inset
-
- Donald E.
- Paglia, M.D.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-UCLA Hematology Research Laboratory, Department of Pathology and Laboratory
- Medicine, UCLA School of Medicine, Los Angeles, CA 90095
+3
 \end_layout
 
 \end_inset
@@ -268,6 +276,48 @@ Look into https://tex.stackexchange.com/q/34746/5654
 \end_inset
 
 
+\end_layout
+
+\begin_layout Affiliation
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+
+Department of Pulmonary and Critical Care Medicine and Department of Pathology
+ and Laboratory Medicine, UCLA School of Medicine, Los Angeles, CA 90095
+\end_layout
+
+\begin_layout Affiliation
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+
+Department of Molecular and Experimental Medicine, The Scripps Research
+ Institute, La Jolla, CA 92037
+\end_layout
+
+\begin_layout Affiliation
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+
+UCLA Hematology Research Laboratory, Department of Pathology and Laboratory
+ Medicine, UCLA School of Medicine, Los Angeles, CA 90095
 \end_layout
 
 \begin_layout Date
