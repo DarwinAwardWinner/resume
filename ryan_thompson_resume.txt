@@ -109,8 +109,8 @@ Contact: Terry Gaasterland, gaasterland@ucsd.edu
 
 * Designed and implemented Deloxer, a critical software step in a new
   Illumina mate-pair sequencing protocol using Cre recombination.
-  Deloxer is published [6] and now in use in several labs around the
-  world.
+  Deloxer is published and now in use in several labs around the world
+  [6].
 * Performed a molecular genetics study to find potential causal
   mutations for fatal iron overload disease in critically endangered
   black rhinoceros by de novo assembly of transcriptomes for black

@@ -565,8 +565,7 @@ Created an open source, reproducible workflow to analyze a large multi-omics
 \end_inset
 
  T-cell activation as well as epigenetic convergence between naive and memory
- cells after activation.
- 
+ cells after activation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LaMere2017,LaMere2016,Thompson2019a"
