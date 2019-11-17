@@ -613,7 +613,7 @@ literal "false"
 \begin_layout Itemize
 Significantly improved cross-validated performance of machine learning classifie
 r for identifying biomarkers of transplant rejection by developing appropriate
- single-sample microarray normalization procedures
+ single-sample microarray normalization procedures 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Kurian2014"
@@ -676,8 +676,7 @@ literal "false"
 \begin_layout Itemize
 Evaluated and optimized cost and performance of custom protocol for RNA-seq
  of human and primate blood samples while minimizing nuisance globin reads.
- Increased yield of useful reads nearly 2-fold.
- 
+ Increased yield of useful reads nearly 2-fold 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "globin-reduction"
@@ -685,7 +684,7 @@ literal "true"
 
 \end_inset
 
-
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -713,8 +712,7 @@ transcriptional drift
 \begin_inset Quotes erd
 \end_inset
 
-, preserving a youthful phenotype at the molecular level.
- 
+, preserving a youthful phenotype at the molecular level 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Rangaraju2015a"
@@ -722,7 +720,7 @@ literal "true"
 
 \end_inset
 
-
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -852,8 +850,7 @@ literal "false"
 
 \begin_layout Itemize
 Adapted common normalization methods from RNA-seq to improve performance
- in analysis of RASL-seq experiments.
- 
+ in analysis of RASL-seq experiments 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scott2016"
@@ -861,7 +858,7 @@ literal "true"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1011,7 +1008,7 @@ literal "false"
 \begin_layout Itemize
 Designed and implemented Deloxer, a critical software step in a new Illumina
  mate-pair sequencing protocol using Cre recombination.
- Deloxer is published
+ Deloxer is publishedand now in use in several labs around the world 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "VanNieuwerburgh2012"
@@ -1019,7 +1016,7 @@ literal "true"
 
 \end_inset
 
- and now in use in several labs around the world.
+.
  
 \begin_inset Newline newline
 \end_inset
@@ -1206,7 +1203,7 @@ literal "false"
 Undergraduate thesis: Designed and implemented Contig Farmer, an algorithm
  for efficient selective contig assembly starting from “seed” sequences
  of interest, and used Contig Farmer to accelerate transcription factor
- gene discovery in cowpea and tobacco shotgun genomic sequence data
+ gene discovery in cowpea and tobacco shotgun genomic sequence data 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Thompson2009"
