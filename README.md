@@ -9,7 +9,7 @@ supporting files, and deploying them all to a web server for online
 viewing. You can see the result here:
 https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
 
-Lastly, there is a manually-prepared plain text version here:
+There is also a manually-prepared plain text version here:
 https://raw.githubusercontent.com/DarwinAwardWinner/resume/master/ryan_thompson_resume.txt
 
 If you want to use this as a template for your own résumé, you'll need
