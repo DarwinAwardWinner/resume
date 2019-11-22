@@ -95,20 +95,20 @@ uses the xetex typesetting system.]
 	{ % Create Without Image
 	\ifthenelse{\equal{\@cvname}{\relax}}{}
 	{\textsf{\LARGE\bfseries \@cvname}\decorativeline\vspace{0.3cm}}
-	\leftskip 116pt
+	%% \leftskip 116pt
 	% Contact Information and Other Details
-	\ifthenelse{\equal{\@institution}{\relax}}{}
-		{\bfseries{\@institution}\\}
-	\ifthenelse{\equal{\@contactaddress}{\relax}}{}
-		{\mdseries \@contactaddress\\[0.2cm]}
-	\ifthenelse{\equal{\@phonenumber}{\relax}}{}
-		{Phone: \texttt{\@phonenumber}\\}
-	\ifthenelse{\equal{\@faxnumber}{\relax}}{}
-		{Fax: \texttt{\@faxnumber}\\[0.2cm]}
-	\ifthenelse{\equal{\@email}{\relax}}{}
-		{Email: \href{mailto:\@email}{\@email}\\}
-	\ifthenelse{\equal{\@website}{\relax}}{}
-		{Website: \href{\@website}{\@website}}}
+	\begin{minipage}{6in}
+		\begin{minipage}{114pt}
+			\ifthenelse{\equal{\@institution}{\relax}}{}{\bfseries\@institution\\}
+			\mdseries\@contactaddress\\[0.2cm]
+		\end{minipage}
+		\begin{minipage}{4in}
+			\ifthenelse{\equal{\@email}{\relax}}{}{Email: \href{mailto:\@email}{\@email}\\}
+			\ifthenelse{\equal{\@website}{\relax}}{}{Website: \href{\@website}{\@website}\\}
+			\ifthenelse{\equal{\@phonenumber}{\relax}}{}{Phone: \texttt{\@phonenumber}\\}
+			\ifthenelse{\equal{\@faxnumber}{\relax}}{}{Fax: \texttt{\@faxnumber}\\[0.2cm]}
+		\end{minipage}
+	\end{minipage}}
 	{% Create With Image
 	\ifthenelse{\equal{\@cvname}{\relax}}{}
 	{\textsf{\LARGE\bfseries \@cvname}\decorativeline\vspace{0.3cm}}

@@ -195,13 +195,10 @@ thepage
 
 \size footnotesize
 Online version (with links): 
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf
-\end_layout
+\begin_inset CommandInset href
+LatexCommand href
+target "https://darwinawardwinner.github.io/resume/ryan_thompson_resume.pdf"
+literal "false"
 
 \end_inset
 
@@ -252,19 +249,6 @@ status open
 
 \begin_layout Plain Layout
 Actual content begins here
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Flex CV Image
-status open
-
-\begin_layout Plain Layout
-headshot-crop.png
 \end_layout
 
 \end_inset
@@ -332,7 +316,7 @@ Accomplished, experienced computational biologist with deep knowledge of
 \end_layout
 
 \begin_layout Itemize
-11 years of bioinformatics experience answering a wide range of complex
+12 years of bioinformatics experience answering a wide range of complex
  biological questions through analysis of large NGS- and microarray-based
  whole transcriptome and epigenetic data sets.
 \end_layout
@@ -539,24 +523,6 @@ literal "false"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Lacking impact statement.
- Say what I did and what the impact was.
- Also say methodology applied.
- First sentence: problem statement.
- 2nd sentence: methodology applied.
- 3rd sentence: impact/result/take-home
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Itemize
 Created an open source, reproducible workflow to analyze a large multi-omics
  next-gen sequencing dataset of 220 RNA-seq and ChIP-seq samples to reveal
@@ -702,6 +668,15 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
+Mentored 3 coworkers from both biology and programming backgrounds in learning
+ bioinformatics.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
 Investigated effects of life-span-extending drug on worm gene expression
  over time revealing that the drug retards age-related 
 \begin_inset Quotes eld
@@ -734,7 +709,7 @@ literal "false"
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Itemize
@@ -819,35 +794,6 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Taught basic RNA-seq theory and practical analysis for the graduate-level
- introductory bioinformatics course.
-\begin_inset Newline newline
-\end_inset
-
-
-\size small
-Links: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Lecture Slides"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq Lecture.pdf"
-literal "false"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "Hands-on lab section"
-target "https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/RNA-Seq Lab.html"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
 Adapted common normalization methods from RNA-seq to improve performance
  in analysis of RASL-seq experiments 
 \begin_inset CommandInset citation
@@ -860,57 +806,9 @@ literal "true"
 .
 \end_layout
 
-\begin_layout Itemize
-Active member of the Bioconductor community since 2012 and contributing
- developer for several Bioconductor packages.
- 
-\begin_inset Newline newline
 \end_inset
 
 
-\size small
-Links: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Support Profile"
-target "https://support.bioconductor.org/u/5618/"
-literal "false"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "BiocParallel"
-target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
-literal "false"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "ChIPPeakAnno"
-target "http://bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html"
-literal "false"
-
-\end_inset
-
-, 
-\begin_inset CommandInset href
-LatexCommand href
-name "MyGene"
-target "http://bioconductor.org/packages/release/bioc/html/mygene.html"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Mentored 3 coworkers from both biology and programming backgrounds in learning
- bioinformatics.
 \end_layout
 
 \begin_layout Subsection
@@ -1082,9 +980,9 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Helped design & implement a large-scale high-throughput exome sequencing
- pipeline for SNP discovery and functional annotation, including QC and
- validation of on-target coverage depth and reproducibility of coverage.
+Helped design & implement one of the first large-scale high-throughput exome
+ sequencing pipelines for SNP discovery and functional annotation, including
+ QC and validation of on-target coverage depth and reproducibility of coverage.
  
 \begin_inset Newline newline
 \end_inset
@@ -1122,6 +1020,31 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
+Analyzed miRNA target predictions using GO & KEGG grouping to identify target
+ pathways of autophagy-related miRNAs for biological validation.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+Link: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Example results"
+target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/mirna-results.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
 Created a fully-automated pipeline to produce quality-control metrics and
  plots for Illumina high-throughput sequencing data for early identification
  of failed runs or samples.
@@ -1148,22 +1071,6 @@ Investigated the binding motif specificity of ZASC1 transcription factor
  in mouse T-cells using Affymetrix expression microarrays in ZASC1 siRNA
  knockdown experiment.
 \end_layout
-
-\begin_layout Itemize
-Analyzed miRNA target predictions using GO & KEGG grouping to identify target
- pathways of autophagy-related miRNAs for biological validation.
- 
-\begin_inset Newline newline
-\end_inset
-
-
-\size small
-Link: 
-\begin_inset CommandInset href
-LatexCommand href
-name "Example results"
-target "https://darwinawardwinner.github.io/resume/examples/Gaasterland/mirna-results.html"
-literal "false"
 
 \end_inset
 
@@ -1227,8 +1134,8 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Acted as interpreter to explain complex biological concepts to programmers
- and explain complex computational problems to biologists.
+Acted as translator between biological researchers and computational analysts
+ to help match computational solutions to biological problems.
 \begin_inset Newline newline
 \end_inset
 
@@ -1243,7 +1150,7 @@ literal "false"
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Section
@@ -1255,7 +1162,7 @@ Computing
 \begin_inset space ~
 \end_inset
 
-Skills R/BioConductor, Python, Perl, Lisp, Java, C#, C++; Git version control;
+Skills R/Bioconductor, Python, Perl, Lisp, Java, C#, C++; Git version control;
  Remote UNIX system administration & software compilation, computing cluster
  job management & parallel computation
 \begin_inset Newline newline
@@ -1286,6 +1193,56 @@ literal "false"
  
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+Active member of the Bioconductor community since 2012 and contributing
+ developer for several packages.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\size small
+Links: 
+\begin_inset CommandInset href
+LatexCommand href
+name "Support Profile"
+target "https://support.bioconductor.org/u/5618/"
+literal "false"
+
+\end_inset
+
+; Packages: 
+\begin_inset CommandInset href
+LatexCommand href
+name "BiocParallel"
+target "http://bioconductor.org/packages/release/bioc/html/BiocParallel.html"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "ChIPPeakAnno"
+target "http://bioconductor.org/packages/release/bioc/html/ChIPpeakAnno.html"
+literal "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "MyGene"
+target "http://bioconductor.org/packages/release/bioc/html/mygene.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Description
 Statistics,
 \begin_inset space ~
@@ -1332,8 +1289,17 @@ Languages: English: native speaker; German: written and spoken
 Other Work Experience
 \end_layout
 
-\begin_layout Subsection
-Computing Advisor & Help Desk, U.
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2005—2007
+\end_layout
+
+\end_inset
+
+ Help Desk & Computing Advisor, U.
 \begin_inset space \thinspace{}
 \end_inset
 
@@ -1344,51 +1310,23 @@ Va.
 \end_inset
 
  Charlottesville, VA 
-\begin_inset space \qquad{}
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Years
+status open
+
+\begin_layout Plain Layout
+2006—2009
+\end_layout
+
 \end_inset
 
- 2005—2007 
-\end_layout
-
-\begin_layout Itemize
-Provided support via phone and on-site for students, faculty, and staff
- having problems with computers, phone system, network access, malware,
- hardware setup, and university web services
-\end_layout
-
-\begin_layout Itemize
-Tasks included support for university-provided software, virus removal,
- iPod recovery, printer setup and repair, diagnosis of hardware malfunctions,
- and data recovery from failing hard disks
-\end_layout
-
-\begin_layout Subsection
-Summer Sailing Instructor, Raritan Yacht Club 
+ Summer Sailing Instructor, Raritan Yacht Club 
 \begin_inset space \hfill{}
 \end_inset
 
  Perth Amboy, NJ 
-\begin_inset space \qquad{}
-\end_inset
-
- 2006—2009 
-\end_layout
-
-\begin_layout Itemize
-Instructed children ages 8-18 in sailing skills, safety, seamanship, knots,
- rigging & de-rigging boats, navigation, and racing strategy and technique,
- with an emphasis on building character and self-reliance
-\end_layout
-
-\begin_layout Itemize
-Ensured safety of students and staff by maintaining boats and equipment
- in good repair, by being vigilant to traffic and hazards on a busy waterway,
- and by communicating and coordinating efficiently with other staff
-\end_layout
-
-\begin_layout Itemize
-Helped organize, run, and referee several regattas per season for students
- from RYC and neighboring yacht clubs
 \end_layout
 
 \begin_layout Section
