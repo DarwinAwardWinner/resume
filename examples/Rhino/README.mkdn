@@ -1,3 +1,5 @@
+- [`rhino-writeup.pdf`](rhino-writeup.pdf): A summary of the work I
+  did for the project.
 - [`ipi-results-small.txt`](ipi-results-small.txt): A sample of output
   showing alignment of *de novo* assembled black rhino and white rhino
   transcript sequences to human proteins. This was used to find
