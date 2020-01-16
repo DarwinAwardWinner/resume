@@ -1,12 +1,13 @@
 ---
-title: "RNA-seq study of cynomolgus monkey mesenchymal stem cells treated with interferon gamma"
+title: RNA-seq study of cynomolgus monkey mesenchymal stem cells treated with interferon
+  gamma
 author: "Ryan C. Thompson"
 date: "May 8, 2018"
 output:
-  html_document:
-    fig_caption: true
+  html_notebook:
+    fig_caption: yes
   pdf_document:
-    fig_caption: true
+    fig_caption: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -37,13 +38,14 @@ Control and IFNg samples.
 First, let's install all the packages we'll need.
 
 ```{r install_pkgs, eval=FALSE}
-needed_packages <- c("edgeR", "limma", "SummarizedExperiment", "ggplot2", "locfit", "dplyr", "statmod")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 already_installed_packages <- rownames(installed.packages())
+needed_packages <- c("edgeR", "limma", "SummarizedExperiment", "ggplot2", "locfit", "dplyr", "statmod")
 need_to_install <- setdiff(needed_packages, already_installed_packages)
 if (length(need_to_install) > 0) {
     ## http://bioconductor.org/install/
-    source("https://bioconductor.org/biocLite.R")
-    biocLite(need_to_install)
+    BiocManager::install(need_to_install)
 }
 ```
 
@@ -64,7 +66,7 @@ reads a single R object from a file and returns it. We assign the
 result to a variable.
 
 ```{r loading_data}
-sexp <- readRDS(gzcon(url("https://www.dropbox.com/s/4lx6q9fgyz66rky/Cyno-RNASeq-SummarizedExperiment.RDS?dl=1")))
+sexp <- readRDS(gzcon(url("https://darwinawardwinner.github.io/resume/examples/Salomon/Teaching/Cyno-RNASeq-SummarizedExperiment.RDS")))
 print(sexp)
 ```
 
